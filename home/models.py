@@ -144,6 +144,35 @@ class BlogIndexPage(Page):
     ]
 
 
+@register_snippet
+class FeaturedEvent(models.Model):
+    event_image = models.ForeignKey(
+        "wagtailimages.Image",
+        blank=False,
+        null=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+    event_title = models.CharField(max_length=50, default="Event Title")
+    upload_date = models.DateTimeField(auto_now_add=True)
+    event_date = models.CharField(max_length=20, default="6월 23일")
+    event_time = models.CharField(max_length=20, defailt="11:00 AM")
+    event_description = models.TextField(max_length=150, default="Event Description")
+
+    def __str__(self):
+        return self.event_title
+
+
+class EventIndexPage(Page):
+    event_hero_title = models.TextField(default="Event")
+    event_hero_subtitle = models.TextField(default="Subtitle for Event")
+    event_featured_name = models.CharField(max_length=100, default="Featured Event")
+
+    content_panels = Page.content_panels + [
+        FieldPanel('event_hero_title'),
+        FieldPanel('event_hero_subtitle'),
+        FieldPanel('event_featured_name'),
+    ]
 
 class HomePage(Page):
 

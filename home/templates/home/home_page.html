@@ -121,6 +121,7 @@
           <p class="sermons-desc">{{ page.sermon_video_description }}</p><a class="button sermons w-button" href="{{ page.sermon_video_button_link }}">{{ page.sermon_video_button_text }}</a>
         </div>
           <!-- Sermon Video -->
+
           {% for sermon in sermons %}
             <div class="sermons-video-flexitem">
               <div class="pms ser sermons-overlay">
@@ -150,31 +151,40 @@
       </div>
     </div>
     <div class="div-spacer"></div>
+
+
     <div class="container-medium">
+
+      <!-- Blog -->
       <div class="announce-flexbox blog">
         <div class="blog text-flexitem">
-          <h1 class="sermons-heading">블로그</h1>
-          <h3 class="blog sermons-subheading">목사님의 메세지, 교회 이야기</h3>
-          <p class="sermons-desc">목사님의 메세지, 교회 이야기, 교회의 각종 이벤트 내용을 확인하세요.</p><a class="button w-button" href="blogandevent.html">블로그 더 보기</a>
+          <h1 class="sermons-heading">{{ page.blog_main_title }}</h1>
+          <h3 class="blog sermons-subheading">{{ page.blog_subtitle }}</h3>
+          <p class="sermons-desc">{{ page.blog_description }}</p>
+          <a class="button w-button" href="{% pageurl page.blog_button_link %} ">{{ page.blog_button_text }}</a>
         </div>
-        <div class="blog-flexitem">
-          <div class="blog-page-flexitem"><img class="blog-thumb-image" sizes="(max-width: 479px) 100vw, (max-width: 767px) 96vw, (max-width: 991px) 44vw, (max-width: 4635px) 28vw, 1298px" src="images/IMG_05064.jpg" srcset="images/IMG_05064-p-500.jpeg 500w, images/IMG_05064-p-800.jpeg 800w, images/IMG_05064-p-1080.jpeg 1080w, images/IMG_05064.jpg 1298w">
-            <h4 class="blog-title-preview">자녀에게 성경을 가르치는 5가지 원칙</h4><img class="author-image" height="50" sizes="(max-width: 479px) 50vw, 50px" src="images/kim2.jpg" srcset="images/kim2-p-500.jpeg 500w, images/kim2-p-800.jpeg 800w, images/kim2-p-1080.jpeg 1080w, images/kim2.jpg 1359w" width="50">
-            <div class="author-name">By 김정오 목사</div><a class="continue-reading" href="blog-detail.html">계속 읽기</a>
-            <div class="blog-sub-flexitem2"></div>
-          </div>
-          <div class="blog-page-flexitem"><img class="blog-thumb-image" sizes="(max-width: 479px) 100vw, (max-width: 767px) 96vw, (max-width: 991px) 44vw, 29vw" src="images/youth.jpeg" srcset="images/youth-p-500.jpeg 500w, images/youth-p-800.jpeg 800w, images/youth-p-1080.jpeg 1080w, images/youth-p-1600.jpeg 1600w, images/youth-p-2000.jpeg 2000w, images/youth-p-2600.jpeg 2600w, images/youth-p-3200.jpeg 3200w, images/youth.jpeg 6000w">
-            <h4 class="blog-title-preview">사춘기 청소년과 대화하는 법</h4><img class="author-image" height="50" sizes="(max-width: 479px) 50vw, 50px" src="images/kim2.jpg" srcset="images/kim2-p-500.jpeg 500w, images/kim2-p-800.jpeg 800w, images/kim2-p-1080.jpeg 1080w, images/kim2.jpg 1359w" width="50">
-            <div class="author-name">By 김정오 목사</div><a class="continue-reading" href="blog-detail.html">계속 읽기</a>
-            <div class="blog-sub-flexitem2"></div>
-          </div>
-          <div class="blog-page-flexitem"><img class="blog-thumb-image" sizes="(max-width: 479px) 100vw, (max-width: 767px) 96vw, (max-width: 991px) 44vw, (max-width: 7142px) 28vw, 2000px" src="images/bible.jpeg" srcset="images/bible-p-1080.jpeg 1080w, images/bible-p-1600.jpeg 1600w, images/bible.jpeg 2000w">
-            <h4 class="blog-title-preview">새신자가 성경에 쉽게 접근하는 방법</h4><img class="author-image" height="50" sizes="(max-width: 479px) 50vw, 50px" src="images/kim2.jpg" srcset="images/kim2-p-500.jpeg 500w, images/kim2-p-800.jpeg 800w, images/kim2-p-1080.jpeg 1080w, images/kim2.jpg 1359w" width="50">
-            <div class="author-name">By 김정오 목사</div><a class="continue-reading" href="blog-detail.html">계속 읽기</a>
-            <div class="blog-sub-flexitem2"></div>
-          </div>
-        </div>
+          <!-- Blog Content -->
+          {% for blog in latest_blogs %}
+            <div class="blog-flexitem">
+              <div class="blog-page-flexitem">
+                  {% image blog.blog_image original as blog_image %}
+                <img class="blog-thumb-image" sizes="(max-width: 479px) 100vw, (max-width: 767px) 96vw, (max-width: 991px) 44vw, (max-width: 4635px) 28vw, 1298px" src="{{ blog_image.url }}" srcset="{{ blog_image.url }} 500w, {{ blog_image.url }} 800w, {{ blog_image.url }} 1080w, {{ blog_image.url }} 1298w">
+                <h4 class="blog-title-preview">{{ blog.blog_title }}</h4>
+
+                  <!-- Author Detail -->
+                  {% with blog.blog_author as author %}
+                      {% image author.author_image original as author_image %}
+                  <img class="author-image" height="50" sizes="(max-width: 479px) 50vw, 50px" src="{{ author_image.url }}" srcset="{{ author_image.url }} 500w, {{ author_image.url }} 800w, {{ author_image.url }} 1080w, {{ author_image.url }} 1359w" width="50">
+                  <div class="author-name">By {{ author.author_name }}</div>
+                  {% endwith %}
+
+                  <a class="continue-reading" href="{% pageurl blog %}">계속 읽기</a>
+                <div class="blog-sub-flexitem2"></div>
+              </div>
+            </div>
+          {% endfor %}
       </div>
+
       <div class="announce-flexbox blog">
         <div class="blog text-flexitem">
           <h1 class="sermons-heading">행사 소식</h1>

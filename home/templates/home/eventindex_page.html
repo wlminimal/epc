@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% load staticfiles wagtailcore_tags wagtailimages_tags epc_tags %}
+
+{% block content %}
+  <div class="blog page-hero-section" data-ix="slide-in-scroll-navigation-on-scroll">
+    <div class="container-medium">
+      <div class="blog page-hero-text-flexbox">
+        <div class="blog sermons-text-flex-item">
+          <h1 class="blog-page-title" data-ix="slide-left">{{ page.blog_event_hero_title }}</h1>
+          <div class="blog-page-subtitle" data-ix="slide-right">{{ page.blog_event_hero_subtitle }}</div>
+        </div>
+        <div class="empty-flex-item"></div>
+      </div>
+    </div>
+  </div>
+
+    <div class="generation-section1">
+        <div class="generations-tab w-tabs youth-group" data-duration-in="500" data-duration-out="500">
+      <div class="blog tabs-menu w-tab-menu">
+        <a class="blog tab-link w-inline-block w-tab-link" data-w-tab="Church Event">
+          <div class="tab-link-text">교회 행사</div>
+        </a>
+      </div>
+      <div class="tabs-content w-tab-content">
+        <div class="w-tab-pane" data-w-tab="Church Event">
+          <div class="container-medium">
+            <h1 class="featured-heading">주요 행사</h1>
+            <div class="event small-divider"></div>
+            <div class="featured-event-flexbox">
+              <div class="featured-event-flexitem" data-ix="slide-right"><img class="feature-event-image" sizes="(max-width: 479px) 100vw, (max-width: 991px) 50vw, 40vw" src="images/IMG_04994.jpg" srcset="images/IMG_04994-p-1080.jpeg 1080w, images/IMG_04994.jpg 1500w">
+                <div class="church-event-flexitem featured">
+                  <div class="event-date-flexitem"><img class="event-date-icon" height="32" src="images/calendar.png" width="32">
+                    <h3 class="event-date">5월 20일</h3>
+                  </div>
+                  <div class="event-detail-flexitem">
+                    <h3 class="event-title">한국 학교 종강식</h3>
+                    <div class="event-time-flexbox"><img class="event-time-icon" height="25" src="images/stopwatch.png" width="25">
+                      <div class="event-time">11:00 AM</div>
+                    </div>
+                    <p class="event-detail featured">2017년 5월 20일 동부 교회에서 한국 학교 종강식이 있습니다.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="featured-event-flexitem" data-ix="slide-left"><img class="feature-event-image" sizes="(max-width: 479px) 100vw, (max-width: 991px) 50vw, 40vw" src="images/IMG_05064.jpg" srcset="images/IMG_05064-p-500.jpeg 500w, images/IMG_05064-p-800.jpeg 800w, images/IMG_05064-p-1080.jpeg 1080w, images/IMG_05064.jpg 1298w">
+                <div class="church-event-flexitem featured">
+                  <div class="event-date-flexitem"><img class="event-date-icon" height="32" src="images/calendar.png" width="32">
+                    <h3 class="event-date">7월 6일</h3>
+                  </div>
+                  <div class="event-detail-flexitem">
+                    <h3 class="event-title">2017년 여름 성경 학교 시작</h3>
+                    <div class="event-time-flexbox"><img class="event-time-icon" height="25" src="images/stopwatch.png" width="25">
+                      <div class="event-time">5:00 PM</div>
+                    </div>
+                    <p class="event-detail featured">7월 6일부터 10일까지 2017년 여름성경 학교가 시작합니다. 참석하고 싶으신분들은 한달전에 미리 등록하시길 바랍니다. vbs@epcla.org로 문의 하시길 바랍니다.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="divider"></div>
+            <div class="church-event-flexbox">
+              <div class="church-event-flexitem">
+                <div class="event-date-flexitem"><img class="event-date-icon" height="32" src="images/calendar.png" width="32">
+                  <h3 class="event-date">6월 11일</h3>
+                </div>
+                <div class="event-detail-flexitem">
+                  <h3 class="event-title">기도 모임</h3>
+                  <div class="event-time-flexbox"><img class="event-time-icon" height="25" src="images/stopwatch.png" width="25">
+                    <div class="event-time">7:00 PM</div>
+                  </div>
+                  <p class="event-detail">교회를 위한 특별 기도모임이 있습니다. 전 교인분들이 참석해서 다같이 기도했으면 좋겠습니다.</p>
+                </div>
+              </div>
+          </div>
+          <div class="blog pagination-block"><a class="blog left-arrow" href="#">«</a><a class="blog pagination-number" href="#">1</a><a class="blog pagination-number" href="#">2</a><a class="blog pagination-number" href="#">3</a><a class="blog pagination-number" href="#">4</a><a class="blog pagination-number" href="#">5</a><a class="blog pagination-number" href="#">6</a><a class="blog pagination-number" href="#">7</a><a class="blog right-arrow" href="#">»</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+{% endblock %}

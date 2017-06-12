@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{% load staticfiles wagtailcore_tags wagtailimages_tags epc_tags %}
+
+{% block content %}
+  <div class="blog page-hero-section" data-ix="slide-in-scroll-navigation-on-scroll">
+    <div class="container-medium">
+      <div class="blog page-hero-text-flexbox">
+        <div class="blog sermons-text-flex-item">
+          <h1 class="blog-page-title" data-ix="slide-left">{{ page.blog_hero_title }}</h1>
+          <div class="blog-page-subtitle" data-ix="slide-right">{{ page.blog_hero_subtitle }}</div>
+        </div>
+        <div class="empty-flex-item"></div>
+      </div>
+    </div>
+  </div>
+    <div>
+    <!--
+        <div class="container-medium">
+          <h1 class="featured-heading">{{ page.blog_featured_name }}</h1>
+          <div class="blog small-divider"></div>
+          <div class="featured-blog-flexbox">
+
+            {% for f_blog in featured_blogs %}
+                {% image f_blog.blog_image original as f_blog_image %}
+                {% image f_blog.blog_author.author_image original as author_image %}
+
+
+                <div class="featured-blog-flexitem w-preserve-3d" data-ix="slide-left">
+                    <div class="featured-blog-image-wrapper">
+                        <img class="featured-blog-image" sizes="(max-width: 479px) 96vw, (max-width: 991px) 48vw, (max-width: 2631px) 38vw, 1000px" src="{{ f_blog_image.url }}" srcset="{{ f_blog_image.url }} 500w, {{ f_blog_image.url }} 800w, {{ f_blog_image.url }} 1000w">
+                    </div>
+                    <div class="featured-blog-text-wrapper">
+                      <div class="blog-sub-flexitem2 featured">
+                        <h4 class="blog-title-preview featured">{{ f_blog.blog_title }}</h4>
+                        <div class="author-flexbox blog-index">
+
+                            <img class="author-image" height="50" sizes="(max-width: 479px) 100vw, 50px" src="{{ author_image.url }}" srcset="{{ author_image.url }} 500w, {{ author_image.url }} 800w, {{ author_image.url }} 1080w, {{ author_image.url }} 1359w" width="50">
+                          <div class="author-name">By {{ f_blog.blog_author.author_name }}</div>
+                        </div>
+                        <p class="blog-content-preview">{{ f_blog.blog_content | richtext | truncatewords:30 }}&nbsp;</p><a class="continue-reading" href="{% pageurl f_blog %}">계속 읽기</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            {% endfor %}
+
+          </div>
+        </div>
+    -->
+        <div class="container-medium">
+          <h1 class="featured-heading">블로그</h1>
+          <div class="blog small-divider"></div>
+          <div class="blog-flexbox">
+
+            {% for blog in blogs %}
+                {% image blog.blog_image original as blog_image %}
+                {% image blog.blog_author.author_image original as author_image %}
+
+
+                    <div class="blog-page-flexitem">
+                      <div class="blog-sub-flexitem">
+                        <img class="blog-image-preview" sizes="(max-width: 479px) 97vw, (max-width: 991px) 45vw, (max-width: 5333px) 36vw, 1920px" src="{{ blog_image.url }}" srcset="{{ blog_image.url }} 500w, {{ blog_image.url }} 1080w, {{ blog_image.url }} 1600w, {{ blog_image.url }} 1920w">
+                      </div>
+                      <div class="blog-sub-flexitem2">
+                        <h4 class="blog-title-preview">{{ blog.blog_title }}</h4>
+                        <div class="author-flexbox blog-index">
+                            <img class="author-image" height="50" sizes="(max-width: 479px) 100vw, 50px" src="{{ author_image.url }}" srcset="{{ author_image.url }} 500w, {{ author_image.url }} 800w, {{ author_image.url }} 1080w, {{ author_image.url }} 1359w" width="50">
+                          <div class="author-name">By {{ blog.blog_author.author_name }}</div>
+                        </div>
+                        <p class="blog-content-preview">{{ blog.blog_content | richtext | truncatewords:30 }}</p><a class="continue-reading" href="{% pageurl blog %}">계속 읽기</a>
+                      </div>
+                    </div>
+                </div>
+            {% endfor %}
+
+          </div>
+        </div>
+        <div class="blog pagination-block">
+                {% if blogs.has_previous %}
+                <a class="blog left-arrow" href="?page={{ blogs.previous_page_number }}">이전 페이지</a>
+                {% endif %}
+                <span class="blog pagination-number" href="#">
+                    Page {{ blogs.number }} of {{ blogs.paginator.num_pages }}
+                </span>
+                {% if blogs.has_next %}
+                <a class="blog right-arrow" href="?page={{ blogs.next_page_number }}">다음 페이지</a>
+                {% endif %}
+            </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,5311 @@
+.top-menu {
+  position: relative;
+  display: block;
+  background-color: #fff;
+}
+
+.top-menu-link {
+  display: inline-block;
+  padding-top: 30px;
+  -webkit-transition: color 300ms ease, -webkit-transform 200ms ease;
+  transition: color 300ms ease, -webkit-transform 200ms ease;
+  transition: color 300ms ease, transform 200ms ease;
+  transition: color 300ms ease, transform 200ms ease, -webkit-transform 200ms ease;
+  font-family: Montserrat, sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  cursor: default;
+}
+
+.top-menu-link:hover {
+  -webkit-transform: scale(1.15);
+  -ms-transform: scale(1.15);
+  transform: scale(1.15);
+  color: #0080e4;
+  font-weight: 500;
+}
+
+.top-menu-link.scroll-nav {
+  padding-top: 20px;
+  font-family: Youth, sans-serif;
+}
+
+.top-menu-container {
+  min-width: 85%;
+}
+
+.main-slider {
+  height: 65vh;
+}
+
+.slide1 {
+  background-image: -webkit-linear-gradient(180deg, transparent, transparent 36%, hsla(0, 0%, 100%, .89) 76%), url('../images/church-building.jpg');
+  background-image: linear-gradient(270deg, transparent, transparent 36%, hsla(0, 0%, 100%, .89) 76%), url('../images/church-building.jpg');
+  background-position: 0px 0px, 50% 50%;
+  background-size: auto, cover;
+  background-repeat: repeat, no-repeat;
+}
+
+.slide2 {
+  background-image: url('../images/123.jpg');
+  background-position: 100% 100%;
+  background-size: cover;
+}
+
+.slide3 {
+  background-image: -webkit-linear-gradient(180deg, transparent, transparent 51%, #fff 85%), url('../images/epc-inside.jpg');
+  background-image: linear-gradient(270deg, transparent, transparent 51%, #fff 85%), url('../images/epc-inside.jpg');
+  background-position: 0px 0px, 50% 50%;
+  background-size: auto, cover;
+}
+
+.slide4 {
+  background-image: -webkit-linear-gradient(180deg, transparent, transparent 44%, hsla(0, 0%, 100%, .9) 82%), url('../images/annie-spratt-126510.jpg');
+  background-image: linear-gradient(270deg, transparent, transparent 44%, hsla(0, 0%, 100%, .9) 82%), url('../images/annie-spratt-126510.jpg');
+  background-position: 0px 0px, 50% 50%;
+  background-size: auto, cover;
+}
+
+.dropdown-container {
+  background-color: #fff;
+}
+
+.dropdown-container.w--open {
+  background-color: #fff;
+}
+
+.dropdown-container.sermons.w--open {
+  right: -45px;
+}
+
+.dropdown-container.mission.w--open {
+  right: -11px;
+}
+
+.dropdown-container.education.w--open {
+  right: -18px;
+}
+
+.dropdown-top-link {
+  margin-right: -20px;
+  font-family: Youth, sans-serif;
+  font-size: 13px;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.nav-menu {
+  position: relative;
+  background-color: transparent;
+  -webkit-perspective: 1001px;
+  perspective: 1001px;
+}
+
+.nav-link {
+  display: inline-block;
+  padding-top: 30px;
+  -webkit-transition: color 300ms ease, -webkit-transform 200ms ease;
+  transition: color 300ms ease, -webkit-transform 200ms ease;
+  transition: transform 200ms ease, color 300ms ease;
+  transition: transform 200ms ease, color 300ms ease, -webkit-transform 200ms ease;
+  font-family: Youth, sans-serif;
+  font-size: 13px;
+  letter-spacing: 0px;
+  text-transform: uppercase;
+}
+
+.nav-link:hover {
+  -webkit-transform: scale(1.15);
+  -ms-transform: scale(1.15);
+  transform: scale(1.15);
+  color: #0080e4;
+  font-weight: 500;
+}
+
+.nav-link.scroll-nav {
+  padding-top: 20px;
+  font-family: Youth, sans-serif;
+  font-size: 13px;
+}
+
+.dropdown-menu-link {
+  padding-bottom: 10px;
+  -webkit-transition: color 200ms ease;
+  transition: color 200ms ease;
+  font-family: Youth, sans-serif;
+  color: #222;
+  font-size: 13px;
+  text-align: center;
+  letter-spacing: 0px;
+  text-transform: uppercase;
+}
+
+.dropdown-menu-link:hover {
+  color: #0080e4;
+}
+
+.dropdown-menu-link.last-dropdown-menu-link {
+  padding-bottom: 20px;
+}
+
+.nursery-bar {
+  position: absolute;
+  left: 0px;
+  top: 20px;
+  right: 0px;
+  display: none;
+  width: 15px;
+  height: 3px;
+  background-color: #0080e4;
+}
+
+.kinder-bar {
+  position: absolute;
+  top: 58px;
+  display: none;
+  width: 15px;
+  height: 3px;
+  background-color: #0080e4;
+}
+
+.elem-bar {
+  position: absolute;
+  top: 98px;
+  display: none;
+  width: 15px;
+  height: 3px;
+  background-color: #0080e4;
+}
+
+.youth-bar {
+  position: absolute;
+  top: 139px;
+  display: none;
+  width: 15px;
+  height: 3px;
+  background-color: #0080e4;
+}
+
+.young-bar {
+  position: absolute;
+  top: 178px;
+  display: block;
+  width: 15px;
+  height: 3px;
+  background-color: #0080e4;
+}
+
+.em-bar {
+  position: absolute;
+  top: 218px;
+  display: none;
+  width: 15px;
+  height: 3px;
+  background-color: #0080e4;
+}
+
+.welcome-section {
+  position: relative;
+  margin-top: 0px;
+  padding-bottom: 30px;
+  background-color: #f5f5f7;
+}
+
+.welcome-flexbox {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 80vw;
+  margin-right: auto;
+  margin-left: auto;
+  padding-top: 50px;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+  -webkit-align-content: flex-start;
+  -ms-flex-line-pack: start;
+  align-content: flex-start;
+}
+
+.history-section {
+  position: relative;
+  margin-top: 100px;
+}
+
+.epc-div-block {
+  position: relative;
+  height: 75vh;
+  margin-top: 150px;
+  margin-left: 60px;
+  background-image: url('../images/epc-inside.jpg');
+  background-position: 0px 0px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+}
+
+.container-medium {
+  display: block;
+  width: 80vw;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: transparent;
+}
+
+.container-medium._3d {
+  -webkit-perspective: 1200px;
+  perspective: 1200px;
+}
+
+.utility-page-wrap {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  max-height: 100%;
+  max-width: 100%;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.utility-page-content {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 260px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  text-align: center;
+}
+
+.utility-page-form {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+}
+
+.about-epc-block {
+  position: absolute;
+  left: -42px;
+  top: -37px;
+  width: 500px;
+  height: 700px;
+  background-image: -webkit-linear-gradient(270deg, hsla(0, 0%, 100%, .89), hsla(0, 0%, 100%, .89));
+  background-image: linear-gradient(180deg, hsla(0, 0%, 100%, .89), hsla(0, 0%, 100%, .89));
+  box-shadow: -31px -19px 25px 0 hsla(0, 0%, 51%, .51);
+}
+
+.about-epc-heading {
+  margin-top: 30px;
+  padding: 30px;
+  font-family: 'Bmdohyeon ttf', sans-serif;
+  color: #222;
+  font-size: 23px;
+  line-height: 35px;
+  font-weight: 500;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.about-epc-block-bg {
+  position: absolute;
+  left: -25px;
+  top: -22px;
+  width: 500px;
+  height: 700px;
+  background-color: #e6aa68;
+}
+
+.service-hour-section {
+  margin-top: 0px;
+  padding-bottom: 40px;
+  background-color: #f5f5f7;
+}
+
+.service-flex-wrap {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-right: auto;
+  margin-left: auto;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+  -webkit-flex-direction: row-reverse;
+  -ms-flex-direction: row-reverse;
+  flex-direction: row-reverse;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+  -webkit-align-content: stretch;
+  -ms-flex-line-pack: stretch;
+  align-content: stretch;
+}
+
+.service-info {
+  width: 500px;
+  height: 500px;
+  -webkit-box-flex: 60%;
+  -webkit-flex: 60%;
+  -ms-flex: 60%;
+  flex: 60%;
+  background-color: #f5f5f7;
+}
+
+.service-flex-item {
+  -webkit-box-flex: 40%;
+  -webkit-flex: 40%;
+  -ms-flex: 40%;
+  flex: 40%;
+  background-image: -webkit-linear-gradient(270deg, transparent, hsla(0, 0%, 100%, .37)), url('../images/DQ5A6532.jpg');
+  background-image: linear-gradient(180deg, transparent, hsla(0, 0%, 100%, .37)), url('../images/DQ5A6532.jpg');
+  background-position: 0px 0px, 50% 50%;
+  background-size: auto, cover;
+}
+
+.service-scripture-container {
+  display: block;
+  margin-bottom: 70px;
+  padding-top: 60px;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+}
+
+.gatering-info-header {
+  margin-top: 35px;
+  margin-bottom: 20px;
+  padding: 20px;
+  font-family: 'Bmdohyeon ttf', sans-serif;
+  color: #222;
+  font-size: 55px;
+  line-height: 14px;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.slider-wrapper {
+  position: relative;
+  margin-top: 0px;
+}
+
+.ministries-section {
+  margin-top: 0px;
+  background-color: #f5f5f7;
+}
+
+.ministry-flex-wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 80%;
+  margin-right: auto;
+  margin-left: auto;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+}
+
+.ministries-heading {
+  font-family: 'Bmdohyeon ttf', sans-serif;
+  color: #c4464c;
+  font-size: 79px;
+  line-height: 63px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.footer {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 80%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-top: 25px;
+}
+
+.footer-section {
+  margin-top: 150px;
+  padding-bottom: 25px;
+  background-color: hsla(51, 58%, 82%, .35);
+}
+
+.newsletter-footer {
+  display: block;
+  padding: 30px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  -webkit-align-content: flex-start;
+  -ms-flex-line-pack: start;
+  align-content: flex-start;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 auto;
+  -ms-flex: 0 auto;
+  flex: 0 auto;
+  background-color: hsla(51, 58%, 82%, .35);
+}
+
+.footer-menu {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding-left: 37px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  background-color: hsla(51, 58%, 82%, .35);
+}
+
+.newsletter-heading {
+  margin-top: 20px;
+  padding-bottom: 15px;
+  font-family: Youth, sans-serif;
+  font-size: 20px;
+  font-weight: 100;
+  text-transform: uppercase;
+}
+
+.email-form {
+  display: inline-block;
+}
+
+.email-footer {
+  width: 60%;
+  float: left;
+  font-family: 'Bmyeonsung ttf', sans-serif;
+}
+
+.email-footer-button {
+  margin-left: 10px;
+  background-color: #c4464c;
+}
+
+.paragraph {
+  font-family: Youth, sans-serif;
+  font-style: italic;
+  font-weight: 200;
+  text-transform: capitalize;
+}
+
+.footer-logo {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 21px;
+  padding-right: 55px;
+  padding-bottom: 40px;
+  padding-left: 20px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: end;
+  -webkit-align-items: flex-end;
+  -ms-flex-align: end;
+  align-items: flex-end;
+}
+
+.footer-navbar {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding-right: 35px;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  -webkit-box-align: end;
+  -webkit-align-items: flex-end;
+  -ms-flex-align: end;
+  align-items: flex-end;
+}
+
+.footer-nav-link {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 20px;
+  font-family: Youth, sans-serif;
+  color: #333;
+  font-size: 13px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.copyright-text {
+  padding-top: 10px;
+  font-family: 이순신돋움체b, sans-serif;
+}
+
+.welcome-scripture {
+  display: block;
+  margin-top: 30px;
+  font-family: 'Open Sans', sans-serif;
+  color: #222;
+  font-size: 34px;
+  line-height: 46px;
+  font-weight: 300;
+  letter-spacing: -1px;
+}
+
+.welcome-scripture2 {
+  padding-right: 10px;
+  font-family: 'Open Sans', sans-serif;
+  color: #222;
+  font-size: 30px;
+  font-weight: 100;
+  text-align: right;
+  text-transform: uppercase;
+}
+
+.welcome-heading {
+  font-family: 'Bmdohyeon ttf', sans-serif;
+  color: #c4464c;
+  font-size: 79px;
+  line-height: 75px;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.worship-heading {
+  font-family: 'Bmdohyeon ttf', sans-serif;
+  color: #c4464c;
+  font-size: 79px;
+  line-height: 75px;
+  text-align: center;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.worship-scripture {
+  font-family: Youth, sans-serif;
+  color: #222;
+  font-size: 34px;
+  line-height: 46px;
+  font-weight: 300;
+  letter-spacing: -1px;
+}
+
+.worship-scripture2 {
+  font-family: Youth, sans-serif;
+  color: #222;
+  font-size: 30px;
+  font-weight: 100;
+  text-align: right;
+  text-transform: uppercase;
+}
+
+.ministries-scripture {
+  font-family: Youth, sans-serif;
+  color: #222;
+  font-size: 34px;
+  line-height: 46px;
+  font-weight: 300;
+  letter-spacing: -1px;
+}
+
+.ministries-scripture2 {
+  font-family: Youth, sans-serif;
+  color: #222;
+  font-size: 30px;
+  font-weight: 100;
+  text-align: right;
+  text-transform: uppercase;
+}
+
+.welcome-flexitem {
+  margin-bottom: 70px;
+  padding-top: 35px;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+}
+
+.ministries-container {
+  margin-bottom: 70px;
+  padding-top: 60px;
+}
+
+.short-history-heading {
+  font-family: 'Bmdohyeon ttf', sans-serif;
+  color: #c4464c;
+  font-size: 79px;
+  line-height: 71px;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.short-history-scripture {
+  padding: 20px;
+  font-family: 'Bmyeonsung ttf', sans-serif;
+  color: #222;
+  font-size: 34px;
+  line-height: 46px;
+  font-weight: 300;
+  text-align: center;
+  letter-spacing: -1px;
+}
+
+.short-history-scripture2 {
+  font-family: 'Bmyeonsung ttf', sans-serif;
+  font-size: 30px;
+  font-weight: 100;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.hero-section {
+  position: relative;
+  z-index: 999;
+  margin-top: 80px;
+  background-color: transparent;
+  background-image: -webkit-linear-gradient(270deg, rgba(34, 34, 34, .31), rgba(34, 34, 34, .31)), url('../images/epc-inside.jpg');
+  background-image: linear-gradient(180deg, rgba(34, 34, 34, .31), rgba(34, 34, 34, .31)), url('../images/epc-inside.jpg');
+  background-position: 0px 0px, 50% 56%;
+  background-size: auto, cover;
+}
+
+.about-hero-heading {
+  font-family: Montserrat, sans-serif;
+  color: #fff;
+  font-size: 51px;
+  text-align: center;
+  letter-spacing: 4px;
+  text-transform: capitalize;
+}
+
+.container-medium-about {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 85vw;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 60px 60px 80px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.about-hero-heading2 {
+  margin-top: 10px;
+  font-family: Montserrat, sans-serif;
+  color: #fff;
+  font-size: 34px;
+  font-weight: 500;
+  text-transform: none;
+}
+
+.pastor-section {
+  position: relative;
+  margin-top: 100px;
+}
+
+.about-hero-subheading {
+  margin-top: 20px;
+  font-family: 'Open Sans', sans-serif;
+  color: #fff;
+  font-size: 18px;
+  text-align: center;
+}
+
+.pastor-flex-container {
+  position: static;
+  left: 0px;
+  top: 274px;
+  right: 0px;
+  bottom: 0px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+  -webkit-perspective: 1200px;
+  perspective: 1200px;
+  -webkit-perspective-origin: 50% 50%;
+  perspective-origin: 50% 50%;
+}
+
+.pastor-flex-container.reverse {
+  margin-top: 100px;
+  padding-top: 50px;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+  -webkit-flex-direction: row-reverse;
+  -ms-flex-direction: row-reverse;
+  flex-direction: row-reverse;
+}
+
+.pastor-image-container {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+.pastor-message-container {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  background-color: transparent;
+  -webkit-perspective-origin: 50% 100%;
+  perspective-origin: 50% 100%;
+}
+
+.history-scripture-container {
+  margin-bottom: 75px;
+  padding-top: 35px;
+}
+
+.pastor-message {
+  font-family: 이순신돋움체b, sans-serif;
+  color: #333;
+  font-size: 90px;
+  line-height: 73px;
+  font-weight: 700;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.body.sermons-main {
+  background-color: #f5f5f7;
+}
+
+.body.contact-page {
+  background-color: #f5f5f7;
+}
+
+.pastor-image {
+  border-radius: 20px;
+  box-shadow: 13px 13px 28px 0 hsla(0, 0%, 72%, .52);
+}
+
+.pastor-message2 {
+  margin-top: 60px;
+  border-left-width: 2px;
+  border-left-color: rgba(196, 70, 76, .5);
+  font-family: 'Open Sans', sans-serif;
+  font-size: 43px;
+  line-height: 49px;
+  font-weight: 300;
+  text-align: center;
+  letter-spacing: -1px;
+}
+
+.pastor-message2.right {
+  border-right: 2px solid rgba(196, 70, 76, .5);
+  border-left-style: none;
+}
+
+.pastor-message-container2 {
+  text-align: right;
+}
+
+.pastor-title {
+  margin-top: 40px;
+  font-family: Youth, sans-serif;
+  font-size: 28px;
+  line-height: 29px;
+  font-style: normal;
+  font-weight: 300;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.pastor-title.right {
+  padding-right: 0px;
+}
+
+.history-text-container {
+  padding: 0px 50px 50px;
+  text-align: center;
+}
+
+.pastor-heading {
+  margin-bottom: 100px;
+  padding: 20px;
+  box-shadow: 0 7px 34px -12px rgba(236, 0, 19, .12);
+  font-family: 'Bmdohyeon ttf', sans-serif;
+  color: #c4464c;
+  font-size: 79px;
+  line-height: 80px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.gathering-info-section {
+  margin-top: 100px;
+}
+
+.gathering-title {
+  padding: 35px 19px 19px;
+  font-family: 'Bmdohyeon ttf', sans-serif;
+  color: #c4464c;
+  font-size: 79px;
+  line-height: 63px;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.gathering-subtitle {
+  padding: 20px;
+  font-family: 'Bmyeonsung ttf', sans-serif;
+  font-size: 34px;
+  font-weight: 300;
+  text-align: center;
+  letter-spacing: -1px;
+}
+
+.gathering-scripture {
+  font-family: 'Bmyeonsung ttf', sans-serif;
+  font-size: 30px;
+  font-weight: 100;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.gathering-schedule-container {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 100px;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.gathering-flexitem {
+  margin: 20px;
+  padding: 20px;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  -webkit-flex-basis: 25%;
+  -ms-flex-preferred-size: 25%;
+  flex-basis: 25%;
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgba(88, 88, 88, .38);
+  background-color: #fff;
+}
+
+.gathering-flexitem.lord-day {
+  margin: 20px;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-basis: 65%;
+  -ms-flex-preferred-size: 65%;
+  flex-basis: 65%;
+  border-style: none;
+  background-color: #f5f5f7;
+  background-image: none;
+}
+
+.loads-day {
+  padding: 10px 20px 20px;
+  font-family: Youth, sans-serif;
+  color: #222;
+  font-size: 46px;
+  text-align: center;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.gathering-sub-flexbox {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-basis: 25%;
+  -ms-flex-preferred-size: 25%;
+  flex-basis: 25%;
+  background-color: transparent;
+}
+
+.gathering-schedule {
+  padding: 10px;
+  font-family: Youth, sans-serif;
+  color: #222;
+  font-size: 22px;
+  font-weight: 300;
+  text-align: center;
+}
+
+.gathering-sub-flexbox2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.gathering-generation {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-right: 20px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  border-bottom: 1px dotted #222;
+  font-family: Youth, sans-serif;
+  color: #000;
+  font-size: 24px;
+  font-weight: 400;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.gathering-sub-flexitem {
+  margin: 20px;
+  padding-right: 45px;
+  padding-bottom: 20px;
+  padding-left: 45px;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 auto;
+  -ms-flex: 0 auto;
+  flex: 0 auto;
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgba(88, 88, 88, .38);
+  border-radius: 10px;
+  background-color: #fff;
+}
+
+.gathering-sub-flexitem.adult {
+  padding-right: 45px;
+  padding-left: 45px;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 auto;
+  -ms-flex: 0 auto;
+  flex: 0 auto;
+  border-width: 1px;
+  border-color: rgba(88, 88, 88, .38);
+  background-color: #fff;
+}
+
+.sermons-page-section {
+  margin-top: 100px;
+}
+
+.sermons-intro-flex-container {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-right: 50px;
+  margin-left: 50px;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-align-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+}
+
+.sermons-intro-flex-item {
+  padding: 30px;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 auto;
+  -ms-flex: 0 auto;
+  flex: 0 auto;
+  text-align: center;
+}
+
+.sermons-latest-video-flex-item {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-align-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 auto;
+  -ms-flex: 0 auto;
+  flex: 0 auto;
+}
+
+.sermons-intro-heading {
+  font-family: 'Bmdohyeon ttf', sans-serif;
+  color: #c4464c;
+  font-size: 79px;
+  line-height: 104px;
+  text-transform: uppercase;
+}
+
+.sermons-intro-subheading {
+  display: block;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 18px;
+  line-height: 36px;
+  font-weight: 300;
+}
+
+.sermon-day {
+  font-weight: 400;
+}
+
+.modal-wrapper {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  z-index: 9999;
+  display: none;
+  height: 100%;
+  padding-top: 80px;
+  background-color: rgba(0, 0, 0, .52);
+}
+
+.video-modal {
+  position: relative;
+  display: block;
+  width: 900px;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 40px;
+  background-color: #fff;
+}
+
+.close-button {
+  position: absolute;
+  top: 0px;
+  right: 20px;
+  padding: 0px;
+  font-family: Roboto, sans-serif;
+  color: #c4464c;
+  font-size: 18px;
+  text-align: right;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.sermon-title-modal {
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.sermon-video-modal {
+  margin-top: 50px;
+}
+
+.sermons-prev-section {
+  margin-top: 100px;
+}
+
+.prev-sermon-flex-container {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-align-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+}
+
+.sermons-prev-heading {
+  margin-bottom: 80px;
+  font-family: 'Bmdohyeon ttf', sans-serif;
+  color: #c4464c;
+  font-size: 79px;
+  line-height: 104px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.sermons-latest-heading {
+  margin-bottom: 80px;
+  font-family: 'Bmdohyeon ttf', sans-serif;
+  color: #c4464c;
+  font-size: 79px;
+  line-height: 64px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.page-hero-section {
+  height: 50vh;
+}
+
+.page-hero-section.missioni {
+  background-image: -webkit-linear-gradient(180deg, transparent 30%, hsla(0, 0%, 100%, .81) 69%), url('../images/mission1.jpg');
+  background-image: linear-gradient(270deg, transparent 30%, hsla(0, 0%, 100%, .81) 69%), url('../images/mission1.jpg');
+  background-position: 0px 0px, 50% 253%;
+  background-size: auto, cover;
+  background-attachment: scroll, fixed;
+}
+
+.page-hero-section.korean-school {
+  background-image: -webkit-linear-gradient(183deg, transparent 30%, hsla(0, 0%, 100%, .86) 78%), url('../images/koreanschool-banner.jpg');
+  background-image: linear-gradient(267deg, transparent 30%, hsla(0, 0%, 100%, .86) 78%), url('../images/koreanschool-banner.jpg');
+  background-position: 0px 0px, 50% 0px;
+  background-size: auto, cover;
+  background-repeat: repeat, no-repeat;
+  background-attachment: scroll, fixed;
+}
+
+.page-hero-section.tyndale {
+  background-image: url('../images/tyndale.jpg');
+  background-position: 100% 50%;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.page-hero-section.lords-day-sermon {
+  height: 50vh;
+  background-image: -webkit-linear-gradient(180deg, transparent, hsla(0, 0%, 100%, 0) 44%, hsla(0, 0%, 100%, .66) 79%), url('../images/pexels-photo-198809-cropped.jpg');
+  background-image: linear-gradient(270deg, transparent, hsla(0, 0%, 100%, 0) 44%, hsla(0, 0%, 100%, .66) 79%), url('../images/pexels-photo-198809-cropped.jpg');
+  background-position: 0px 0px, 50% 50%;
+  background-size: auto, cover;
+  background-attachment: scroll, fixed;
+}
+
+.page-hero-section.friday-sermon {
+  background-image: -webkit-linear-gradient(180deg, transparent, hsla(0, 0%, 84%, .05) 45%, hsla(0, 0%, 100%, .89)), url('../images/bible.jpeg');
+  background-image: linear-gradient(270deg, transparent, hsla(0, 0%, 84%, .05) 45%, hsla(0, 0%, 100%, .89)), url('../images/bible.jpeg');
+  background-position: 0px 0px, 50% 100%;
+  background-size: auto, cover;
+  background-attachment: scroll, fixed;
+}
+
+.page-hero-section.kids {
+  background-image: -webkit-linear-gradient(179deg, transparent, #fff), url('../images/pexels-photo-191034.jpeg');
+  background-image: linear-gradient(271deg, transparent, #fff), url('../images/pexels-photo-191034.jpeg');
+  background-position: 0px 0px, 50% 50%;
+  background-size: auto, cover;
+  background-attachment: scroll, fixed;
+}
+
+.page-hero-section.young-adult {
+  background-image: -webkit-linear-gradient(180deg, transparent, transparent 40%, hsla(0, 0%, 100%, .91) 87%), url('../images/young-adult.jpeg');
+  background-image: linear-gradient(270deg, transparent, transparent 40%, hsla(0, 0%, 100%, .91) 87%), url('../images/young-adult.jpeg');
+  background-position: 0px 0px, 50% 117%;
+  background-size: auto, auto;
+  background-attachment: scroll, fixed;
+}
+
+.page-hero-section.youth {
+  background-image: -webkit-linear-gradient(153deg, hsla(0, 0%, 100%, .43) 1%, transparent 33%, #fff 95%), url('../images/youth.jpeg');
+  background-image: linear-gradient(297deg, hsla(0, 0%, 100%, .43) 1%, transparent 33%, #fff 95%), url('../images/youth.jpeg');
+  background-position: 0px 0px, 50% 0px;
+  background-size: auto, cover;
+  background-attachment: scroll, fixed;
+}
+
+.page-hero-section.blog {
+  height: 30vh;
+  background-color: #f5f5f7;
+}
+
+.page-hero-section.contact {
+  background-color: #546cc3;
+}
+
+.page-hero-section.give {
+  background-color: #e9d154;
+}
+
+.page-hero-section.about {
+  background-image: -webkit-linear-gradient(270deg, #546cc3, #546cc3);
+  background-image: linear-gradient(180deg, #546cc3, #546cc3);
+}
+
+.page-hero-section.blog-detail {
+  background-color: #546cc3;
+}
+
+.page-hero-text-flexbox {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 50vh;
+  margin-top: 0px;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.page-hero-text-flexbox.blog {
+  height: 30vh;
+}
+
+.sermons-text-flex-item {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  -webkit-flex-basis: 50%;
+  -ms-flex-preferred-size: 50%;
+  flex-basis: 50%;
+}
+
+.empty-flex-item {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  -webkit-flex-basis: 50%;
+  -ms-flex-preferred-size: 50%;
+  flex-basis: 50%;
+}
+
+.hero-main-heading {
+  font-family: 'Bmdohyeon ttf', sans-serif;
+  color: #222;
+  font-size: 55px;
+  line-height: 67px;
+  text-transform: uppercase;
+}
+
+.hero-main-heading.mission {
+  background-color: transparent;
+  color: #000;
+}
+
+.hero-main-heading.tyndale {
+  background-color: transparent;
+  color: #222;
+}
+
+.hero-main-heading.about {
+  font-family: 'Bmdohyeon ttf', sans-serif;
+  color: #fff;
+  font-size: 55px;
+  line-height: 68px;
+  font-weight: 400;
+}
+
+.hero-main-subheading {
+  margin-bottom: 20px;
+  font-family: 'Bmyeonsung ttf', sans-serif;
+  font-weight: 300;
+}
+
+.hero-main-subheading.tyndale {
+  display: inline-block;
+  background-color: transparent;
+}
+
+.hero-main-subheading.about {
+  color: #fff;
+}
+
+.hero-main-desc {
+  margin-bottom: 30px;
+  padding-top: 15px;
+  padding-bottom: 20px;
+  font-family: Youth, sans-serif;
+  font-size: 18px;
+  line-height: 25px;
+}
+
+.hero-main-desc.mission {
+  color: #000;
+}
+
+.hero-main-desc.tyndale {
+  background-color: hsla(0, 0%, 100%, .5);
+  color: #000;
+}
+
+.hero-main-desc.about {
+  color: #fff;
+}
+
+.button {
+  margin-right: 15px;
+  margin-left: 0px;
+  padding: 18px 35px;
+  background-color: #546cc3;
+  -webkit-transition: background-color 400ms ease;
+  transition: background-color 400ms ease;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.button:hover {
+  background-color: #364da1;
+}
+
+.button.nomargin {
+  margin-right: 0px;
+  font-family: Youth, sans-serif;
+}
+
+.button.gathering-button {
+  margin-top: 30px;
+  margin-right: 0px;
+  font-family: Youth, sans-serif;
+}
+
+.button.sermons {
+  font-family: Youth, sans-serif;
+}
+
+.button.contact {
+  display: inline-block;
+  margin-top: 15px;
+  font-family: Youth, sans-serif;
+}
+
+.button.give {
+  margin-top: 10px;
+  margin-right: 0px;
+  background-color: #e9d154;
+  font-family: Youth, sans-serif;
+  font-weight: 700;
+}
+
+.button.give:hover {
+  background-color: #fadb3c;
+}
+
+.button.slide {
+  margin-top: 20px;
+  font-family: Youth, sans-serif;
+  font-size: 14px;
+}
+
+.button.blog-list {
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  margin-right: 0px;
+}
+
+.button.blog-detail {
+  margin-right: 0px;
+}
+
+.sermons-main-sub-section {
+  padding-top: 50px;
+  border-top: 1px solid #cecece;
+  background-color: #f5f5f7;
+}
+
+.sermon-feature-flexbox {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+}
+
+.sermon-feature-flexitem {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 15px;
+  padding: 10px 10px 30px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-align-content: stretch;
+  -ms-flex-line-pack: stretch;
+  align-content: stretch;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  border: 1px solid #ededed;
+  background-color: #fff;
+  -webkit-transition: all 500ms ease;
+  transition: all 500ms ease;
+  text-align: center;
+}
+
+.sermon-feature-flexitem:hover {
+  border-color: #fff;
+  box-shadow: 0 50px 50px 0 rgba(0, 0, 0, .1);
+  -webkit-transform: translate(0px, -20px);
+  -ms-transform: translate(0px, -20px);
+  transform: translate(0px, -20px);
+}
+
+.sermon-feature-heading {
+  margin-top: 30px;
+  font-family: Youth, sans-serif;
+  font-size: 32px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.sermons-feature-subheading {
+  margin-top: 10px;
+  font-family: 'Bmyeonsung ttf', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.sermons-feature-subheading.capital {
+  margin-bottom: 30px;
+  font-size: 18px;
+  line-height: 25px;
+  text-transform: capitalize;
+}
+
+.sermons-feature-desc {
+  padding: 20px 20px 40px;
+  font-family: Youth, sans-serif;
+  font-size: 14px;
+}
+
+.feature-icon {
+  margin-left: 20px;
+}
+
+.feature-icon.gathering-icon {
+  margin-left: 0px;
+}
+
+.gathering-schedule-info {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.genration-section1 {
+  margin-top: 0px;
+}
+
+.generation-flexbox {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-align-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+}
+
+.generation-flex-item {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  -webkit-flex-basis: 50%;
+  -ms-flex-preferred-size: 50%;
+  flex-basis: 50%;
+}
+
+.generation-flex-item.text {
+  padding: 70px;
+  background-color: #fff;
+  -webkit-transition: all 400ms ease;
+  transition: all 400ms ease;
+}
+
+.generation-flex-item.text:hover {
+  box-shadow: 0 50px 50px 0 hsla(0, 0%, 78%, .49);
+  -webkit-transform: translate(0px, -20px);
+  -ms-transform: translate(0px, -20px);
+  transform: translate(0px, -20px);
+}
+
+.generation-heading {
+  font-family: Youth, sans-serif;
+  text-transform: uppercase;
+}
+
+.generation-subheading {
+  font-family: Youth, sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.generation-desc {
+  padding-top: 20px;
+  font-family: Youth, sans-serif;
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: 0px;
+}
+
+.tabs-content {
+  background-color: transparent;
+}
+
+.tabs-menu {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: rgba(255, 245, 5, .3);
+}
+
+.tabs-menu.youth-group {
+  background-color: #0080e4;
+}
+
+.tabs-menu.young-adult {
+  background-color: #c4464c;
+}
+
+.tabs-menu.nicaragua {
+  background-color: #67be3f;
+}
+
+.tabs-menu.korean-school {
+  background-color: #364da1;
+}
+
+.tabs-menu.tyndale {
+  background-color: #d6d545;
+}
+
+.tabs-menu.blog {
+  background-color: #546cc3;
+}
+
+.tabs-menu.kids {
+  background-color: #d6d545;
+}
+
+.tab-link {
+  padding: 25px;
+  background-color: transparent;
+}
+
+.tab-link:hover {
+  background-color: rgba(255, 245, 5, .5);
+}
+
+.tab-link.w--current {
+  background-color: rgba(255, 245, 5, .5);
+}
+
+.tab-link.youth-group:hover {
+  background-color: #0061ad;
+}
+
+.tab-link.youth-group.w--current {
+  background-color: #0061ad;
+}
+
+.tab-link.young-adult {
+  -webkit-transition: background-color 400ms ease;
+  transition: background-color 400ms ease;
+}
+
+.tab-link.young-adult:hover {
+  background-color: #a02d32;
+}
+
+.tab-link.young-adult.w--current {
+  background-color: #a02d32;
+}
+
+.tab-link.nicaragua:hover {
+  background-color: #3db108;
+}
+
+.tab-link.nicaragua.w--current {
+  background-color: #3db108;
+}
+
+.tab-link.korean-school.w--current {
+  background-color: #546cc3;
+}
+
+.tab-link.korean-school.w--current:hover {
+  background-color: #1d399c;
+}
+
+.tab-link.tyndale.w--current {
+  background-color: #bbba2a;
+}
+
+.tab-link.blog {
+  padding: 25px;
+}
+
+.tab-link.blog:hover {
+  background-color: #364da1;
+}
+
+.tab-link.blog.w--current {
+  background-color: #364da1;
+}
+
+.tab-link-text {
+  font-family: Youth, sans-serif;
+  color: #fff;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 300;
+  letter-spacing: 0px;
+  text-transform: capitalize;
+}
+
+.tab-link-text.youth-group {
+  color: #fff;
+}
+
+.tab-link-text.young-adult {
+  color: #fff;
+}
+
+.tab-link-text.korean-school {
+  font-family: Youth, sans-serif;
+  color: #fff;
+  font-style: normal;
+  font-weight: 300;
+  text-transform: capitalize;
+}
+
+.gathering-info {
+  font-family: Youth, sans-serif;
+  font-size: 19px;
+  font-style: italic;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.logo-image {
+  padding: 15px;
+}
+
+.scroll-top-menu {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  right: 0px;
+  z-index: 1100;
+  display: block;
+  background-color: #fff;
+  box-shadow: 0 5px 20px 0 rgba(0, 0, 0, .1);
+}
+
+.announce-flexbox {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-align-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+}
+
+.announce-flexbox.blog {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.text-flexitem {
+  padding: 30px;
+  -webkit-box-flex: 20%;
+  -webkit-flex: 20%;
+  -ms-flex: 20%;
+  flex: 20%;
+}
+
+.text-flexitem.blog {
+  padding-top: 15px;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 20%;
+  -ms-flex: 0 0 20%;
+  flex: 0 0 20%;
+}
+
+.sermons-video-flexitem {
+  position: relative;
+  margin: 0px;
+  padding: 6px;
+  -webkit-box-flex: 40%;
+  -webkit-flex: 40%;
+  -ms-flex: 40%;
+  flex: 40%;
+  border: 1px none #bbbbbd;
+}
+
+.sermons-heading {
+  font-family: 'Bmdohyeon ttf', sans-serif;
+  font-size: 38px;
+  line-height: 44px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.sermons-subheading {
+  font-family: 'Bmyeonsung ttf', sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.sermons-subheading.blog {
+  font-size: 18px;
+}
+
+.sermons-desc {
+  font-family: Youth, sans-serif;
+}
+
+.sermons-overlay {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  display: block;
+  padding: 30px;
+  background-color: rgba(84, 108, 195, .5);
+  -webkit-transition: background-color 400ms ease;
+  transition: background-color 400ms ease;
+}
+
+.sermons-overlay:hover {
+  background-color: rgba(84, 108, 195, .85);
+}
+
+.sermons-video-title {
+  margin-top: 10px;
+  padding-top: 0px;
+  font-family: 'Bmdohyeon ttf', sans-serif;
+  color: #f5f5f7;
+  font-size: 31px;
+  line-height: 29px;
+  font-weight: 400;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.sermons-video-title.sermon-day {
+  font-family: 이순신돋움체b, sans-serif;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.sermons-video-title.sermon-day.prev {
+  font-size: 19px;
+  line-height: 25px;
+}
+
+.sermons-video-title.prev {
+  font-size: 20px;
+  line-height: 22px;
+}
+
+.sermons-video-title.lords-day {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 40px;
+  line-height: 46px;
+}
+
+.sermons-video-title.friday-sermon {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 40px;
+  line-height: 46px;
+}
+
+.sermon-video-scripture {
+  margin-top: 10px;
+  font-family: 이순신돋움체b, sans-serif;
+  font-size: 19px;
+  line-height: 21px;
+  font-weight: 400;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.sermon-video-scripture.prev {
+  margin-top: 0px;
+  font-size: 13px;
+  line-height: 15px;
+}
+
+.sermon-light-box {
+  position: absolute;
+  left: 30px;
+  bottom: 30px;
+  z-index: 99;
+}
+
+.sermon-video-date {
+  margin-top: 0px;
+  font-family: Lato, sans-serif;
+  font-size: 12px;
+  line-height: 14px;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+.sermon-video-date.lords-day {
+  font-family: Youth, sans-serif;
+  font-size: 18px;
+}
+
+.sermon-video-date.lords-day-prev {
+  font-size: 15px;
+}
+
+.sermon-video-date.friday-sermon {
+  font-size: 18px;
+}
+
+.sermon-video-date.friday-sermon-prev {
+  font-size: 15px;
+}
+
+.sermon-video-date.latest {
+  font-family: 이순신돋움체b, sans-serif;
+  font-size: 19px;
+  line-height: 21px;
+  font-weight: 400;
+}
+
+.blog-flexitem {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0px;
+  padding: 0px;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+  -webkit-align-content: stretch;
+  -ms-flex-line-pack: stretch;
+  align-content: stretch;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  background-color: #fff;
+  -webkit-transition: all 400ms ease;
+  transition: all 400ms ease;
+}
+
+.div-spacer {
+  height: 120px;
+}
+
+.blog-flex-sub-item {
+  position: relative;
+  margin: 6px;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 auto;
+  -ms-flex: 0 auto;
+  flex: 0 auto;
+}
+
+.blog-overlay {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  border-radius: 5%;
+  background-color: rgba(0, 0, 0, .15);
+  -webkit-transition: background-color 400ms ease;
+  transition: background-color 400ms ease;
+}
+
+.blog-overlay:hover {
+  background-color: rgba(0, 0, 0, .5);
+}
+
+.blog-text-overlay {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  padding-right: 10px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+}
+
+.blog-title {
+  margin-top: 10px;
+  background-color: transparent;
+  font-family: 'Open Sans', sans-serif;
+  color: #fff;
+  font-size: 22px;
+  font-weight: 400;
+  text-transform: capitalize;
+}
+
+.blog-date {
+  font-family: Lato, sans-serif;
+  color: #fff;
+}
+
+.blog-thumbnail-image {
+  border-radius: 5%;
+}
+
+.blog-link-block {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 33%;
+  -ms-flex: 0 33%;
+  flex: 0 33%;
+}
+
+.prev-sermon-flexitem.prev-sermon {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 2 25%;
+  -ms-flex: 0 2 25%;
+  flex: 0 2 25%;
+}
+
+.pagination-block {
+  display: block;
+  width: 50%;
+  margin-top: 60px;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+}
+
+.pagination-block.blog {
+  color: #222;
+}
+
+.left-arrow {
+  padding-right: 20px;
+  padding-left: 20px;
+  font-family: Roboto, sans-serif;
+  color: #a02d32;
+  font-size: 25px;
+  text-decoration: none;
+}
+
+.left-arrow.blog {
+  color: #222;
+}
+
+.pagination-number {
+  padding-right: 20px;
+  padding-left: 20px;
+  font-family: Roboto, sans-serif;
+  color: #a02d32;
+  font-size: 21px;
+  text-decoration: none;
+}
+
+.pagination-number.blog {
+  color: #222;
+}
+
+.right-arrow {
+  padding-right: 20px;
+  padding-left: 20px;
+  font-family: Roboto, sans-serif;
+  color: #a02d32;
+  font-size: 25px;
+  text-decoration: none;
+}
+
+.right-arrow.blog {
+  color: #222;
+}
+
+.blog-flexbox {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding-top: 60px;
+  padding-bottom: 30px;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  background-color: transparent;
+}
+
+.blog-sub-flexitem {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+.blog-sub-flexitem2 {
+  padding: 0px 20px 20px;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+.blog-sub-flexitem2.featured {
+  padding: 20px;
+}
+
+.author-flexbox {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 70px;
+  margin-bottom: 15px;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.author-flexbox.blog-detail {
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+}
+
+.author-flexbox.blog-index {
+  margin-top: 15px;
+}
+
+.author-image {
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgba(88, 88, 88, .38);
+  border-radius: 50%;
+}
+
+.author-image.related-blog {
+  width: 50px;
+}
+
+.author-image.blog-detail {
+  width: 75px;
+}
+
+.author-name {
+  padding: 9px;
+  font-family: Youth, sans-serif;
+  font-size: 13px;
+}
+
+.author-name.blog-detail {
+  padding: 0px;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.blog-title-preview {
+  padding: 10px 10px 0px;
+  font-family: 'Bmdohyeon ttf', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  text-transform: capitalize;
+}
+
+.blog-title-preview.featured {
+  padding-bottom: 10px;
+  font-size: 25px;
+  line-height: 27px;
+  text-align: center;
+}
+
+.continue-reading {
+  display: block;
+  -webkit-transition: color 400ms ease;
+  transition: color 400ms ease;
+  font-family: Youth, sans-serif;
+  color: #222;
+  font-size: 15px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.continue-reading:hover {
+  color: #364da1;
+}
+
+.blog-content-preview {
+  margin-bottom: 10px;
+  padding: 10px 20px 0px 0px;
+  font-size: 13px;
+  text-align: center;
+}
+
+.blog-page-title {
+  font-family: 'Bmdohyeon ttf', sans-serif;
+  line-height: 52px;
+  text-transform: uppercase;
+}
+
+.blog-page-subtitle {
+  font-family: 'Bmyeonsung ttf', sans-serif;
+  font-size: 18px;
+}
+
+.church-event-flexbox {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding-top: 60px;
+  padding-bottom: 30px;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  background-color: transparent;
+}
+
+.church-event-flexitem {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 10px;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-flex-basis: 25%;
+  -ms-flex-preferred-size: 25%;
+  flex-basis: 25%;
+  -webkit-transition: all 400ms ease;
+  transition: all 400ms ease;
+}
+
+.church-event-flexitem:hover {
+  box-shadow: 4px 4px 10px 0 rgba(0, 0, 0, .34);
+  -webkit-transform: translate(0px, -10px);
+  -ms-transform: translate(0px, -10px);
+  transform: translate(0px, -10px);
+}
+
+.event-date-flexitem {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-flex-basis: 15%;
+  -ms-flex-preferred-size: 15%;
+  flex-basis: 15%;
+  background-color: #364da1;
+}
+
+.event-detail-flexitem {
+  padding-bottom: 10px;
+  padding-left: 20px;
+  -webkit-flex-basis: 85%;
+  -ms-flex-preferred-size: 85%;
+  flex-basis: 85%;
+  background-color: #f6f6f6;
+}
+
+.event-date {
+  padding: 0px 20px;
+  background-color: transparent;
+  font-family: Montserrat, sans-serif;
+  color: #fff;
+  font-size: 22px;
+  font-weight: 400;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.event-title {
+  font-family: 'Bmdohyeon ttf', sans-serif;
+  font-size: 22px;
+  line-height: 25px;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.event-time-flexbox {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.event-time {
+  padding-left: 15px;
+  font-family: 'Bmyeonsung ttf', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.event-detail {
+  padding-top: 10px;
+  padding-right: 10px;
+  font-family: Youth, sans-serif;
+  font-size: 14px;
+}
+
+.event-detail.featured {
+  padding-right: 40px;
+  font-family: Youth, sans-serif;
+}
+
+.featured-event-flexbox {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 50px;
+  padding-bottom: 50px;
+}
+
+.featured-event-flexitem {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+  -webkit-flex-basis: 50%;
+  -ms-flex-preferred-size: 50%;
+  flex-basis: 50%;
+}
+
+.feature-event-image {
+  padding: 10px;
+}
+
+.divider {
+  height: 2px;
+  background-color: #364da1;
+}
+
+.featured-blog-flexbox {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 50px;
+  margin-bottom: 60px;
+  background-color: #fff;
+}
+
+.featured-blog-flexitem {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 9px;
+  padding: 0px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-flex-basis: 50%;
+  -ms-flex-preferred-size: 50%;
+  flex-basis: 50%;
+  background-color: #f5f5f7;
+}
+
+.contact-hero-flexbox {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 50vh;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.contact-text-flexitem {
+  margin-bottom: 75px;
+}
+
+.contact-hero-heading {
+  font-family: 'Bmdohyeon ttf', sans-serif;
+  color: #fff;
+  font-size: 49px;
+  font-weight: 400;
+  letter-spacing: 0px;
+  text-transform: uppercase;
+}
+
+.contact-hero-heading.give {
+  line-height: 63px;
+  text-align: center;
+}
+
+.contact-hero-heading.blog-detail {
+  line-height: 64px;
+}
+
+.contact-overlap-block {
+  position: relative;
+  left: 0px;
+  top: -110px;
+  display: block;
+  width: 80vw;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: #fff;
+}
+
+.contact-overlap-block.give {
+  background-color: transparent;
+}
+
+.contact-overlap-block.contact {
+  background-color: transparent;
+}
+
+.contact-flexbox {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.contact-flex-item {
+  margin-right: 10px;
+  margin-left: 10px;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  border: 1px solid #ededed;
+  background-color: #fff;
+  -webkit-transition: all 400ms ease;
+  transition: all 400ms ease;
+}
+
+.contact-flex-item:hover {
+  border-color: #fff;
+  box-shadow: 0 30px 30px 0 rgba(0, 0, 0, .2);
+  -webkit-transform: translate(0px, -10px);
+  -ms-transform: translate(0px, -10px);
+  transform: translate(0px, -10px);
+}
+
+.contact-card-title {
+  margin-bottom: 40px;
+  font-family: Youth, sans-serif;
+  font-weight: 300;
+  text-transform: capitalize;
+}
+
+.contact-card-detail {
+  font-family: Lato, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.contact-detail-wrapper {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 50px;
+  text-align: center;
+}
+
+.contact-hero-subheading {
+  padding-top: 20px;
+  font-family: Youth, sans-serif;
+  color: #fff;
+  font-size: 19px;
+  line-height: 28px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.contact-hero-subheading.give {
+  font-size: 25px;
+  font-weight: 300;
+}
+
+.contact-hero-subheading.blog-detail {
+  font-size: 24px;
+}
+
+.form-flexbox {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 80%;
+  margin-top: 60px;
+  margin-right: auto;
+  margin-left: auto;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.form-flexitem {
+  margin: 5px;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgba(0, 0, 0, .13);
+}
+
+.map-flexitem {
+  margin: 5px;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+.contact-form-text {
+  padding: 27px;
+  border-style: none;
+  font-family: 'Bmyeonsung ttf', sans-serif;
+}
+
+.contact-form-text.textfield {
+  padding-top: 20px;
+  padding-bottom: 50px;
+}
+
+.contact-form-heading {
+  display: block;
+  margin-right: auto;
+  margin-bottom: 10px;
+  margin-left: auto;
+  font-family: Roboto, sans-serif;
+  color: #546cc3;
+  font-size: 32px;
+  line-height: 42px;
+  font-style: normal;
+  font-weight: 400;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.contact-form {
+  padding: 50px;
+}
+
+.small-divider {
+  display: block;
+  width: 50px;
+  height: 2px;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: #364da1;
+}
+
+.small-divider.giving {
+  width: 150px;
+  margin-top: 25px;
+  background-color: #222;
+}
+
+.small-divider.giving-card {
+  width: 200px;
+  margin-top: 30px;
+  margin-bottom: 35px;
+  background-color: #a02d32;
+}
+
+.small-divider.blog {
+  width: 150px;
+  background-color: #222;
+}
+
+.small-divider.event {
+  width: 150px;
+  background-color: #333;
+}
+
+.giving-flexbox {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 40px;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.giving-flexitem {
+  margin: 5px;
+  padding: 50px;
+  -webkit-flex-basis: 30%;
+  -ms-flex-preferred-size: 30%;
+  flex-basis: 30%;
+  background-color: #fff;
+  text-align: center;
+}
+
+.giving-heading {
+  font-family: 'Bmdohyeon ttf', sans-serif;
+  color: #222;
+  font-size: 79px;
+  line-height: 84px;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.giving-small-header {
+  font-family: 이순신돋움체b, sans-serif;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+.giving-card-detail {
+  font-family: Youth, sans-serif;
+  font-size: 16px;
+  line-height: 26px;
+}
+
+.giving-card-header {
+  font-family: Youth, sans-serif;
+  color: #222;
+  text-transform: uppercase;
+}
+
+.blog-page-flexitem {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 5px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-align-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 30%;
+  -ms-flex: 0 30%;
+  flex: 0 30%;
+  border: 1px solid #ecf0f1;
+  background-color: #fff;
+  -webkit-transition: all 400ms ease;
+  transition: all 400ms ease;
+}
+
+.blog-page-flexitem:hover {
+  box-shadow: 0 15px 80px 0 rgba(88, 88, 88, .38);
+  -webkit-transform: translate(0px, -15px);
+  -ms-transform: translate(0px, -15px);
+  transform: translate(0px, -15px);
+}
+
+.featured-heading {
+  margin-top: 40px;
+  font-family: 'Bmyeonsung ttf', sans-serif;
+  font-size: 45px;
+  line-height: 58px;
+  font-style: normal;
+  font-weight: 200;
+  text-align: center;
+  text-transform: lowercase;
+}
+
+.slider-flexbox {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 65vh;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.slide-flexitem {
+  -webkit-flex-basis: 50%;
+  -ms-flex-preferred-size: 50%;
+  flex-basis: 50%;
+}
+
+.slider-heading {
+  font-family: 'Bmdohyeon ttf', sans-serif;
+  font-size: 58px;
+  line-height: 66px;
+  font-weight: 400;
+}
+
+.slide-subheading {
+  font-family: 'Bmyeonsung ttf', sans-serif;
+  font-size: 19px;
+  line-height: 26px;
+  font-weight: 500;
+}
+
+.slide-subheading2 {
+  font-family: 'Bmhanna 11yrs ttf', sans-serif;
+  font-weight: 400;
+}
+
+.dropdown-wrapper {
+  background-color: #0098ff;
+}
+
+.blog-thumb-image {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+.blog-detail-flexbox {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding-top: 60px;
+  padding-bottom: 30px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #fff;
+}
+
+.blog-detail-hero-image {
+  width: 50vw;
+}
+
+.container-small {
+  display: block;
+  width: 60vw;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.blog-detail-content-block {
+  padding: 60px;
+  background-color: transparent;
+}
+
+.related-blog-flexbox {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 30px;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+  background-color: #fff;
+}
+
+.related-blog-flexitem {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 20px;
+  padding: 20px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-flex-basis: 30%;
+  -ms-flex-preferred-size: 30%;
+  flex-basis: 30%;
+  border: 1px solid #ecf0f1;
+  color: #222;
+  text-decoration: none;
+}
+
+.related-blog-heading {
+  font-family: 'Bmdohyeon ttf', sans-serif;
+  font-size: 22px;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.blog-author-name {
+  font-family: 이순신돋움체b, sans-serif;
+  letter-spacing: 3px;
+}
+
+.author-title {
+  font-family: Youth, sans-serif;
+}
+
+.author-sub-flexbox {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding-left: 20px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+}
+
+html.w-mod-js *[data-ix="page-load-navbar"] {
+  display: block;
+  opacity: 0;
+  -webkit-transform: translate(0px, -80px);
+  -ms-transform: translate(0px, -80px);
+  transform: translate(0px, -80px);
+}
+
+html.w-mod-js *[data-ix="fade-down-on-scroll"] {
+  opacity: 0;
+}
+
+html.w-mod-js *[data-ix="fade-down-on-scroll-2"] {
+  opacity: 0;
+}
+
+html.w-mod-js *[data-ix="slide-left"] {
+  opacity: 0;
+}
+
+html.w-mod-js *[data-ix="slide-right"] {
+  opacity: 0;
+}
+
+html.w-mod-js *[data-ix="pop-up-on-scroll"] {
+  opacity: 0;
+  -webkit-transform: scale(0.9500000000000001, 0.9500000000000001);
+  -ms-transform: scale(0.9500000000000001, 0.9500000000000001);
+  transform: scale(0.9500000000000001, 0.9500000000000001);
+}
+
+html.w-mod-js *[data-ix="pop-up-on-scroll-2"] {
+  opacity: 0;
+  -webkit-transform: scale(0.9500000000000001, 0.9500000000000001);
+  -ms-transform: scale(0.9500000000000001, 0.9500000000000001);
+  transform: scale(0.9500000000000001, 0.9500000000000001);
+}
+
+html.w-mod-js *[data-ix="pop-up-on-scroll-3"] {
+  opacity: 0;
+  -webkit-transform: scale(0.9500000000000001, 0.9500000000000001);
+  -ms-transform: scale(0.9500000000000001, 0.9500000000000001);
+  transform: scale(0.9500000000000001, 0.9500000000000001);
+}
+
+html.w-mod-js *[data-ix="pop-up-on-scroll-4"] {
+  opacity: 0;
+  -webkit-transform: scale(0.9500000000000001, 0.9500000000000001);
+  -ms-transform: scale(0.9500000000000001, 0.9500000000000001);
+  transform: scale(0.9500000000000001, 0.9500000000000001);
+}
+
+html.w-mod-js *[data-ix="slide-left-2"] {
+  opacity: 0;
+  -webkit-transform: translate(-70px, 0px);
+  -ms-transform: translate(-70px, 0px);
+  transform: translate(-70px, 0px);
+}
+
+html.w-mod-js *[data-ix="slide-left-3"] {
+  opacity: 0;
+  -webkit-transform: translate(-70px, 0px);
+  -ms-transform: translate(-70px, 0px);
+  transform: translate(-70px, 0px);
+}
+
+html.w-mod-js *[data-ix="hero-interaction"] {
+  opacity: 0;
+  -webkit-transform: translate(0px, -20px);
+  -ms-transform: translate(0px, -20px);
+  transform: translate(0px, -20px);
+}
+
+html.w-mod-js *[data-ix="hero-interaction-2"] {
+  opacity: 0;
+  -webkit-transform: translate(0px, -20px);
+  -ms-transform: translate(0px, -20px);
+  transform: translate(0px, -20px);
+}
+
+html.w-mod-js *[data-ix="move-down-and-hide"] {
+  -webkit-transform: translate(0px, 100%);
+  -ms-transform: translate(0px, 100%);
+  transform: translate(0px, 100%);
+}
+
+html.w-mod-js *[data-ix="opacity-0"] {
+  opacity: 0;
+}
+
+html.w-mod-js *[data-ix="modal-interaction"] {
+  display: none;
+  opacity: 0;
+  -webkit-transform: scale(1.1, 1.1);
+  -ms-transform: scale(1.1, 1.1);
+  transform: scale(1.1, 1.1);
+}
+
+html.w-mod-js *[data-ix="hide-scroll-navbar"] {
+  display: none;
+}
+
+html.w-mod-js *[data-ix="hide"] {
+  display: none;
+  opacity: 0;
+}
+
+@media (max-width: 991px) {
+  .main-slider {
+    height: 50vh;
+  }
+  .welcome-section {
+    margin-top: 20px;
+  }
+  .history-section {
+    margin-top: 40px;
+  }
+  .epc-div-block {
+    background-image: url('../images/epc-inside.jpg');
+    background-position: 0px 0px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+  }
+  .container-medium {
+    width: 100vw;
+  }
+  .about-epc-heading {
+    font-size: 30px;
+    line-height: 44px;
+  }
+  .service-hour-section {
+    padding-bottom: 0px;
+  }
+  .service-flex-item {
+    display: none;
+  }
+  .service-scripture-container {
+    display: block;
+    margin-bottom: 20px;
+    padding: 40px;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+  }
+  .gatering-info-header {
+    font-size: 48px;
+  }
+  .ministries-section {
+    margin-top: 50px;
+  }
+  .ministry-flex-wrapper {
+    width: 100%;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-align: stretch;
+    -webkit-align-items: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+  }
+  .ministries-heading {
+    font-size: 60px;
+    text-align: center;
+  }
+  .footer {
+    padding-top: 0px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+  .footer-section {
+    margin-top: 30px;
+    padding-bottom: 0px;
+  }
+  .newsletter-footer {
+    text-align: center;
+  }
+  .footer-menu {
+    padding-left: 0px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+  .email-footer {
+    width: 60%;
+  }
+  .footer-navbar {
+    padding-right: 0px;
+  }
+  .footer-nav-link {
+    margin-top: 0px;
+    padding: 9px;
+    font-size: 12px;
+  }
+  .welcome-scripture {
+    font-size: 24px;
+    line-height: 37px;
+    text-align: center;
+    letter-spacing: 0px;
+  }
+  .welcome-scripture2 {
+    padding-right: 0px;
+    font-size: 18px;
+    text-align: center;
+  }
+  .welcome-heading {
+    text-align: center;
+  }
+  .worship-heading {
+    font-size: 60px;
+    line-height: 63px;
+    text-align: center;
+  }
+  .worship-scripture {
+    text-align: center;
+  }
+  .worship-scripture2 {
+    text-align: center;
+  }
+  .ministries-scripture {
+    text-align: center;
+  }
+  .ministries-scripture2 {
+    text-align: center;
+  }
+  .welcome-flexitem {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+  }
+  .ministries-container {
+    margin-bottom: 20px;
+    padding: 40px;
+  }
+  .short-history-heading {
+    font-size: 58px;
+    line-height: 48px;
+  }
+  .short-history-scripture {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 24px;
+    line-height: 36px;
+  }
+  .short-history-scripture2 {
+    margin-top: 0px;
+    font-size: 23px;
+    line-height: 35px;
+  }
+  .pastor-section {
+    margin-top: 40px;
+  }
+  .pastor-flex-container {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+  .pastor-flex-container.reverse {
+    margin-top: 0px;
+  }
+  .history-scripture-container {
+    margin-bottom: 35px;
+  }
+  .pastor-message {
+    font-size: 42px;
+    line-height: 57px;
+    text-align: center;
+  }
+  .pastor-image {
+    margin: 20px;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 auto;
+    -ms-flex: 0 auto;
+    flex: 0 auto;
+  }
+  .pastor-message2 {
+    margin-top: 10px;
+    font-size: 20px;
+    line-height: 34px;
+    text-align: center;
+  }
+  .pastor-title {
+    margin-top: 10px;
+    padding-right: 0px;
+    font-size: 24px;
+    text-align: center;
+  }
+  .pastor-heading {
+    margin-bottom: 30px;
+    font-size: 58px;
+    line-height: 48px;
+  }
+  .gathering-info-section {
+    margin-top: 60px;
+  }
+  .gathering-title {
+    padding: 20px;
+    font-size: 58px;
+    line-height: 62px;
+  }
+  .gathering-subtitle {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 24px;
+    line-height: 36px;
+  }
+  .gathering-scripture {
+    margin-top: 0px;
+    font-size: 23px;
+    line-height: 35px;
+  }
+  .gathering-schedule-container {
+    margin-top: 10px;
+  }
+  .gathering-flexitem {
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    -webkit-flex-basis: 50%;
+    -ms-flex-preferred-size: 50%;
+    flex-basis: 50%;
+  }
+  .gathering-flexitem.lord-day {
+    -webkit-flex-basis: 100%;
+    -ms-flex-preferred-size: 100%;
+    flex-basis: 100%;
+  }
+  .loads-day {
+    font-size: 42px;
+    line-height: 20px;
+  }
+  .gathering-schedule {
+    font-size: 20px;
+  }
+  .gathering-generation {
+    font-size: 18px;
+  }
+  .sermons-page-section {
+    margin-top: 40px;
+  }
+  .sermons-intro-flex-container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+  .sermons-intro-flex-item {
+    padding: 11px;
+  }
+  .sermons-latest-video-flex-item {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+  .sermons-intro-heading {
+    font-size: 38px;
+  }
+  .sermons-intro-subheading {
+    line-height: 31px;
+  }
+  .modal-wrapper {
+    display: none;
+  }
+  .video-modal {
+    width: 600px;
+    margin-top: 40px;
+  }
+  .sermon-title-modal {
+    font-size: 29px;
+    line-height: 40px;
+  }
+  .sermons-prev-section {
+    margin-top: 40px;
+  }
+  .prev-sermon-flex-container {
+    margin-right: 20px;
+    margin-left: 20px;
+  }
+  .sermons-prev-heading {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    font-size: 58px;
+    line-height: 54px;
+  }
+  .sermons-latest-heading {
+    margin-bottom: 20px;
+    font-size: 58px;
+    line-height: 48px;
+  }
+  .page-hero-section {
+    height: 50vh;
+    background-position: 81% 100%;
+  }
+  .page-hero-section.korean-school {
+    background-position: 0px 0px, 50% 50%;
+    background-size: auto, cover;
+    background-attachment: scroll, scroll;
+  }
+  .page-hero-section.tyndale {
+    background-size: cover;
+    background-attachment: scroll;
+  }
+  .page-hero-section.blog-detail {
+    height: 40vh;
+  }
+  .page-hero-text-flexbox {
+    height: 50vh;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+  .sermons-text-flex-item {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    padding-left: 50px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-flex: 100%;
+    -webkit-flex: 100%;
+    -ms-flex: 100%;
+    flex: 100%;
+  }
+  .sermons-text-flex-item.blog {
+    padding-left: 0px;
+  }
+  .empty-flex-item {
+    display: none;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+  }
+  .hero-main-heading {
+    font-size: 36px;
+  }
+  .hero-main-heading.tyndale {
+    padding-left: 0px;
+  }
+  .hero-main-subheading.tyndale {
+    color: #fff;
+  }
+  .hero-main-desc {
+    width: 50%;
+  }
+  .hero-main-desc.tyndale {
+    padding: 13px;
+  }
+  .button {
+    margin-top: 12px;
+  }
+  .button.slide {
+    margin-top: 5px;
+    margin-right: 0px;
+    padding: 10px 15px;
+    font-size: 10px;
+  }
+  .sermon-feature-flexbox {
+    padding-right: 10px;
+    padding-left: 10px;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-align: stretch;
+    -webkit-align-items: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    -webkit-align-content: center;
+    -ms-flex-line-pack: center;
+    align-content: center;
+  }
+  .sermon-feature-flexitem {
+    margin: 10px;
+    padding: 10px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-align-content: stretch;
+    -ms-flex-line-pack: stretch;
+    align-content: stretch;
+    -webkit-box-flex: 25%;
+    -webkit-flex: 25%;
+    -ms-flex: 25%;
+    flex: 25%;
+  }
+  .sermon-feature-flexitem.mission {
+    -webkit-box-flex: 45%;
+    -webkit-flex: 45%;
+    -ms-flex: 45%;
+    flex: 45%;
+  }
+  .sermon-feature-heading {
+    font-size: 24px;
+    line-height: 32px;
+  }
+  .sermons-feature-subheading {
+    font-size: 18px;
+  }
+  .sermons-feature-desc {
+    padding: 10px 5px;
+  }
+  .generation-flexbox {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+  .tab-link {
+    padding: 20px;
+  }
+  .tab-link-text {
+    font-size: 24px;
+    font-weight: 500;
+  }
+  .announce-flexbox.blog {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-align: stretch;
+    -webkit-align-items: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+  }
+  .text-flexitem.blog {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+  }
+  .blog-flexitem {
+    margin: 10px;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+  }
+  .blog-flexitem.event {
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-align: stretch;
+    -webkit-align-items: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 auto;
+    -ms-flex: 0 auto;
+    flex: 0 auto;
+  }
+  .div-spacer {
+    display: none;
+  }
+  .blog-link-block {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+  }
+  .prev-sermon-flexitem.prev-sermon {
+    -webkit-flex-shrink: 1;
+    -ms-flex-negative: 1;
+    flex-shrink: 1;
+    -webkit-flex-basis: 50%;
+    -ms-flex-preferred-size: 50%;
+    flex-basis: 50%;
+  }
+  .pagination-block {
+    width: 100%;
+  }
+  .pagination-block.blog {
+    width: 80%;
+    margin-top: 20px;
+  }
+  .pagination-number.blog {
+    padding: 0px 10px;
+    font-size: 18px;
+  }
+  .blog-flexbox {
+    padding-top: 0px;
+  }
+  .blog-sub-flexitem {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 auto;
+    -ms-flex: 0 auto;
+    flex: 0 auto;
+  }
+  .blog-sub-flexitem2 {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 auto;
+    -ms-flex: 0 auto;
+    flex: 0 auto;
+  }
+  .author-flexbox.blog-detail {
+    margin-top: 15px;
+    -webkit-box-align: end;
+    -webkit-align-items: flex-end;
+    -ms-flex-align: end;
+    align-items: flex-end;
+  }
+  .author-image.blog-detail {
+    width: 50px;
+  }
+  .author-name.blog-detail {
+    margin-top: 0px;
+    margin-bottom: 5px;
+    font-size: 13px;
+  }
+  .blog-title-preview {
+    font-size: 14px;
+  }
+  .blog-title-preview.featured {
+    font-size: 21px;
+  }
+  .blog-content-preview {
+    font-size: 11px;
+  }
+  .church-event-flexbox {
+    padding-top: 35px;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+  .church-event-flexitem {
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 45%;
+    -ms-flex: 0 45%;
+    flex: 0 45%;
+  }
+  .church-event-flexitem.featured {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+  }
+  .church-event-flexitem.event {
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-flex-basis: 45%;
+    -ms-flex-preferred-size: 45%;
+    flex-basis: 45%;
+  }
+  .event-date {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  .event-title {
+    font-size: 18px;
+    line-height: 20px;
+  }
+  .event-detail.featured {
+    display: inline-block;
+  }
+  .featured-event-flexbox {
+    margin-top: 0px;
+  }
+  .contact-hero-flexbox {
+    height: 40vh;
+  }
+  .contact-hero-heading {
+    font-size: 41px;
+  }
+  .contact-hero-heading.give {
+    padding: 0px;
+  }
+  .contact-overlap-block {
+    width: 80vw;
+  }
+  .contact-flexbox {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-align: stretch;
+    -webkit-align-items: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+  }
+  .contact-flex-item {
+    -webkit-box-flex: 0;
+    -webkit-flex-grow: 0;
+    -ms-flex-positive: 0;
+    flex-grow: 0;
+    -webkit-flex-basis: 40%;
+    -ms-flex-preferred-size: 40%;
+    flex-basis: 40%;
+  }
+  .contact-hero-subheading {
+    padding-top: 15px;
+  }
+  .form-flexbox {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: stretch;
+    -webkit-align-items: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+  }
+  .form-flexitem {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+  }
+  .contact-form-heading {
+    width: 70vw;
+  }
+  .contact-form {
+    padding: 20px;
+  }
+  .giving-heading {
+    font-size: 59px;
+    line-height: 54px;
+  }
+  .featured-heading {
+    margin-top: 20px;
+  }
+  .slider-flexbox {
+    height: 50vh;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+  .slide-flexitem {
+    padding: 50px;
+  }
+  .slider-heading {
+    padding-top: 45px;
+    font-size: 38px;
+    line-height: 40px;
+  }
+  .slide-subheading {
+    font-size: 14px;
+  }
+  .slide-subheading2 {
+    font-size: 15px;
+  }
+  .blog-detail-flexbox {
+    padding-bottom: 30px;
+  }
+  .container-small {
+    margin-bottom: 20px;
+  }
+  .container-small.blog {
+    width: 70vw;
+  }
+  .blog-detail-content-block {
+    padding: 35px 0px 0px;
+  }
+  .related-blog-flexitem {
+    margin: 10px;
+  }
+  .related-blog-heading {
+    font-size: 18px;
+    line-height: 26px;
+  }
+  .author-title {
+    font-size: 12px;
+  }
+  .author-sub-flexbox {
+    padding-left: 15px;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    -webkit-align-content: stretch;
+    -ms-flex-line-pack: stretch;
+    align-content: stretch;
+  }
+}
+
+@media (max-width: 767px) {
+  .top-menu-container {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+  .main-slider {
+    height: 350px;
+    min-height: 350px;
+  }
+  .welcome-flexbox {
+    width: auto;
+    padding-top: 0px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+  .epc-div-block {
+    height: 75vh;
+    margin-top: 30px;
+  }
+  .container-medium {
+    width: 100vw;
+    padding: 0px;
+  }
+  .about-epc-heading {
+    font-size: 24px;
+    line-height: 37px;
+  }
+  .service-flex-wrap {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+    -webkit-flex-direction: column-reverse;
+    -ms-flex-direction: column-reverse;
+    flex-direction: column-reverse;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-align-content: stretch;
+    -ms-flex-line-pack: stretch;
+    align-content: stretch;
+  }
+  .service-info {
+    width: auto;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+  }
+  .service-flex-item {
+    display: none;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+  }
+  .service-scripture-container {
+    margin-bottom: 0px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .gatering-info-header {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 29px;
+  }
+  .slider-wrapper {
+    margin-top: 0px;
+  }
+  .ministries-section {
+    margin-top: 20px;
+  }
+  .ministries-heading {
+    font-size: 29px;
+    line-height: 27px;
+  }
+  .footer-logo {
+    margin-top: 0px;
+    padding-right: 20px;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+  .footer-navbar {
+    display: none;
+  }
+  .welcome-scripture {
+    font-size: 15px;
+    line-height: 30px;
+  }
+  .welcome-scripture2 {
+    font-size: 16px;
+    line-height: 26px;
+  }
+  .welcome-heading {
+    font-size: 29px;
+    line-height: 1.1;
+  }
+  .worship-heading {
+    font-size: 29px;
+    line-height: 22px;
+    letter-spacing: 2px;
+  }
+  .worship-scripture {
+    margin-top: 30px;
+    font-size: 15px;
+    line-height: 30px;
+    letter-spacing: 0px;
+  }
+  .worship-scripture2 {
+    font-size: 16px;
+    line-height: 27px;
+  }
+  .ministries-scripture {
+    font-size: 15px;
+    line-height: 30px;
+    letter-spacing: 0px;
+  }
+  .ministries-scripture2 {
+    font-size: 14px;
+  }
+  .welcome-flexitem {
+    margin-bottom: 0px;
+    padding: 0px 35px 10px;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 auto;
+    -ms-flex: 0 auto;
+    flex: 0 auto;
+  }
+  .ministries-container {
+    margin-bottom: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+  .short-history-heading {
+    font-size: 38px;
+    line-height: 34px;
+  }
+  .short-history-scripture {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 18px;
+    line-height: 29px;
+  }
+  .short-history-scripture2 {
+    font-size: 16px;
+    line-height: 28px;
+  }
+  .hero-section {
+    height: 200px;
+  }
+  .about-hero-heading {
+    margin-top: 10px;
+    font-size: 28px;
+    line-height: 33px;
+    font-weight: 400;
+  }
+  .container-medium-about {
+    padding: 10px;
+  }
+  .about-hero-heading2 {
+    margin-bottom: 0px;
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 300;
+  }
+  .about-hero-subheading {
+    margin-top: 0px;
+    font-size: 15px;
+    line-height: 17px;
+  }
+  .pastor-flex-container.reverse {
+    padding-top: 10px;
+  }
+  .pastor-message-container {
+    padding-left: 10px;
+  }
+  .history-scripture-container {
+    padding-top: 0px;
+  }
+  .pastor-message {
+    font-size: 28px;
+    line-height: 34px;
+  }
+  .body {
+    background-color: #f5f5f7;
+  }
+  .pastor-message2 {
+    border-left-style: none;
+    font-size: 15px;
+    line-height: 29px;
+  }
+  .pastor-message2.right {
+    border-right-style: none;
+  }
+  .pastor-title {
+    font-size: 16px;
+    line-height: 22px;
+  }
+  .pastor-heading {
+    font-size: 38px;
+    line-height: 14px;
+  }
+  .gathering-title {
+    margin-top: 0px;
+    font-size: 38px;
+    line-height: 34px;
+  }
+  .gathering-subtitle {
+    padding-top: 0px;
+    padding-bottom: 10px;
+    font-size: 18px;
+    line-height: 29px;
+  }
+  .gathering-scripture {
+    font-size: 16px;
+    line-height: 28px;
+  }
+  .loads-day {
+    margin-top: 10px;
+    padding-bottom: 10px;
+    font-size: 28px;
+    line-height: 5px;
+  }
+  .gathering-sub-flexbox {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+  }
+  .gathering-schedule {
+    font-size: 16px;
+  }
+  .gathering-generation {
+    font-size: 16px;
+    line-height: 23px;
+  }
+  .gathering-sub-flexitem {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+  }
+  .gathering-sub-flexitem.adult {
+    padding-right: 20px;
+    padding-left: 20px;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+  }
+  .sermons-page-section {
+    margin-top: 40px;
+  }
+  .sermons-intro-flex-container {
+    margin-right: 20px;
+    margin-left: 20px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+  .sermons-intro-flex-item {
+    padding: 5px;
+  }
+  .sermons-intro-heading {
+    margin-top: 0px;
+    font-size: 29px;
+  }
+  .sermons-intro-subheading {
+    font-size: 17px;
+    line-height: 25px;
+  }
+  .video-modal {
+    width: auto;
+  }
+  .close-button {
+    font-size: 14px;
+    font-weight: 300;
+  }
+  .sermon-title-modal {
+    font-size: 26px;
+  }
+  .prev-sermon-flex-container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+  .sermons-prev-heading {
+    font-size: 29px;
+    line-height: 35px;
+  }
+  .sermons-latest-heading {
+    font-size: 36px;
+  }
+  .page-hero-section {
+    height: 30vh;
+  }
+  .page-hero-section.tyndale {
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+  }
+  .page-hero-section.blog {
+    height: 20vh;
+  }
+  .page-hero-section.blog-detail {
+    height: 30vh;
+  }
+  .page-hero-text-flexbox {
+    height: 30vh;
+  }
+  .page-hero-text-flexbox.blog {
+    height: 20vh;
+  }
+  .sermons-text-flex-item {
+    padding-left: 0px;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 100%;
+    -ms-flex: 0 100%;
+    flex: 0 100%;
+  }
+  .hero-main-heading {
+    margin-top: 0px;
+    padding-top: 35px;
+    font-size: 22px;
+  }
+  .hero-main-heading.tyndale {
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+  }
+  .hero-main-heading.about {
+    padding-top: 20px;
+    font-size: 44px;
+    line-height: 55px;
+  }
+  .hero-main-subheading {
+    margin-top: 0px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    line-height: 16px;
+  }
+  .hero-main-desc {
+    padding-top: 0px;
+    font-size: 12px;
+  }
+  .button.sermons {
+    padding: 15px 20px;
+    font-size: 10px;
+  }
+  .button.contact {
+    padding: 10px 15px;
+    font-size: 10px;
+  }
+  .button.give {
+    padding: 15px;
+    font-size: 11px;
+  }
+  .sermon-feature-flexbox {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+  .sermon-feature-flexitem {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+  }
+  .sermon-feature-heading {
+    font-size: 22px;
+  }
+  .sermons-feature-subheading.capital {
+    margin-bottom: 10px;
+  }
+  .gathering-schedule-info {
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+  .generation-flex-item.text {
+    padding: 40px;
+  }
+  .generation-heading {
+    font-size: 24px;
+    line-height: 29px;
+    font-weight: 500;
+  }
+  .generation-subheading {
+    margin-top: 10px;
+    font-size: 16px;
+    line-height: 23px;
+  }
+  .generation-desc {
+    padding-top: 10px;
+    font-size: 13px;
+  }
+  .tab-link.w--current {
+    padding: 20px;
+  }
+  .tab-link.blog.w--current {
+    padding: 25px;
+  }
+  .tab-link-text {
+    font-size: 18px;
+    font-weight: 400;
+  }
+  .gathering-info {
+    margin-top: 10px;
+    font-size: 15px;
+    line-height: 26px;
+  }
+  .announce-flexbox.blog {
+    -webkit-box-align: stretch;
+    -webkit-align-items: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+  }
+  .sermons-heading {
+    font-size: 28px;
+  }
+  .sermons-desc {
+    font-size: 12px;
+  }
+  .sermons-overlay.ser.pms {
+    padding: 12px;
+  }
+  .sermons-video-title {
+    font-size: 24px;
+  }
+  .sermons-video-title.sermon-day {
+    font-size: 16px;
+    line-height: 20px;
+  }
+  .sermon-video-scripture {
+    font-size: 16px;
+  }
+  .sermon-light-box.sermons {
+    width: 15%;
+  }
+  .blog-flexitem {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+  }
+  .blog-link-block {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 auto;
+    -ms-flex: 0 auto;
+    flex: 0 auto;
+  }
+  .pagination-number.sermons {
+    padding-right: 10px;
+    padding-left: 10px;
+    color: #222;
+    font-size: 16px;
+  }
+  .author-flexbox {
+    margin-bottom: 15px;
+  }
+  .blog-title-preview.featured {
+    font-size: 16px;
+    line-height: 23px;
+  }
+  .blog-content-preview {
+    display: none;
+  }
+  .church-event-flexitem {
+    -webkit-flex-basis: 50%;
+    -ms-flex-preferred-size: 50%;
+    flex-basis: 50%;
+  }
+  .event-date {
+    font-size: 14px;
+    line-height: 21px;
+  }
+  .event-title {
+    font-size: 16px;
+  }
+  .event-detail {
+    display: block;
+    font-size: 12px;
+  }
+  .event-detail.featured {
+    display: block;
+    font-size: 12px;
+  }
+  .featured-blog-flexbox {
+    margin-top: 20px;
+  }
+  .contact-hero-flexbox {
+    height: 30vh;
+  }
+  .contact-text-flexitem {
+    text-align: center;
+  }
+  .contact-hero-heading {
+    font-size: 28px;
+  }
+  .contact-hero-heading.give {
+    padding-right: 20px;
+    padding-left: 20px;
+    font-size: 22px;
+    line-height: 28px;
+    font-weight: 500;
+  }
+  .contact-hero-heading.blog-detail {
+    line-height: 37px;
+  }
+  .contact-overlap-block {
+    top: -98px;
+  }
+  .contact-card-title {
+    margin-bottom: 15px;
+    font-size: 18px;
+    line-height: 19px;
+  }
+  .contact-card-detail {
+    font-size: 12px;
+    line-height: 17px;
+  }
+  .contact-detail-wrapper {
+    padding: 25px;
+  }
+  .contact-hero-subheading {
+    padding-top: 5px;
+    font-size: 16px;
+    line-height: 24px;
+  }
+  .contact-hero-subheading.give {
+    font-size: 20px;
+  }
+  .contact-hero-subheading.blog-detail {
+    font-size: 19px;
+  }
+  .form-flexbox {
+    margin-top: 20px;
+  }
+  .contact-form-text {
+    padding: 12px;
+    font-size: 12px;
+  }
+  .contact-form-text.textfield {
+    padding-top: 10px;
+    padding-bottom: 40px;
+  }
+  .contact-form-heading {
+    font-size: 24px;
+    line-height: 37px;
+  }
+  .contact-form {
+    padding: 15px;
+  }
+  .small-divider.giving-card {
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+  .giving-flexitem {
+    padding: 20px;
+  }
+  .giving-heading {
+    font-size: 39px;
+    line-height: 47px;
+  }
+  .giving-small-header {
+    font-size: 16px;
+    line-height: 21px;
+  }
+  .giving-card-detail {
+    font-size: 14px;
+    line-height: 24px;
+  }
+  .giving-card-header {
+    font-size: 28px;
+    line-height: 34px;
+  }
+  .blog-page-flexitem {
+    -webkit-flex-basis: 45%;
+    -ms-flex-preferred-size: 45%;
+    flex-basis: 45%;
+  }
+  .featured-heading {
+    font-size: 35px;
+    line-height: 38px;
+  }
+  .slider-heading {
+    padding-top: 20px;
+    font-size: 28px;
+    line-height: 32px;
+  }
+  .slide-subheading {
+    font-size: 12px;
+  }
+  .blog-detail-hero-image {
+    width: 80vw;
+  }
+  .related-blog-flexitem {
+    margin: 5px;
+    padding: 10px;
+  }
+  .related-blog-heading {
+    font-size: 13px;
+    line-height: 19px;
+  }
+}
+
+@media (max-width: 479px) {
+  .top-menu {
+    background-color: transparent;
+  }
+  .top-menu-link {
+    padding-right: 21px;
+    text-align: left;
+  }
+  .top-menu-container {
+    min-width: auto;
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+  .main-slider {
+    height: 300px;
+    min-height: 300px;
+  }
+  .dropdown-top-link {
+    margin-right: 0px;
+    text-align: center;
+  }
+  .nav-menu {
+    width: 80vw;
+    margin-top: 5px;
+    background-color: #fff;
+  }
+  .nav-link {
+    -webkit-transition: color 300ms ease, -webkit-transform 200ms ease;
+    transition: color 300ms ease, -webkit-transform 200ms ease;
+    transition: transform 200ms ease, color 300ms ease;
+    transition: transform 200ms ease, color 300ms ease, -webkit-transform 200ms ease;
+  }
+  .welcome-flexbox {
+    width: 100vw;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+  .history-section {
+    margin-top: 10px;
+  }
+  .epc-div-block {
+    height: 450px;
+  }
+  .container-medium {
+    width: 100vw;
+  }
+  .about-epc-block {
+    left: -61px;
+    width: 300px;
+    height: 500px;
+  }
+  .about-epc-heading {
+    margin-top: 15px;
+    padding: 15px 15px 0px;
+    font-size: 18px;
+    line-height: 28px;
+  }
+  .about-epc-block-bg {
+    left: -51px;
+    width: 300px;
+    height: 500px;
+  }
+  .service-info {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+  }
+  .service-scripture-container {
+    padding: 20px;
+  }
+  .gatering-info-header {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    font-size: 23px;
+    line-height: 41px;
+  }
+  .slider-wrapper {
+    margin-top: 0px;
+  }
+  .newsletter-footer {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 auto;
+    -ms-flex: 0 auto;
+    flex: 0 auto;
+  }
+  .email-form {
+    display: inline-block;
+  }
+  .email-footer {
+    display: block;
+    width: auto;
+    margin-right: auto;
+    margin-left: auto;
+    float: none;
+  }
+  .footer-logo {
+    padding-right: 20px;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+  .copyright-text {
+    text-align: center;
+  }
+  .welcome-scripture {
+    font-size: 12px;
+    line-height: 2;
+  }
+  .welcome-scripture2 {
+    font-size: 15px;
+    line-height: 20px;
+  }
+  .welcome-heading {
+    font-size: 27px;
+  }
+  .worship-heading {
+    font-size: 27px;
+    line-height: 1;
+  }
+  .worship-scripture {
+    font-size: 12px;
+    line-height: 24px;
+  }
+  .worship-scripture2 {
+    font-size: 15px;
+    line-height: 17px;
+  }
+  .ministries-scripture {
+    font-size: 12px;
+    line-height: 24px;
+  }
+  .ministries-scripture2 {
+    font-size: 15px;
+    line-height: 17px;
+  }
+  .welcome-flexitem {
+    padding: 0px 22px 22px;
+  }
+  .slider-icon {
+    display: none;
+  }
+  .hamburger-menu.w--open {
+    background-color: #fff;
+  }
+  .hamburger {
+    background-color: transparent;
+    color: #222;
+  }
+  .short-history-heading {
+    font-size: 26px;
+    line-height: 14px;
+  }
+  .short-history-scripture {
+    font-size: 14px;
+    line-height: 24px;
+  }
+  .short-history-scripture2 {
+    font-size: 12px;
+    line-height: 24px;
+  }
+  .hero-section {
+    height: 150px;
+    background-image: -webkit-linear-gradient(270deg, null, null), url('../images/epc-inside.jpg');
+    background-image: linear-gradient(180deg, null, null), url('../images/epc-inside.jpg');
+    background-position: 0px 0px, 50% 64%;
+    background-size: auto, auto;
+  }
+  .about-hero-heading {
+    font-size: 18px;
+    line-height: 25px;
+    font-weight: 400;
+  }
+  .container-medium-about {
+    padding: 10px 0px 0px;
+  }
+  .about-hero-heading2 {
+    margin-bottom: 0px;
+    font-size: 14px;
+    font-weight: 300;
+  }
+  .about-hero-subheading {
+    font-size: 12px;
+  }
+  .pastor-message {
+    font-size: 20px;
+  }
+  .pastor-message2 {
+    margin-top: 0px;
+    padding: 5px 10px 10px;
+    border-left-style: none;
+    font-size: 13px;
+    line-height: 19px;
+  }
+  .pastor-message2.right {
+    border-right-style: none;
+  }
+  .pastor-title {
+    margin-bottom: 0px;
+    font-size: 14px;
+  }
+  .history-text-container {
+    padding: 10px 25px 25px;
+  }
+  .pastor-heading {
+    margin-bottom: 0px;
+    font-size: 26px;
+  }
+  .gathering-info-section {
+    margin-top: 40px;
+  }
+  .gathering-title {
+    margin-bottom: 0px;
+    font-size: 26px;
+    line-height: 28px;
+  }
+  .gathering-subtitle {
+    font-size: 14px;
+    line-height: 24px;
+  }
+  .gathering-scripture {
+    font-size: 12px;
+    line-height: 24px;
+  }
+  .gathering-flexitem {
+    margin: 10px;
+    padding: 10px;
+  }
+  .loads-day {
+    font-size: 20px;
+    font-weight: 300;
+  }
+  .gathering-schedule {
+    font-size: 14px;
+    line-height: 5px;
+  }
+  .gathering-generation {
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+  .gathering-sub-flexitem {
+    margin: 10px;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+  }
+  .gathering-sub-flexitem.adult {
+    margin: 10px;
+    padding-right: 45px;
+    padding-bottom: 10px;
+    padding-left: 45px;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+  }
+  .sermons-page-section {
+    margin-top: 40px;
+  }
+  .sermons-intro-flex-container {
+    margin-right: 20px;
+    margin-left: 20px;
+  }
+  .sermons-intro-flex-item {
+    padding: 0px;
+  }
+  .sermons-latest-video-flex-item {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+  }
+  .sermons-intro-heading {
+    font-size: 21px;
+    line-height: 23px;
+  }
+  .sermons-intro-subheading {
+    font-size: 13px;
+    line-height: 25px;
+  }
+  .close-button {
+    margin-top: 10px;
+    font-size: 12px;
+  }
+  .sermon-title-modal {
+    margin-top: 10px;
+    font-size: 17px;
+    line-height: 23px;
+  }
+  .sermon-video-modal {
+    margin-top: 15px;
+  }
+  .sermons-prev-heading {
+    font-size: 26px;
+    line-height: 32px;
+  }
+  .sermons-latest-heading {
+    font-size: 25px;
+    line-height: 31px;
+  }
+  .page-hero-section {
+    height: auto;
+  }
+  .page-hero-section.tyndale {
+    background-image: url('../images/tyndale.jpg');
+    background-position: 100% 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+  }
+  .page-hero-section.lords-day-sermon {
+    height: auto;
+    background-size: auto, cover;
+    background-attachment: scroll, scroll;
+  }
+  .page-hero-section.friday-sermon {
+    background-position: 0px 0px, 50% 100%;
+    background-size: auto, cover;
+    background-attachment: scroll, scroll;
+  }
+  .page-hero-section.blog {
+    height: 15vh;
+  }
+  .page-hero-section.blog-detail {
+    height: 25vh;
+  }
+  .page-hero-text-flexbox {
+    height: auto;
+  }
+  .page-hero-text-flexbox.blog {
+    height: 15vh;
+  }
+  .sermons-text-flex-item {
+    padding: 0px 20px;
+  }
+  .sermons-text-flex-item.blog {
+    padding-right: 0px;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    text-align: center;
+  }
+  .hero-main-heading {
+    margin-top: 10px;
+    padding-top: 15px;
+    font-size: 20px;
+    line-height: 26px;
+    font-weight: 500;
+  }
+  .hero-main-heading.about {
+    font-size: 25px;
+    line-height: 37px;
+  }
+  .hero-main-subheading {
+    margin-bottom: 10px;
+    font-size: 16px;
+  }
+  .hero-main-desc {
+    width: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 12px;
+    line-height: 19px;
+    text-align: center;
+  }
+  .hero-main-desc.mission {
+    color: #000;
+  }
+  .button.gathering-button {
+    padding-right: 15px;
+    padding-left: 15px;
+    font-size: 10px;
+  }
+  .button.slide {
+    margin-top: 20px;
+  }
+  .sermons-main-sub-section {
+    padding-top: 25px;
+  }
+  .generation-flexbox {
+    -webkit-align-content: center;
+    -ms-flex-line-pack: center;
+    align-content: center;
+  }
+  .generation-flex-item.text {
+    padding: 29px;
+    -webkit-flex-basis: 50%;
+    -ms-flex-preferred-size: 50%;
+    flex-basis: 50%;
+  }
+  .generation-heading {
+    font-size: 18px;
+    line-height: 23px;
+  }
+  .generation-subheading {
+    font-size: 14px;
+    line-height: 21px;
+  }
+  .generation-desc {
+    font-size: 12px;
+    line-height: 20px;
+  }
+  .tabs-menu {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+  .tab-link {
+    padding: 10px;
+  }
+  .tab-link.w--current {
+    padding: 10px;
+  }
+  .tab-link.blog {
+    padding: 20px;
+    -webkit-transition: background-color 400ms ease;
+    transition: background-color 400ms ease;
+  }
+  .tab-link.blog:hover {
+    padding: 20px;
+  }
+  .tab-link.blog.w--current {
+    padding: 20px;
+  }
+  .tab-link-text {
+    font-size: 12px;
+  }
+  .gathering-info {
+    font-size: 13px;
+    line-height: 23px;
+  }
+  .logo-image {
+    padding-left: 0px;
+  }
+  .scroll-top-menu {
+    display: block;
+  }
+  .announce-flexbox {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+  .sermons-overlay {
+    padding: 10px;
+  }
+  .sermons-video-title {
+    font-size: 18px;
+    line-height: 21px;
+    font-weight: 400;
+  }
+  .sermons-video-title.sermon-day {
+    display: none;
+    margin-top: 0px;
+  }
+  .sermons-video-title.lords-day {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    line-height: 26px;
+  }
+  .sermons-video-title.friday-sermon {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    line-height: 26px;
+  }
+  .sermon-video-scripture {
+    font-size: 12px;
+  }
+  .sermon-light-box {
+    width: 15%;
+    height: auto;
+  }
+  .blog-flexitem {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+  }
+  .blog-link-block {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 auto;
+    -ms-flex: 0 auto;
+    flex: 0 auto;
+  }
+  .pagination-block.blog {
+    width: 100%;
+  }
+  .left-arrow.blog {
+    padding-right: 10px;
+    padding-left: 10px;
+    font-size: 19px;
+  }
+  .pagination-number.blog {
+    font-size: 13px;
+  }
+  .right-arrow.blog {
+    padding-right: 10px;
+    padding-left: 10px;
+    font-size: 19px;
+  }
+  .blog-flexbox {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+  .blog-page-title {
+    font-size: 27px;
+    line-height: 34px;
+  }
+  .blog-page-subtitle {
+    font-size: 14px;
+  }
+  .church-event-flexbox {
+    padding-top: 15px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+  .featured-event-flexbox {
+    padding-bottom: 15px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+  .featured-blog-flexbox {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+  .contact-hero-flexbox {
+    height: 25vh;
+  }
+  .contact-text-flexitem {
+    margin-bottom: 40px;
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+  .contact-hero-heading {
+    font-size: 16px;
+    text-align: center;
+  }
+  .contact-hero-heading.give {
+    font-size: 19px;
+    line-height: 27px;
+  }
+  .contact-hero-heading.blog-detail {
+    font-size: 18px;
+  }
+  .contact-overlap-block {
+    top: -56px;
+    width: 95vw;
+  }
+  .contact-flexbox {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+  .contact-flex-item {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+  }
+  .contact-detail-wrapper {
+    padding: 14px;
+  }
+  .contact-hero-subheading {
+    font-size: 14px;
+  }
+  .contact-hero-subheading.give {
+    font-size: 17px;
+  }
+  .contact-hero-subheading.blog-detail {
+    font-size: 14px;
+  }
+  .contact-form-heading {
+    padding-right: 10px;
+    padding-left: 10px;
+    font-size: 19px;
+    line-height: 27px;
+  }
+  .giving-flexitem {
+    padding: 15px;
+  }
+  .giving-heading {
+    font-size: 29px;
+    line-height: 37px;
+  }
+  .giving-small-header {
+    font-size: 14px;
+  }
+  .giving-card-detail {
+    font-size: 12px;
+  }
+  .giving-card-header {
+    font-size: 20px;
+    line-height: 26px;
+  }
+  .featured-heading {
+    font-size: 25px;
+  }
+  .slider-flexbox {
+    height: 300px;
+  }
+  .slide-flexitem {
+    padding: 20px;
+  }
+  .slider-heading {
+    font-size: 27px;
+    line-height: 38px;
+  }
+  .slide-subheading {
+    display: none;
+    line-height: 16px;
+  }
+  .slide-subheading2 {
+    display: none;
+    font-size: 11px;
+    line-height: 7px;
+  }
+  .blog-detail-flexbox {
+    padding-top: 30px;
+  }
+  .blog-detail-hero-image {
+    width: 100vw;
+  }
+  .blog-detail-content-block {
+    padding-top: 20px;
+  }
+  .related-blog-flexbox {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+}
+
+@font-face {
+  font-family: '이순신돋움체l';
+  src: url('../fonts/이순신돋움체L.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: '이순신돋움체b';
+  src: url('../fonts/이순신돋움체B.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: '이순신돋움체m';
+  src: url('../fonts/이순신돋움체M.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Youth';
+  src: url('../fonts/Youth.ttf') format('truetype'), url('../fonts/Youth.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Bmdohyeon ttf';
+  src: url('../fonts/BMDOHYEON_ttf.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Bmhanna 11yrs ttf';
+  src: url('../fonts/BMHANNA_11yrs_ttf.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Bmjua ttf';
+  src: url('../fonts/BMJUA_ttf.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Bmyeonsung ttf';
+  src: url('../fonts/BMYEONSUNG_ttf.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}

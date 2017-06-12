@@ -1,0 +1,57 @@
+{% load staticfiles wagtailcore_tags %}
+
+<div class="top-menu w-nav" data-animation="over-right" data-collapse="medium" data-duration="400" data-ix="page-load-navbar">
+    <div class="top-menu-container w-container">
+      <a class="w-nav-brand" href="/"><img class="logo-image" sizes="(max-width: 479px) 88vw, 223px" src="{% static 'images/logo2.png' %}" srcset="{% static 'images/logo2-p-500.png' %} 500w, {% static 'images/logo2-p-800.png' %} 800w, {% static 'images/logo2.png' %} 967w" width="223">
+      </a>
+      <div class="hamburger-menu w-nav-button">
+        <div class="hamburger w-icon-nav-menu"></div>
+      </div>
+      <nav class="nav-menu w-nav-menu" role="navigation">
+          {% for menuitem in menuitems %}
+            {% if menuitem.has_children %}
+                <div class="w-dropdown" data-delay="0" data-ix="dropdown-list">
+                  <div class="top-menu-link w-dropdown-toggle">
+                    <div class="dropdown-top-link">{{ menuitem.title }}</div>
+                  </div>
+                  <nav class="dropdown-container w-dropdown-list" data-ix="dropdown-list">
+                      {% for child in menuitem.get_children %}
+                          <a class="dropdown-menu-link w-dropdown-link" href="{% pageurl child %}">{{ child.title }}</a>
+                      {% endfor %}
+                  </nav>
+                </div>
+            {% else %}
+                <a class="nav-link w-nav-link" href="{% pageurl menuitem %}">{{ menuitem.title }}</a>
+            {% endif %}
+          {% endfor %}
+      </nav>
+    </div>
+  </div>
+
+  <div class="scroll-top-menu w-nav" data-animation="over-right" data-collapse="medium" data-duration="400" data-ix="hide-scroll-navbar">
+    <div class="top-menu-container w-container">
+      <a class="w-nav-brand" href="/"><img class="logo-image" src="{% static 'images/logo2-165px.png' %}" width="165">
+      </a>
+      <div class="hamburger-menu w-nav-button">
+        <div class="hamburger w-icon-nav-menu"></div>
+      </div>
+      <nav class="nav-menu w-nav-menu" role="navigation">
+          {% for menuitem in menuitems %}
+            {% if menuitem.has_children %}
+                <div class="w-dropdown" data-delay="0" data-ix="dropdown-list">
+                  <div class="scroll-nav top-menu-link w-dropdown-toggle">
+                    <div class="dropdown-top-link">{{ menuitem.title }}</div>
+                  </div>
+                  <nav class="dropdown-container w-dropdown-list" data-ix="dropdown-list">
+                      {% for child in menuitem.get_children %}
+                          <a class="dropdown-menu-link w-dropdown-link" href="{% pageurl child %}">{{ child.title }}</a>
+                      {% endfor %}
+                  </nav>
+                </div>
+            {% else %}
+                <a class="nav-link scroll-nav w-nav-link" href="{% pageurl menuitem %}">{{ menuitem.title }}</a>
+            {% endif %}
+          {% endfor %}
+      </nav>
+    </div>
+  </div>

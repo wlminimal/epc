@@ -1,6 +1,7 @@
 from __future__ import absolute_import, unicode_literals
 
 from django.db import models
+import datetime
 
 from wagtail.wagtailcore.models import Page
 from wagtail.wagtailcore.fields import RichTextField
@@ -13,5 +14,264 @@ from wagtail.wagtailforms.edit_handlers import FormSubmissionsPanel
 from modelcluster.fields import ParentalKey
 
 
+@register_snippet
+class SermonDay(models.Model):
+    sermon_day = models.CharField(max_length=50, default="Lord's Day")
+
+    def __str__(self):
+        return self.sermon_day
+
+
+@register_snippet
+class SermonVideo(models.Model):
+    sermon_day = models.ForeignKey(
+        "home.SermonDay",
+        null=True,
+        blank=False,
+        related_name='+',
+        on_delete=models.SET_NULL,
+    )
+    sermon_title = models.TextField(default="Sermon Title")
+    sermon_date = models.CharField(max_length=50, default="May 23 2017")
+    sermon_chapter = models.CharField(max_length=80, default="Act 22:1-2")
+    sermon_thumbnail_image = models.ForeignKey(
+        "wagtailimages.Image",
+        blank=False,
+        null=True,
+        related_name='+',
+        on_delete=models.SET_NULL,
+        help_text="Sermon Thumbnail Image"
+    )
+    sermon_link = models.TextField(default="www.youtube.com")
+    sermon_share_code = models.CharField(max_length=80, default="LHJowUFSKMA")
+    upload_date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return "{} - {}".format(self.sermon_title, self.sermon_date)
+
+
 class HomePage(Page):
-    pass
+
+    # Slide Section
+    # First Slide
+    first_slide_title = models.TextField(default="Welcome To EPC")
+    first_slide_verse = models.CharField(max_length=100, default="Matthew 28:10-20")
+    first_slide_scripture = models.TextField(default="Scriptures")
+    first_slide_button_text = models.CharField(max_length=70, default="About EPC")
+    first_slide_button_link = models.CharField(max_length=70, default="/about/")
+
+    # Second Slide
+    second_slide_title = models.TextField(default="Welcome To EPC")
+    second_slide_verse = models.CharField(max_length=100, default="Matthew 28:10-20")
+    second_slide_scripture = models.TextField(default="Scriptures")
+    second_slide_button_text = models.CharField(max_length=70, default="About EPC")
+    second_slide_button_link = models.CharField(max_length=70, default="/about/")
+
+    # Third Slide
+    third_slide_title = models.TextField(default="Welcome To EPC")
+    third_slide_verse = models.CharField(max_length=100, default="Matthew 28:10-20")
+    third_slide_scripture = models.TextField(default="Scriptures")
+    third_slide_button_text = models.CharField(max_length=70, default="About EPC")
+    third_slide_button_link = models.CharField(max_length=70, default="/about/")
+
+    # Fourth Slide
+    fourth_slide_title = models.TextField(default="Welcome To EPC")
+    fourth_slide_verse = models.CharField(max_length=100, default="Matthew 28:10-20")
+    fourth_slide_scripture = models.TextField(default="Scriptures")
+    fourth_slide_button_text = models.CharField(max_length=70, default="About EPC")
+    fourth_slide_button_link = models.CharField(max_length=70, default="/about/")
+
+    # Confession Section
+    confession_main_title = models.CharField(default="Our Confession", max_length=80)
+
+    first_confession_title = models.CharField(max_length=80, default="first confession")
+    first_confession_verse = models.CharField(max_length=50, default="Mathew 1:18")
+    first_confession_scripture = models.TextField(default="Scripture")
+    first_confession_icon = models.ForeignKey(
+        "wagtailimages.Image",
+        blank=False,
+        null=True,
+        related_name='+',
+        on_delete=models.SET_NULL,
+        help_text="64x64 icon"
+    )
+
+    second_confession_title = models.CharField(max_length=80, default="second confession")
+    second_confession_verse = models.CharField(max_length=50, default="Mathew 1:18")
+    second_confession_scripture = models.TextField(default="Scripture")
+    second_confession_icon = models.ForeignKey(
+        "wagtailimages.Image",
+        blank=False,
+        null=True,
+        related_name='+',
+        on_delete=models.SET_NULL,
+        help_text="64x64 icon"
+    )
+
+    third_confession_title = models.CharField(max_length=80, default="third confession")
+    third_confession_verse = models.CharField(max_length=50, default="Mathew 1:18")
+    third_confession_scripture = models.TextField(default="Scripture")
+    third_confession_icon = models.ForeignKey(
+        "wagtailimages.Image",
+        blank=False,
+        null=True,
+        related_name='+',
+        on_delete=models.SET_NULL,
+        help_text="64x64 icon"
+    )
+
+    fourth_confession_title = models.CharField(max_length=80, default="fourth confession")
+    fourth_confession_verse = models.CharField(max_length=50, default="Mathew 1:18")
+    fourth_confession_scripture = models.TextField(default="Scripture")
+    fourth_confession_icon = models.ForeignKey(
+        "wagtailimages.Image",
+        blank=False,
+        null=True,
+        related_name='+',
+        on_delete=models.SET_NULL,
+        help_text="64x64 icon"
+    )
+
+    fifth_confession_title = models.CharField(max_length=80, default="fifth confession")
+    fifth_confession_verse = models.CharField(max_length=50, default="Mathew 1:18")
+    fifth_confession_scripture = models.TextField(default="Scripture")
+    fifth_confession_icon = models.ForeignKey(
+        "wagtailimages.Image",
+        blank=False,
+        null=True,
+        related_name='+',
+        on_delete=models.SET_NULL,
+        help_text="64x64 icon"
+    )
+
+    sermon_video_main_title = models.CharField(max_length=80, default="Sermon Video")
+    sermon_video_subtitle = models.CharField(max_length=80, default="Recent Sermon Video")
+    sermon_video_description = models.TextField(default="Click play to watch video")
+    sermon_video_button_text = models.CharField(max_length=30, default="Watch more")
+    sermon_video_button_link = models.CharField(max_length=80, default="/watch")
+
+    @property
+    def latest_sermons(self):
+        latest_sermon_video = SermonVideo.objects.all().order_by('-upload_date')
+        return latest_sermon_video
+
+    def get_context(self, request, *args, **kwargs):
+        sermons = self.latest_sermons
+        context = super(HomePage, self).get_context(request, *args, **kwargs)
+        context['sermons'] = sermons
+
+        return context
+
+    # Wagtail Admin
+    content_panels = Page.content_panels + [
+
+        # Slide Section
+        MultiFieldPanel([
+            FieldRowPanel([
+                FieldPanel('first_slide_title', classname="col6"),
+                FieldPanel('first_slide_verse', classname="col6"),
+            ]),
+            FieldRowPanel([
+                FieldPanel('first_slide_button_text', classname="col6"),
+                FieldPanel('first_slide_button_link', classname="col6"),
+            ]),
+            FieldPanel('first_slide_scripture')
+        ]),
+
+        MultiFieldPanel([
+            FieldRowPanel([
+                FieldPanel('second_slide_title', classname="col6"),
+                FieldPanel('second_slide_verse', classname="col6"),
+            ]),
+            FieldRowPanel([
+                FieldPanel('second_slide_button_text', classname="col6"),
+                FieldPanel('second_slide_button_link', classname="col6"),
+            ]),
+            FieldPanel('second_slide_scripture')
+        ]),
+
+        MultiFieldPanel([
+            FieldRowPanel([
+                FieldPanel('third_slide_title', classname="col6"),
+                FieldPanel('third_slide_verse', classname="col6"),
+            ]),
+            FieldRowPanel([
+                FieldPanel('third_slide_button_text', classname="col6"),
+                FieldPanel('third_slide_button_link', classname="col6"),
+            ]),
+            FieldPanel('third_slide_scripture')
+        ]),
+
+        MultiFieldPanel([
+            FieldRowPanel([
+                FieldPanel('fourth_slide_title', classname="col6"),
+                FieldPanel('fourth_slide_verse', classname="col6"),
+            ]),
+            FieldRowPanel([
+                FieldPanel('fourth_slide_button_text', classname="col6"),
+                FieldPanel('fourth_slide_button_link', classname="col6"),
+            ]),
+            FieldPanel('fourth_slide_scripture')
+        ]),
+
+        # Confession Section
+        FieldPanel('confession_main_title'),
+        MultiFieldPanel([
+            FieldRowPanel([
+                FieldPanel('first_confession_title', classname="col6"),
+                FieldPanel('first_confession_verse', classname="col6"),
+            ]),
+            FieldPanel('first_confession_scripture'),
+            ImageChooserPanel('first_confession_icon')
+        ]),
+
+        MultiFieldPanel([
+            FieldRowPanel([
+                FieldPanel('second_confession_title', classname="col6"),
+                FieldPanel('second_confession_verse', classname="col6"),
+            ]),
+            FieldPanel('second_confession_scripture'),
+            ImageChooserPanel('second_confession_icon')
+        ]),
+
+        MultiFieldPanel([
+            FieldRowPanel([
+                FieldPanel('third_confession_title', classname="col6"),
+                FieldPanel('third_confession_verse', classname="col6"),
+            ]),
+            FieldPanel('third_confession_scripture'),
+            ImageChooserPanel('third_confession_icon')
+        ]),
+
+        MultiFieldPanel([
+            FieldRowPanel([
+                FieldPanel('fourth_confession_title', classname="col6"),
+                FieldPanel('fourth_confession_verse', classname="col6"),
+            ]),
+            FieldPanel('fourth_confession_scripture'),
+            ImageChooserPanel('fourth_confession_icon')
+        ]),
+
+        MultiFieldPanel([
+            FieldRowPanel([
+                FieldPanel('fifth_confession_title', classname="col6"),
+                FieldPanel('fifth_confession_verse', classname="col6"),
+            ]),
+            FieldPanel('fifth_confession_scripture'),
+            ImageChooserPanel('fifth_confession_icon')
+        ]),
+
+        MultiFieldPanel([
+            FieldRowPanel([
+                FieldPanel('sermon_video_main_title', classname="col6"),
+                FieldPanel('sermon_video_subtitle', classname="col6"),
+            ]),
+            FieldPanel('sermon_video_description'),
+            FieldRowPanel([
+                FieldPanel('sermon_video_button_text', classname="col6"),
+                FieldPanel('sermon_video_button_link', classname="col6"),
+            ])
+        ]),
+
+    ]
+

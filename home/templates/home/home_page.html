@@ -1,10 +1,287 @@
 {% extends "base.html" %}
 {% load staticfiles i18n wagtailcore_tags wagtailimages_tags %}
 
-{% block body_class %}template-homepage{% endblock %}
+{% block body_class %}body{% endblock %}
 
 {% block content %}
-    <h1>{{ page.main_title }}</h1>
-    {% image page.main_image width-500 as main_image %}
-    <img src="{{ main_image.url }}" alt="image">
+  <div class="slider-wrapper" data-ix="slide-in-scroll-navigation-on-scroll">
+    <div class="main-slider w-slider" data-animation="slide" data-duration="500" data-infinite="1">
+      <div class="w-slider-mask">
+        <div class="slide1 w-slide">
+          <div class="container-medium">
+            <div class="slider-flexbox">
+              <div class="slide-flexitem">
+                <h1 class="slider-heading" data-ix="slide-left">{{ page.first_slide_title }}</h1>
+                <h1 class="slide-subheading" data-ix="slide-right">{{ page.first_slide_scripture }}</h1>
+                <h4 class="slide-subheading2" data-ix="slide-left-2">{{ page.first_slide_verse }}</h4><a class="button slide w-button" data-ix="slide-left-3" href="{{ page.first_slide_button_link }}">{{ page.first_slide_button_text }}</a>
+              </div>
+              <div class="slide-flexitem"></div>
+            </div>
+          </div>
+        </div>
+        <div class="slide2 w-slide">
+          <div class="container-medium">
+            <div class="slider-flexbox">
+              <div class="slide-flexitem">
+                <h1 class="slider-heading">{{ page.second_slide_title }}</h1>
+                <h1 class="slide-subheading">{{ page.second_slide_scripture }}</h1>
+                <h4 class="slide-subheading2">{{ page.second_slide_verse }}</h4><a class="button slide w-button" href="{{ page.second_slide_button_link }}">{{ page.second_slide_button_text }}</a>
+              </div>
+              <div class="slide-flexitem"></div>
+            </div>
+          </div>
+        </div>
+        <div class="slide3 w-slide">
+          <div class="container-medium">
+            <div class="slider-flexbox">
+              <div class="slide-flexitem">
+                <h1 class="slider-heading">{{ page.third_slide_title }}</h1>
+                <h1 class="slide-subheading">{{ page.third_slide_scripture }}</h1>
+                <h4 class="slide-subheading2">{{ page.third_slide_verse }}</h4><a class="button slide w-button" href="{{ page.third_slide_button_link }}">{{ page.third_slide_button_text }}</a>
+              </div>
+              <div class="slide-flexitem"></div>
+            </div>
+          </div>
+        </div>
+        <div class="slide4 w-slide">
+          <div class="container-medium">
+            <div class="slider-flexbox">
+              <div class="slide-flexitem">
+                <h1 class="slider-heading">{{ page.fourth_slide_title }}</h1>
+                <h1 class="slide-subheading">{{ page.fourth_slide_scripture }}</h1>
+                <h4 class="slide-subheading2">{{ page.fourth_slide_verse }}</h4><a class="button slide w-button" href="{{ page.fourth_slide_button_link }}">{{ page.fourth_slide_button_text }}</a>
+              </div>
+              <div class="slide-flexitem"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="w-slider-arrow-left">
+        <div class="slider-icon w-icon-slider-left"></div>
+      </div>
+      <div class="w-slider-arrow-right">
+        <div class="slider-icon w-icon-slider-right"></div>
+      </div>
+      <div class="w-round w-slider-nav"></div>
+    </div>
+  </div>
+  <div class="welcome-section">
+    <div class="welcome-flexbox">
+      <div class="w-container welcome-flexitem">
+        <h1 class="welcome-heading" data-ix="fade-down-on-scroll">{{ page.confession_main_title }}</h1>
+      </div>
+      <div class="container-medium">
+
+        <div class="sermon-feature-flexbox">
+            {% image page.first_confession_icon width-64 as first_icon %}
+          <div class="sermon-feature-flexitem">
+            <img class="feature-icon" src="{{ first_icon.url }}" width="64">
+            <h1 class="sermon-feature-heading">{{ page.first_confession_title }}</h1>
+            <h3 class="sermons-feature-subheading">{{ page.first_confession_verse }}</h3>
+            <p class="sermons-feature-desc">{{ page.first_confession_scripture }}</p>
+          </div>
+          <div class="sermon-feature-flexitem">
+              {% image page.second_confession_icon width-64 as second_icon %}
+            <img class="feature-icon" src="{{ second_icon.url }}" width="64">
+            <h1 class="sermon-feature-heading">{{ page.second_confession_title }}</h1>
+            <h3 class="sermons-feature-subheading">{{ page.second_confession_verse }}</h3>
+            <p class="sermons-feature-desc">{{ page.second_confession_scripture }}</p>
+          </div>
+          <div class="sermon-feature-flexitem">
+            {% image page.third_confession_icon width-64 as third_icon %}
+            <img class="feature-icon" src="{{ third_icon.url }}" width="64">
+            <h1 class="sermon-feature-heading">{{ page.third_confession_title }}</h1>
+            <h3 class="sermons-feature-subheading">{{ page.third_confession_verse }}</h3>
+            <p class="sermons-feature-desc">{{ page.third_confession_scripture }}</p>
+          </div>
+          <div class="sermon-feature-flexitem">
+            {% image page.fourth_confession_icon width-64 as fourth_icon %}
+            <img class="feature-icon" src="{{ fourth_icon.url }}" width="64">
+            <h1 class="sermon-feature-heading">{{ page.fourth_confession_title }}</h1>
+            <h3 class="sermons-feature-subheading">{{ page.fourth_confession_verse }}</h3>
+            <p class="sermons-feature-desc">{{ page.fourth_confession_scripture }}</p>
+          </div>
+          <div class="sermon-feature-flexitem">
+            {% image page.fourth_confession_icon width-64 as fifth_icon %}
+            <img class="feature-icon" src="{{ fifth_icon.url }}" width="64">
+            <h1 class="sermon-feature-heading">{{ page.fifth_confession_title }}</h1>
+            <h3 class="sermons-feature-subheading">{{ page.fifth_confession_verse }}</h3>
+            <p class="sermons-feature-desc">{{ page.fifth_confession_scripture }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="announce-section">
+    <div class="container-medium">
+      <div class="announce-flexbox">
+        <div class="text-flexitem">
+          <h3 class="sermons-heading">{{ page.sermon_video_main_title }}</h3>
+          <h4 class="sermons-subheading">{{ page.sermon_video_subtitle }}</h4>
+          <p class="sermons-desc">{{ page.sermon_video_description }}</p><a class="button sermons w-button" href="{{ page.sermon_video_button_link }}">{{ page.sermon_video_button_text }}</a>
+        </div>
+          <!-- Sermon Video -->
+          {% for sermon in sermons %}
+            <div class="sermons-video-flexitem">
+              <div class="pms ser sermons-overlay">
+                <h6 class="sermon-day sermons-video-title">{{ sermon.sermon_day }}</h6>
+                <h3 class="sermons-video-title">{{ sermon.sermon_title }}</h3>
+                <h1 class="latest sermon-video-date">{{ sermon.sermon_date }}</h1>
+                <h3 class="sermon-video-scripture">{{ sermon.sermon_chapter }}</h3>
+              </div>
+                {% image sermon.sermon_thumbnail_image width-1000 as thumb %}
+              <img sizes="(max-width: 479px) 97vw, (max-width: 767px) 57vw, (max-width: 991px) 58vw, 31vw" src="{{ thumb.url }}" srcset="{{ thumb.url }} 500w, {{ thumb.url }} 700w">
+              <a class="w-inline-block w-lightbox" href="#">
+                <img class="sermon-light-box sermons" src="{% static 'images/58bafc918495d36c26dea457_play-icon.png' %}">
+                <script class="w-json" type="application/json">
+                  { "group": "lord's day sermon", "items": [{
+                    "type": "video",
+                    "url": {{ sermon.sermon_link }},
+                    "html": "<iframe class=\"embedly-embed\" src=\"https://www.youtube.com/embed/{{ sermon.sermon_share_code }}\" width=\"940\" height=\"528\" scrolling=\"no\" frameborder=\"0\" allowfullscreen></iframe>",
+                    "thumbnailUrl": "https://i.ytimg.com/vi/{{ sermon.sermon_share_code }}/hqdefault.jpg",
+                    "width": 940,
+                    "height": 528
+                  }] }
+                </script>
+              </a>
+            </div>
+
+          {% endfor %}
+      </div>
+    </div>
+    <div class="div-spacer"></div>
+    <div class="container-medium">
+      <div class="announce-flexbox blog">
+        <div class="blog text-flexitem">
+          <h1 class="sermons-heading">블로그</h1>
+          <h3 class="blog sermons-subheading">목사님의 메세지, 교회 이야기</h3>
+          <p class="sermons-desc">목사님의 메세지, 교회 이야기, 교회의 각종 이벤트 내용을 확인하세요.</p><a class="button w-button" href="blogandevent.html">블로그 더 보기</a>
+        </div>
+        <div class="blog-flexitem">
+          <div class="blog-page-flexitem"><img class="blog-thumb-image" sizes="(max-width: 479px) 100vw, (max-width: 767px) 96vw, (max-width: 991px) 44vw, (max-width: 4635px) 28vw, 1298px" src="images/IMG_05064.jpg" srcset="images/IMG_05064-p-500.jpeg 500w, images/IMG_05064-p-800.jpeg 800w, images/IMG_05064-p-1080.jpeg 1080w, images/IMG_05064.jpg 1298w">
+            <h4 class="blog-title-preview">자녀에게 성경을 가르치는 5가지 원칙</h4><img class="author-image" height="50" sizes="(max-width: 479px) 50vw, 50px" src="images/kim2.jpg" srcset="images/kim2-p-500.jpeg 500w, images/kim2-p-800.jpeg 800w, images/kim2-p-1080.jpeg 1080w, images/kim2.jpg 1359w" width="50">
+            <div class="author-name">By 김정오 목사</div><a class="continue-reading" href="blog-detail.html">계속 읽기</a>
+            <div class="blog-sub-flexitem2"></div>
+          </div>
+          <div class="blog-page-flexitem"><img class="blog-thumb-image" sizes="(max-width: 479px) 100vw, (max-width: 767px) 96vw, (max-width: 991px) 44vw, 29vw" src="images/youth.jpeg" srcset="images/youth-p-500.jpeg 500w, images/youth-p-800.jpeg 800w, images/youth-p-1080.jpeg 1080w, images/youth-p-1600.jpeg 1600w, images/youth-p-2000.jpeg 2000w, images/youth-p-2600.jpeg 2600w, images/youth-p-3200.jpeg 3200w, images/youth.jpeg 6000w">
+            <h4 class="blog-title-preview">사춘기 청소년과 대화하는 법</h4><img class="author-image" height="50" sizes="(max-width: 479px) 50vw, 50px" src="images/kim2.jpg" srcset="images/kim2-p-500.jpeg 500w, images/kim2-p-800.jpeg 800w, images/kim2-p-1080.jpeg 1080w, images/kim2.jpg 1359w" width="50">
+            <div class="author-name">By 김정오 목사</div><a class="continue-reading" href="blog-detail.html">계속 읽기</a>
+            <div class="blog-sub-flexitem2"></div>
+          </div>
+          <div class="blog-page-flexitem"><img class="blog-thumb-image" sizes="(max-width: 479px) 100vw, (max-width: 767px) 96vw, (max-width: 991px) 44vw, (max-width: 7142px) 28vw, 2000px" src="images/bible.jpeg" srcset="images/bible-p-1080.jpeg 1080w, images/bible-p-1600.jpeg 1600w, images/bible.jpeg 2000w">
+            <h4 class="blog-title-preview">새신자가 성경에 쉽게 접근하는 방법</h4><img class="author-image" height="50" sizes="(max-width: 479px) 50vw, 50px" src="images/kim2.jpg" srcset="images/kim2-p-500.jpeg 500w, images/kim2-p-800.jpeg 800w, images/kim2-p-1080.jpeg 1080w, images/kim2.jpg 1359w" width="50">
+            <div class="author-name">By 김정오 목사</div><a class="continue-reading" href="blog-detail.html">계속 읽기</a>
+            <div class="blog-sub-flexitem2"></div>
+          </div>
+        </div>
+      </div>
+      <div class="announce-flexbox blog">
+        <div class="blog text-flexitem">
+          <h1 class="sermons-heading">행사 소식</h1>
+          <h3 class="blog sermons-subheading">교회 여러 모임과 행사 소식</h3>
+          <p class="sermons-desc">기도모임, 전도회 모임, 봉사활동 또는 여러 프로그램에 대한 정보를 확인하세요.</p><a class="button w-button" href="blogandevent.html">행사 더 보기</a>
+        </div>
+        <div class="blog-flexitem event">
+          <div class="church-event-flexitem event">
+            <div class="event-date-flexitem"><img class="event-date-icon" height="32" src="images/calendar.png" width="32">
+              <h3 class="event-date">6월 11일</h3>
+            </div>
+            <div class="event-detail-flexitem">
+              <h3 class="event-title">기도 모임</h3>
+              <div class="event-time-flexbox"><img class="event-time-icon" height="25" src="images/stopwatch.png" width="25">
+                <div class="event-time">7:00 PM</div>
+              </div>
+              <p class="event-detail">교회를 위한 특별 기도모임이 있습니다. 전 교인분들이 참석해서 다같이 기도했으면 좋겠습니다.</p>
+            </div>
+          </div>
+          <div class="church-event-flexitem">
+            <div class="event-date-flexitem"><img class="event-date-icon" height="32" src="images/calendar.png" width="32">
+              <h3 class="event-date">6월 13일</h3>
+            </div>
+            <div class="event-detail-flexitem">
+              <h3 class="event-title">성경 공부 모임</h3>
+              <div class="event-time-flexbox"><img class="event-time-icon" height="25" src="images/stopwatch.png" width="25">
+                <div class="event-time">7:00 PM</div>
+              </div>
+              <p class="event-detail">교회를 위한 특별 기도모임이 있습니다. 전 교인분들이 참석해서 다같이 기도했으면 좋겠습니다.</p>
+            </div>
+          </div>
+          <div class="church-event-flexitem">
+            <div class="event-date-flexitem"><img class="event-date-icon" height="32" src="images/calendar.png" width="32">
+              <h3 class="event-date">6월 11일</h3>
+            </div>
+            <div class="event-detail-flexitem">
+              <h3 class="event-title">여름성경학교 반사 모임</h3>
+              <div class="event-time-flexbox"><img class="event-time-icon" height="25" src="images/stopwatch.png" width="25">
+                <div class="event-time">7:00 PM</div>
+              </div>
+              <p class="event-detail">교회를 위한 특별 기도모임이 있습니다. 전 교인분들이 참석해서 다같이 기도했으면 좋겠습니다.</p>
+            </div>
+          </div>
+          <div class="church-event-flexitem event">
+            <div class="event-date-flexitem"><img class="event-date-icon" height="32" src="images/calendar.png" width="32">
+              <h3 class="event-date">6월 11일</h3>
+            </div>
+            <div class="event-detail-flexitem">
+              <h3 class="event-title">여전도회 모임</h3>
+              <div class="event-time-flexbox"><img class="event-time-icon" height="25" src="images/stopwatch.png" width="25">
+                <div class="event-time">7:00 PM</div>
+              </div>
+              <p class="event-detail">교회를 위한 특별 기도모임이 있습니다. 전 교인분들이 참석해서 다같이 기도했으면 좋겠습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="service-hour-section">
+    <div class="service-scripture-container w-container">
+      <h1 class="worship-heading" data-ix="fade-down-on-scroll">동부교회 예배</h1>
+      <h1 class="worship-scripture" data-ix="fade-down-on-scroll-2">모이기를 폐하는 어떤 사람들의 습관과 같이 하지 말고 오직 권하여 그날이 가까움을 볼수록 더욱 그리하자</h1>
+      <h3 class="worship-scripture2" data-ix="slide-left">히브리서 10장 25절</h3>
+    </div>
+    <div class="service-flex-wrap">
+      <div class="service-info">
+        <h1 class="gatering-info-header">예배 시간 안내</h1>
+        <div class="gathering-schedule-info">
+          <div class="sermon-feature-flexitem"><img class="feature-icon gathering-icon" src="images/wall-calendar-x128.png" width="64">
+            <h1 class="sermon-feature-heading">주일 예배</h1>
+            <h3 class="sermons-feature-subheading">5:30 AM<br>9:30 AM<br>11:00 AM<br>2:00 AM</h3>
+          </div>
+          <div class="sermon-feature-flexitem"><img class="feature-icon gathering-icon" src="images/wall-calendar-x128.png" width="64">
+            <h1 class="sermon-feature-heading">금요 예배</h1>
+            <h3 class="sermons-feature-subheading">7:30 PM</h3><a class="button gathering-button w-button" href="about.html">예배 안내 더 보기</a>
+          </div>
+        </div>
+      </div>
+      <div class="service-flex-item"></div>
+    </div>
+  </div>
+  <div class="ministries-section">
+    <div>
+      <div class="ministries-container w-container">
+        <h1 class="ministries-heading" data-ix="fade-down-on-scroll">동부 교회 사역</h1>
+        <h1 class="ministries-scripture" data-ix="fade-down-on-scroll-2">사람이 마땅히 우리를&nbsp;그리스도의 일군이요 하나님의 비밀을 맡은 자로 여길찌어다그리고 맡은 자들에게 구할 것은 충성이니라</h1>
+        <h3 class="ministries-scripture2" data-ix="slide-left">고린도전서 4장 1-2절</h3>
+      </div>
+    </div>
+    <div class="ministry-flex-wrapper">
+      <div class="mission sermon-feature-flexitem"><img class="image" sizes="(max-width: 479px) 100vw, (max-width: 767px) 45vw, (max-width: 991px) 46vw, 20vw" src="images/annie-spratt-126510.jpg" srcset="images/annie-spratt-126510-p-500.jpeg 500w, images/annie-spratt-126510-p-800.jpeg 800w, images/annie-spratt-126510-p-1080.jpeg 1080w, images/annie-spratt-126510-p-1600.jpeg 1600w, images/annie-spratt-126510.jpg 2000w">
+        <h1 class="sermon-feature-heading">선교</h1>
+        <h3 class="capital sermons-feature-subheading">니카라과</h3><a class="button nomargin w-button" href="nicaragua.html">더 보기</a>
+      </div>
+      <div class="mission sermon-feature-flexitem"><img class="image" sizes="(max-width: 479px) 100vw, (max-width: 767px) 45vw, (max-width: 991px) 46vw, (max-width: 8823px) 17vw, 1500px" src="images/IMG_04994.jpg" srcset="images/IMG_04994-p-1080.jpeg 1080w, images/IMG_04994.jpg 1500w">
+        <h1 class="sermon-feature-heading">교육</h1>
+        <h3 class="capital sermons-feature-subheading">한국학교 / 틴데일 신학교</h3><a class="button nomargin w-button" href="korean-school.html">더 보기</a>
+      </div>
+      <div class="mission sermon-feature-flexitem"><img class="image" src="images/stock-photo-a-young-boy-putting-coin-into-a-wooden-box-as-donation-562231933.jpg">
+        <h1 class="sermon-feature-heading">연보 / 기부</h1>
+        <h3 class="capital sermons-feature-subheading">각종 헌금과 선교와 교육을 위한 기부</h3><a class="button nomargin w-button" href="give.html">더 보기</a>
+      </div>
+      <div class="mission sermon-feature-flexitem"><img class="image" src="images/stock-photo-people-sitting-in-a-circle-counseling-525198115.jpg">
+        <h1 class="sermon-feature-heading">동부교회 연락처</h1>
+        <h3 class="capital sermons-feature-subheading">여러 가지 문의 사항</h3><a class="button nomargin w-button" href="contact.html">더 보기</a>
+      </div>
+    </div>
+  </div>
 {% endblock %}

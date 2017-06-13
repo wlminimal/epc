@@ -144,8 +144,19 @@ class BlogIndexPage(Page):
     ]
 
 
+class Event(models.Model):
+    event_title = models.CharField(max_length=50, default="Event Title")
+    upload_date = models.DateTimeField(auto_now_add=True)
+    event_date = models.CharField(max_length=20, default="6월 23일")
+    event_time = models.CharField(max_length=20, default="11:00 AM")
+    event_description = models.TextField(max_length=150, default="Event Description")
+
+    class Meta:
+        abstract = True
+
+
 @register_snippet
-class FeaturedEvent(models.Model):
+class FeaturedEvent(Event):
     event_image = models.ForeignKey(
         "wagtailimages.Image",
         blank=False,
@@ -153,14 +164,16 @@ class FeaturedEvent(models.Model):
         on_delete=models.SET_NULL,
         related_name='+'
     )
-    event_title = models.CharField(max_length=50, default="Event Title")
-    upload_date = models.DateTimeField(auto_now_add=True)
-    event_date = models.CharField(max_length=20, default="6월 23일")
-    event_time = models.CharField(max_length=20, defailt="11:00 AM")
-    event_description = models.TextField(max_length=150, default="Event Description")
 
     def __str__(self):
-        return self.event_title
+        return self.event_title + "-" + self.event_date
+
+
+@register_snippet
+class RegularEvent(Event):
+
+    def __str__(self):
+        return self.event_title + "-" + self.event_date
 
 
 class EventIndexPage(Page):
@@ -173,6 +186,7 @@ class EventIndexPage(Page):
         FieldPanel('event_hero_subtitle'),
         FieldPanel('event_featured_name'),
     ]
+
 
 class HomePage(Page):
 
@@ -288,9 +302,142 @@ class HomePage(Page):
         related_name='+'
     )
 
+    # Event
+    event_main_title = models.CharField(max_length=80, default="Event")
+    event_subtitle = models.CharField(max_length=100, default="Church Event")
+    event_description = models.TextField(default="Description for Church Event")
+    event_button_text = models.CharField(max_length=50, default="See more events")
+    event_button_link = models.ForeignKey(
+        "wagtailcore.Page",
+        blank=False,
+        null=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+
+    # Service Info
+    service_title = models.CharField(max_length=50, default="EPC Worship Service")
+    service_scripture = models.TextField(default="Scripture for EPC service section")
+    service_verse = models.CharField(max_length=50, default="Hebrew 10:25")
+    service_hero_image = models.ForeignKey(
+        "wagtailimages.Image",
+        blank=False,
+        null=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+    service_subtitle = models.CharField(max_length=50, default="Service Schedule")
+
+    service_lord_day = models.CharField(max_length=50, default="Lord's Day")
+    service_lord_day_schedule_1 = models.CharField(max_length=20, default="5:30 AM")
+    service_lord_day_schedule_2 = models.CharField(max_length=20, default="9:30 AM")
+    service_lord_day_schedule_3 = models.CharField(max_length=20, default="11:00 AM")
+    service_lord_day_schedule_4 = models.CharField(max_length=20, default="2:00 PM")
+
+    service_friday_day = models.CharField(max_length=20, default="Friday Day")
+    service_friday_day_schedule = models.CharField(max_length=20, default="7:30 PM")
+
+    service_button_text = models.CharField(max_length=50, default="See more Service info")
+    service_button_link = models.ForeignKey(
+        "wagtailcore.Page",
+        blank=False,
+        null=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+
+    # EPC Mission Section
+    mission_main_title = models.CharField(max_length=50, default="EPC Mission")
+    mission_scripture = models.TextField(default="Scripture for mission section")
+    mission_verse = models.CharField(max_length=50, default="Hebrew 10:25")
+
+    # mission card
+    mission_card_image = models.ForeignKey(
+        "wagtailimages.Image",
+        blank=False,
+        null=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+    mission_card_title = models.CharField(max_length=30, default="Mission")
+    mission_card_subtitle = models.CharField(max_length=50, default="Nicaragua")
+    mission_card_button_text = models.CharField(max_length=10, default="Learn more")
+    mission_card_button_link = models.ForeignKey(
+        "wagtailcore.Page",
+        blank=False,
+        null=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+
+    # education card
+    education_card_image = models.ForeignKey(
+        "wagtailimages.Image",
+        blank=False,
+        null=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+    education_card_title = models.CharField(max_length=30, default="Education")
+    education_card_subtitle = models.CharField(max_length=50, default="Korean School and TIU")
+    education_card_button_text = models.CharField(max_length=10, default="Learn more")
+    education_card_button_link = models.ForeignKey(
+        "wagtailcore.Page",
+        blank=False,
+        null=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+
+    # Offering card
+    offering_card_image = models.ForeignKey(
+        "wagtailimages.Image",
+        blank=False,
+        null=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+    offering_card_title = models.CharField(max_length=30, default="Offering")
+    offering_card_subtitle = models.CharField(max_length=50, default="Offering & Donation")
+    offering_card_button_text = models.CharField(max_length=10, default="Learn more")
+    offering_card_button_link = models.ForeignKey(
+        "wagtailcore.Page",
+        blank=False,
+        null=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+
+    # Contact card
+    contact_card_image = models.ForeignKey(
+        "wagtailimages.Image",
+        blank=False,
+        null=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+    contact_card_title = models.CharField(max_length=30, default="Contact")
+    contact_card_subtitle = models.CharField(max_length=50, default="Keep in touch with us")
+    contact_card_button_text = models.CharField(max_length=10, default="Learn more")
+    contact_card_button_link = models.ForeignKey(
+        "wagtailcore.Page",
+        blank=False,
+        null=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+
+
+    @property
+    def latest_event(self):
+        latest_event = RegularEvent.objects.all().order_by('-upload_date')
+        latest_event = latest_event[:4]
+        return latest_event
+
     @property
     def latest_blogs(self):
-        latest_blog = BlogPage.objects.all().order_by('-blog_date')
+        latest_blog = BlogPage.objects.all().live().order_by('-blog_date')
+        latest_blog = latest_blog[:2]
         return latest_blog
 
     @property
@@ -301,9 +448,12 @@ class HomePage(Page):
     def get_context(self, request, *args, **kwargs):
         sermons = self.latest_sermons
         latest_blog = self.latest_blogs
+        latest_event = self.latest_event
+
         context = super(HomePage, self).get_context(request, *args, **kwargs)
         context['sermons'] = sermons
         context['latest_blogs'] = latest_blog
+        context['latest_event'] = latest_event
 
         return context
 
@@ -418,6 +568,7 @@ class HomePage(Page):
             ])
         ]),
 
+        # Blog
         MultiFieldPanel([
             FieldRowPanel([
                 FieldPanel('blog_main_title', classname="col6"),
@@ -428,7 +579,780 @@ class HomePage(Page):
         FieldPanel('blog_button_text', classname="col6"),
         PageChooserPanel('blog_button_link'),
 
+        # Event
+        MultiFieldPanel([
+            FieldRowPanel([
+                FieldPanel('event_main_title', classname="col6"),
+                FieldPanel('event_subtitle', classname="col6")
+            ])
+        ]),
+        FieldPanel('event_description'),
+        FieldPanel('event_button_text', classname="col6"),
+        PageChooserPanel('event_button_link'),
 
+        # Service Info
+        FieldPanel('service_title'),
+        FieldPanel('service_scripture'),
+        FieldPanel('service_verse'),
+        ImageChooserPanel('service_hero_image'),
+        FieldPanel('service_subtitle'),
+        FieldPanel('service_lord_day'),
+
+        MultiFieldPanel([
+            FieldRowPanel([
+                FieldPanel('service_lord_day_schedule_1', classname="col3"),
+                FieldPanel('service_lord_day_schedule_2', classname="col3"),
+                FieldPanel('service_lord_day_schedule_3', classname="col3"),
+                FieldPanel('service_lord_day_schedule_4', classname="col3"),
+            ])
+        ]),
+
+        MultiFieldPanel([
+            FieldRowPanel([
+                FieldPanel('service_friday_day', classname="col6"),
+                FieldPanel('service_friday_day_schedule', classname="col6"),
+            ])
+        ]),
+
+        FieldPanel('service_button_text'),
+        PageChooserPanel('service_button_link'),
+
+        # EPC Mission Section
+
+        FieldPanel('mission_main_title'),
+        FieldPanel('mission_scripture'),
+        FieldPanel('mission_verse'),
+
+        # Mission Card
+        ImageChooserPanel('mission_card_image'),
+        MultiFieldPanel([
+            FieldRowPanel([
+                FieldPanel('mission_card_title', classname="col4"),
+                FieldPanel('mission_card_subtitle', classname="col4"),
+                FieldPanel('mission_card_button_text', classname="col4"),
+            ])
+        ]),
+        PageChooserPanel('mission_card_button_link'),
+
+        # Mission Card
+        ImageChooserPanel('education_card_image'),
+        MultiFieldPanel([
+            FieldRowPanel([
+                FieldPanel('education_card_title', classname="col4"),
+                FieldPanel('education_card_subtitle', classname="col4"),
+                FieldPanel('education_card_button_text', classname="col4"),
+            ])
+        ]),
+        PageChooserPanel('education_card_button_link'),
+
+        # Offering Card
+        ImageChooserPanel('offering_card_image'),
+        MultiFieldPanel([
+            FieldRowPanel([
+                FieldPanel('offering_card_title', classname="col4"),
+                FieldPanel('offering_card_subtitle', classname="col4"),
+                FieldPanel('offering_card_button_text', classname="col4"),
+            ])
+        ]),
+        PageChooserPanel('offering_card_button_link'),
+
+        # Contact Card
+        ImageChooserPanel('contact_card_image'),
+        MultiFieldPanel([
+            FieldRowPanel([
+                FieldPanel('contact_card_title', classname="col4"),
+                FieldPanel('contact_card_subtitle', classname="col4"),
+                FieldPanel('contact_card_button_text', classname="col4"),
+            ])
+        ]),
+        PageChooserPanel('contact_card_button_link')
+    ]
+
+
+class AboutPage(Page):
+    about_hero_title_1 = models.CharField(max_length=80, default="경건한 예배")
+    about_hero_title_2 = models.CharField(max_length=80, default="성경 중심적 설교")
+    about_hero_title_3 = models.CharField(max_length=80, default="이웃을 섬기는 교회")
+
+    about_main_title = models.CharField(max_length=80, default="섬기는 목사님들")
+
+    pastor_picture_1 = models.ForeignKey(
+        "wagtailimages.Image",
+        blank=False,
+        null=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+    pastor_name_1 = models.CharField(max_length=50, default="김정오 목사")
+    pastor_title_1 = models.CharField(max_length=80, default="동부교회 담임목사")
+    pastor_message_1 = RichTextField(default="목사님들 인사말씀")
+
+    pastor_picture_2 = models.ForeignKey(
+        "wagtailimages.Image",
+        blank=False,
+        null=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+    pastor_name_2 = models.CharField(max_length=50, default="나은수 목사")
+    pastor_title_2 = models.CharField(max_length=80, default="동부교회 목사")
+    pastor_message_2 = RichTextField(default="목사님들 인사말씀")
+
+    # History Section
+    history_title = models.CharField(max_length=50, default="교회 연혁")
+    history_scripture = models.TextField(default="Scripture for History section")
+    history_verse = models.CharField(max_length=80, default="Act 20:28")
+
+    history_card_title = models.TextField(default="history of our church")
+    history_content = RichTextField(default="History of our church")
+
+    service_main_title = models.CharField(max_length=80, default="Information about Service")
+    service_scripture = models.TextField(default="Scripture for service section")
+    service_verse = models.CharField(max_length=80, default="Act 20:28")
+
+    service_day_1 = models.CharField(max_length=50, default="Lord's Day")
+
+    service_gen_1 = models.CharField(max_length=20, default="Adult")
+    service_schedule_1 = models.CharField(max_length=20, default="5:30 AM")
+    service_schedule_2 = models.CharField(max_length=20, default="9:30 AM")
+    service_schedule_3 = models.CharField(max_length=20, default="11:00 AM")
+    service_schedule_4 = models.CharField(max_length=20, default="2:00 PM")
+
+    service_gen_2 = models.CharField(max_length=20, default="Youth Group")
+    service_schedule_5 = models.CharField(max_length=20, default="10:00 AM")
+    service_schedule_6 = models.CharField(max_length=20, default="1:30 PM")
+
+    service_gen_3 = models.CharField(max_length=20, default="Elementary")
+    service_schedule_7 = models.CharField(max_length=20, default="11:00 AM")
+    service_schedule_8 = models.CharField(max_length=20, default="2:00 PM")
+
+    service_gen_4 = models.CharField(max_length=20, default="Kinder")
+    service_schedule_9 = models.CharField(max_length=20, default="11:00 AM")
+    service_schedule_10 = models.CharField(max_length=20, default="2:00 PM")
+
+    service_gen_5 = models.CharField(max_length=20, default="Kinder")
+    service_schedule_11 = models.CharField(max_length=20, default="11:00 AM")
+
+    service_day_2 = models.CharField(max_length=50, default="Friday Day")
+    service_schedule_12 = models.CharField(max_length=20, default="7:30 PM")
+
+    service_day_3 = models.CharField(max_length=50, default="Saturday Day")
+    service_schedule_13 = models.CharField(max_length=20, default="5:30 PM")
+
+    content_panels = Page.content_panels + [
+        FieldPanel('about_hero_title_1'),
+        FieldPanel('about_hero_title_2'),
+        FieldPanel('about_hero_title_3'),
+        FieldPanel('about_main_title'),
+
+        ImageChooserPanel('pastor_picture_1'),
+        MultiFieldPanel([
+            FieldRowPanel([
+                FieldPanel('pastor_name_1'),
+                FieldPanel('pastor_title_1'),
+            ])
+        ]),
+
+        FieldPanel('pastor_message_1'),
+
+        ImageChooserPanel('pastor_picture_2'),
+        MultiFieldPanel([
+            FieldRowPanel([
+                FieldPanel('pastor_name_2'),
+                FieldPanel('pastor_title_2'),
+            ])
+        ]),
+
+        FieldPanel('pastor_message_2'),
+
+        FieldPanel('history_title'),
+        FieldPanel('history_scripture'),
+        FieldPanel('history_verse'),
+
+        FieldPanel('history_card_title'),
+        FieldPanel('history_content'),
+
+        FieldPanel('service_main_title'),
+        FieldPanel('service_scripture'),
+        FieldPanel('service_verse'),
+
+        FieldPanel('service_day_1'),
+        FieldPanel('service_gen_1'),
+        FieldPanel('service_schedule_1'),
+        FieldPanel('service_schedule_2'),
+        FieldPanel('service_schedule_3'),
+        FieldPanel('service_schedule_4'),
+
+        FieldPanel('service_gen_2'),
+        FieldPanel('service_schedule_5'),
+        FieldPanel('service_schedule_6'),
+
+        FieldPanel('service_gen_3'),
+        FieldPanel('service_schedule_7'),
+        FieldPanel('service_schedule_8'),
+
+        FieldPanel('service_gen_4'),
+        FieldPanel('service_schedule_9'),
+        FieldPanel('service_schedule_10'),
+
+        FieldPanel('service_gen_5'),
+        FieldPanel('service_schedule_11'),
+
+        FieldPanel('service_day_2'),
+        FieldPanel('service_schedule_12'),
+
+        FieldPanel('service_day_3'),
+        FieldPanel('service_schedule_13'),
 
     ]
 
+
+class GenerationPage(Page):
+
+    subpage_types = ["home.KidsPage", "home.YouthGroupPage", "home.YoungAdultPage"]
+
+
+class KidsPage(Page):
+    kids_hero_title = models.CharField(max_length=80, default="동부 교회 주일 학교")
+    kids_hero_verse = models.CharField(max_length=80, default="마태복음 18장 2-3절")
+    kids_hero_scripture = models.TextField(default="Scripture for kids page")
+
+    kids_tab_title_1 = models.CharField(max_length=30, default="영아부")
+    kids_tab_title_2 = models.CharField(max_length=30, default="유치부")
+    kids_tab_title_3 = models.CharField(max_length=30, default="초등부")
+
+    nursery_tab_content_title_1 = models.CharField(max_length=30, default="영아부")
+    nursery_tab_content_age = models.CharField(max_length=50, default="0세부터 3세")
+    nursery_tab_content_info = models.TextField(default="예배 안내: 오전 11:00 23번 방")
+    nursery_tab_content = RichTextField(default="Intro to Nursery")
+    nursery_tab_image_1 = models.ForeignKey(
+        "wagtailimages.Image",
+        blank=False,
+        null=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+    nursery_tab_image_2 = models.ForeignKey(
+        "wagtailimages.Image",
+        blank=False,
+        null=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+    nursery_tab_image_3 = models.ForeignKey(
+        "wagtailimages.Image",
+        blank=False,
+        null=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+
+    kinder_tab_content_title_1 = models.CharField(max_length=30, default="유치부")
+    kinder_tab_content_age = models.CharField(max_length=50, default="0세부터 3세")
+    kinder_tab_content_info = models.TextField(default="예배 안내: 오전 11:00 23번 방")
+    kinder_tab_content = RichTextField(default="Intro to Kinder")
+    kinder_tab_image_1 = models.ForeignKey(
+        "wagtailimages.Image",
+        blank=False,
+        null=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+    kinder_tab_image_2 = models.ForeignKey(
+        "wagtailimages.Image",
+        blank=False,
+        null=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+    kinder_tab_image_3 = models.ForeignKey(
+        "wagtailimages.Image",
+        blank=False,
+        null=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+
+    elem_tab_content_title_1 = models.CharField(max_length=30, default="초등부")
+    elem_tab_content_age = models.CharField(max_length=50, default="0세부터 3세")
+    elem_tab_content_info = models.TextField(default="예배 안내: 오전 11:00 23번 방")
+    elem_tab_content = RichTextField(default="Intro to Elem")
+    elem_tab_image_1 = models.ForeignKey(
+        "wagtailimages.Image",
+        blank=False,
+        null=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+    elem_tab_image_2 = models.ForeignKey(
+        "wagtailimages.Image",
+        blank=False,
+        null=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+    elem_tab_image_3 = models.ForeignKey(
+        "wagtailimages.Image",
+        blank=False,
+        null=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+
+    content_panels = Page.content_panels + [
+        FieldPanel('kids_hero_title'),
+        FieldPanel('kids_hero_verse'),
+        FieldPanel('kids_hero_scripture'),
+
+        MultiFieldPanel([
+            FieldRowPanel([
+                FieldPanel('kids_tab_title_1', classname="col4"),
+                FieldPanel('kids_tab_title_2', classname="col4"),
+                FieldPanel('kids_tab_title_3', classname="col4"),
+            ])
+        ]),
+
+        FieldPanel('nursery_tab_content_title_1'),
+        FieldPanel('nursery_tab_content_age'),
+        FieldPanel('nursery_tab_content_info'),
+        FieldPanel('nursery_tab_content'),
+        ImageChooserPanel('nursery_tab_image_1'),
+        ImageChooserPanel('nursery_tab_image_2'),
+        ImageChooserPanel('nursery_tab_image_3'),
+
+        FieldPanel('kinder_tab_content_title_1'),
+        FieldPanel('kinder_tab_content_age'),
+        FieldPanel('kinder_tab_content_info'),
+        FieldPanel('kinder_tab_content'),
+        ImageChooserPanel('kinder_tab_image_1'),
+        ImageChooserPanel('kinder_tab_image_2'),
+        ImageChooserPanel('kinder_tab_image_3'),
+
+        FieldPanel('elem_tab_content_title_1'),
+        FieldPanel('elem_tab_content_age'),
+        FieldPanel('elem_tab_content_info'),
+        FieldPanel('elem_tab_content'),
+        ImageChooserPanel('elem_tab_image_1'),
+        ImageChooserPanel('elem_tab_image_2'),
+        ImageChooserPanel('elem_tab_image_3'),
+    ]
+
+
+class YouthGroupPage(Page):
+    yg_hero_title = models.CharField(max_length=80, default="동부 교회 주일 학교")
+    yg_hero_verse = models.CharField(max_length=80, default="마태복음 18장 2-3절")
+    yg_hero_scripture = models.TextField(default="Scripture for kids page")
+
+    yg_tab_content_title_1 = models.CharField(max_length=30, default="중고등부")
+    yg_tab_content_age = models.CharField(max_length=50, default="6학년부터 12학년까지")
+    yg_tab_content_info = models.TextField(default="예배 안내: 주일 오전 10:30분 성경공부 / 오후 2시 예배 (중고등부실)")
+    yg_tab_content = RichTextField(default="Intro to YG")
+    yg_tab_image_1 = models.ForeignKey(
+        "wagtailimages.Image",
+        blank=False,
+        null=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+    yg_tab_image_2 = models.ForeignKey(
+        "wagtailimages.Image",
+        blank=False,
+        null=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+    yg_tab_image_3 = models.ForeignKey(
+        "wagtailimages.Image",
+        blank=False,
+        null=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+
+    content_panels = Page.content_panels + [
+        FieldPanel('yg_hero_title'),
+        FieldPanel('yg_hero_verse'),
+        FieldPanel('yg_hero_scripture'),
+
+        FieldPanel('yg_tab_content_title_1'),
+        FieldPanel('yg_tab_content_age'),
+        FieldPanel('yg_tab_content_info'),
+        FieldPanel('yg_tab_content'),
+        ImageChooserPanel('yg_tab_image_1'),
+        ImageChooserPanel('yg_tab_image_2'),
+        ImageChooserPanel('yg_tab_image_3'),
+    ]
+
+
+class YoungAdultPage(Page):
+    ya_hero_title = models.CharField(max_length=80, default="English Ministry & 청년부")
+    ya_hero_verse = models.CharField(max_length=80, default="Psalm 119:9-16")
+    ya_hero_scripture = models.TextField(default="Scripture for kids page")
+
+    em_tab_content_title_1 = models.CharField(max_length=30, default="English Ministry")
+    em_tab_content_age = models.CharField(max_length=50, default="영어가 더 편한, 성인 모든분들을 포함합니다")
+    em_tab_content_info = models.TextField(default="예배 안내: 오후 1:30 (소예배실)")
+    em_tab_content = RichTextField(default="Intro to English Ministry")
+    em_tab_image_1 = models.ForeignKey(
+        "wagtailimages.Image",
+        blank=False,
+        null=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+    em_tab_image_2 = models.ForeignKey(
+        "wagtailimages.Image",
+        blank=False,
+        null=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+    em_tab_image_3 = models.ForeignKey(
+        "wagtailimages.Image",
+        blank=False,
+        null=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+
+    ya_tab_content_title_1 = models.CharField(max_length=30, default="청년부")
+    ya_tab_content_age = models.CharField(max_length=50, default="성인 모든 청년을 대상으로 합니다.")
+    ya_tab_content_info = models.TextField(default="예배 안내: 오후 1:00 청년부실")
+    ya_tab_content = RichTextField(default="Intro to 청년부")
+    ya_tab_image_1 = models.ForeignKey(
+        "wagtailimages.Image",
+        blank=False,
+        null=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+    ya_tab_image_2 = models.ForeignKey(
+        "wagtailimages.Image",
+        blank=False,
+        null=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+    ya_tab_image_3 = models.ForeignKey(
+        "wagtailimages.Image",
+        blank=False,
+        null=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+
+    content_panels = Page.content_panels + [
+        FieldPanel('ya_hero_title'),
+        FieldPanel('ya_hero_verse'),
+        FieldPanel('ya_hero_scripture'),
+
+        FieldPanel('em_tab_content_title_1'),
+        FieldPanel('em_tab_content_age'),
+        FieldPanel('em_tab_content_info'),
+        FieldPanel('em_tab_content'),
+        ImageChooserPanel('em_tab_image_1'),
+        ImageChooserPanel('em_tab_image_2'),
+        ImageChooserPanel('em_tab_image_3'),
+
+        FieldPanel('ya_tab_content_title_1'),
+        FieldPanel('ya_tab_content_age'),
+        FieldPanel('ya_tab_content_info'),
+        FieldPanel('ya_tab_content'),
+        ImageChooserPanel('ya_tab_image_1'),
+        ImageChooserPanel('ya_tab_image_2'),
+        ImageChooserPanel('ya_tab_image_3'),
+    ]
+
+
+class SermonPage(Page):
+    subpage_types = ["home.LordDaySermonPage", "home.FridaySermonPage"]
+
+
+class LordDaySermonPage(Page):
+    pass
+
+
+class FridaySermonPage(Page):
+    pass
+
+
+class MissionPage(Page):
+    subpage_types = ["home.NicaraguaPage"]
+
+
+class NicaraguaPage(Page):
+    mission_hero_title = models.CharField(max_length=80, default="동부 교회 선교부")
+    mission_hero_verse = models.CharField(max_length=80, default="이사야 6장 8절")
+    mission_hero_scripture = models.TextField(default="내가 또 주의 목소리를 들은즉 이르시되 내가 누구를 보내며 누가 우리를 위하여 갈꼬 그 때에 내가 가로되 내가 여기 있나이다 나를 보내소서")
+
+    nicaragua_tab_content_title_1 = models.CharField(max_length=30, default="니카라과 선교지")
+    nicaragua_tab_pastor = models.CharField(max_length=50, default="선교사 : 김성헌 목사")
+    nicaragua_tab_contact_info = models.TextField(default="연락처 : nicaragua@epcla.org")
+    nicaragua_tab_content = RichTextField(default="Intro to English Ministry")
+    nicaragua_tab_image_1 = models.ForeignKey(
+        "wagtailimages.Image",
+        blank=False,
+        null=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+    nicaragua_tab_image_2 = models.ForeignKey(
+        "wagtailimages.Image",
+        blank=False,
+        null=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+    nicaragua_tab_image_3 = models.ForeignKey(
+        "wagtailimages.Image",
+        blank=False,
+        null=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+
+    content_panels = Page.content_panels + [
+        FieldPanel('mission_hero_title'),
+        FieldPanel('mission_hero_verse'),
+        FieldPanel('mission_hero_scripture'),
+
+        FieldPanel('nicaragua_tab_content_title_1'),
+        FieldPanel('nicaragua_tab_pastor'),
+        FieldPanel('nicaragua_tab_contact_info'),
+        FieldPanel('nicaragua_tab_content'),
+        ImageChooserPanel('nicaragua_tab_image_1'),
+        ImageChooserPanel('nicaragua_tab_image_2'),
+        ImageChooserPanel('nicaragua_tab_image_3'),
+    ]
+
+
+class EducationPage(Page):
+    subpage_types = ["home.KoreanSchoolPage", "home.TiuPage"]
+
+
+class KoreanSchoolPage(Page):
+    kschool_hero_title = models.CharField(max_length=80, default="동부 교회 한국 학교")
+    kschool_hero_verse = models.CharField(max_length=80, default="이사야 6장 8절")
+    kschool_hero_scripture = models.TextField(
+        default="내가 또 주의 목소리를 들은즉 이르시되 내가 누구를 보내며 누가 우리를 위하여 갈꼬 그 때에 내가 가로되 내가 여기 있나이다 나를 보내소서")
+
+    kschool_tab_content_title_1 = models.CharField(max_length=30, default="동부 교회 한국 학교")
+    kschool_tab_pastor = models.CharField(max_length=50, default="교장 : 정 삼숙 박사")
+    kschool_tab_contact_info = models.TextField(default="연락처 : koreanschool@epcla.org")
+    kschool_tab_content = RichTextField(default="Intro to English Ministry")
+    kschool_tab_image_1 = models.ForeignKey(
+        "wagtailimages.Image",
+        blank=False,
+        null=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+    kschool_tab_image_2 = models.ForeignKey(
+        "wagtailimages.Image",
+        blank=False,
+        null=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+    kschool_tab_image_3 = models.ForeignKey(
+        "wagtailimages.Image",
+        blank=False,
+        null=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+
+    content_panels = Page.content_panels + [
+        FieldPanel('kschool_hero_title'),
+        FieldPanel('kschool_hero_verse'),
+        FieldPanel('kschool_hero_scripture'),
+
+        FieldPanel('kschool_tab_content_title_1'),
+        FieldPanel('kschool_tab_pastor'),
+        FieldPanel('kschool_tab_contact_info'),
+        FieldPanel('kschool_tab_content'),
+        ImageChooserPanel('kschool_tab_image_1'),
+        ImageChooserPanel('kschool_tab_image_2'),
+        ImageChooserPanel('kschool_tab_image_3'),
+    ]
+
+
+class TiuPage(Page):
+    tyndale_hero_title = models.CharField(max_length=80, default="틴데일 신학교")
+    tyndale_hero_verse = models.CharField(max_length=80, default="이사야 6장 8절")
+    tyndale_hero_scripture = models.TextField(
+        default="내가 또 주의 목소리를 들은즉 이르시되 내가 누구를 보내며 누가 우리를 위하여 갈꼬 그 때에 내가 가로되 내가 여기 있나이다 나를 보내소서")
+
+    tyndale_tab_content_title_1 = models.CharField(max_length=30, default="틴데일 신학교")
+    tyndale_tab_pastor = models.CharField(max_length=50, default="이사장 : 지 창수 목사")
+    tyndale_tab_contact_info = models.TextField(default="www.tyndaleinternationaluniversity.com")
+    tyndale_tab_content = RichTextField(default="Intro to English Ministry")
+    tyndale_tab_image_1 = models.ForeignKey(
+        "wagtailimages.Image",
+        blank=False,
+        null=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+
+    content_panels = Page.content_panels + [
+        FieldPanel('tyndale_hero_title'),
+        FieldPanel('tyndale_hero_verse'),
+        FieldPanel('tyndale_hero_scripture'),
+
+        FieldPanel('tyndale_tab_content_title_1'),
+        FieldPanel('tyndale_tab_pastor'),
+        FieldPanel('tyndale_tab_contact_info'),
+        FieldPanel('tyndale_tab_content'),
+        ImageChooserPanel('tyndale_tab_image_1'),
+    ]
+
+
+class ContactPage(Page):
+    contact_hero_title = models.CharField(max_length=100, default="모든 분들의 연락을 기다립니다.")
+    contact_hero_subtitle = models.TextField(default="교회와 사역에 질문이 있으시면 아래 연락방법으로 연락하시길 바랍니다.")
+
+    address_title = models.CharField(max_length=30, default="교회 주소")
+    address_1 = models.CharField(max_length=50, default="4270 W 6th St")
+    address_2 = models.CharField(max_length=50, default="Los Angeles, CA 90020")
+
+    phone_title = models.CharField(max_length=30, default="전화번호")
+    phone_number = models.CharField(max_length=50, default="사무실 : (213)383-3261")
+    fax_number = models.CharField(max_length=50, default="팩스: (213)383-9467")
+
+    email_title = models.CharField(max_length=30, default="이메일 주소")
+    email_address = models.CharField(max_length=50, default="이메일 : info@epcla.org")
+
+    service_title = models.CharField(max_length=30, default="예배 시간")
+    service_schedule_1 = models.CharField(max_length=80, default="주일 예배: 9:30 am / 11:00 am / 2:00 pm")
+    service_schedule_2 = models.CharField(max_length=80, default="금요예배 : 7:30 pm")
+
+    contact_form_title = models.TextField(default="문의 사항이 있으시면 아래 폼을 작성해서 보내기를 눌러주세요")
+
+    content_panels = Page.content_panels + [
+        FieldPanel('contact_hero_title'),
+        FieldPanel('contact_hero_subtitle'),
+
+        MultiFieldPanel([
+            FieldRowPanel([
+                FieldPanel('address_title', classname="col4"),
+                FieldPanel('address_1', classname="col4"),
+                FieldPanel('address_2', classname="col4"),
+            ])
+        ]),
+
+        MultiFieldPanel([
+            FieldRowPanel([
+                FieldPanel('phone_title', classname="col4"),
+                FieldPanel('phone_number', classname="col4"),
+                FieldPanel('fax_number', classname="col4"),
+            ])
+        ]),
+
+        MultiFieldPanel([
+            FieldRowPanel([
+                FieldPanel('email_title', classname="col6"),
+                FieldPanel('email_address', classname="col6"),
+            ])
+        ]),
+
+        MultiFieldPanel([
+            FieldRowPanel([
+                FieldPanel('service_title', classname="col4"),
+                FieldPanel('service_schedule_1', classname="col4"),
+                FieldPanel('service_schedule_2', classname="col4"),
+            ])
+        ]),
+
+        FieldPanel('contact_form_title')
+    ]
+
+
+class GivePage(Page):
+    give_hero_title = models.TextField(default="구제를 좋아하는 자는 풍족하여질 것이요 남을 윤택하게 하는 자는 윤택하여지리라")
+    give_verse = models.CharField(max_length=30, default="잠언 11장 25절")
+
+    offering_title = models.CharField(max_length=20, default="연보")
+    offering_subtitle = models.CharField(max_length=80, default="십일조 / 주일연보/ 감사연보")
+
+    mission_title = models.CharField(max_length=20, default="선교 헌금")
+    mission_subtitle = models.CharField(max_length=80, default="니카라과를 위한 선교 헌금")
+    mission_button_text = models.CharField(max_length=40, default="선교 정보 더보기")
+    mission_button_link = models.ForeignKey(
+        "wagtailcore.Page",
+        blank=False,
+        null=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+
+    education_title = models.CharField(max_length=20, default="교육 후원")
+    education_subtitle = models.CharField(max_length=80, default="한국학교 및 틴데일 신학교 후원")
+    education_button_text = models.CharField(max_length=40, default="교육 기관 더 보기")
+    education_button_link = models.ForeignKey(
+        "wagtailcore.Page",
+        blank=False,
+        null=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+
+    donation_title = models.CharField(max_length=20, default="일반 후원")
+    donation_subtitle = models.CharField(max_length=80, default="고아와 과부, 가정형편이 어려운분들을 위한 후원")
+
+    give_main_title = models.CharField(max_length=30, default="후원 방법")
+
+    check_subtitle = models.CharField(max_length=80, default="개인 체크(check)으로 후원")
+    check_title = models.CharField(max_length=50, default="체크 보내기")
+    check_description = RichTextField(default="description for check donation")
+
+    onetime_subtitle = models.CharField(max_length=80, default="온라인 후원")
+    onetime_title = models.CharField(max_length=50, default="일회성 후원")
+    onetime_description = RichTextField(default="description for onetime donation")
+    onetime_button_text = models.CharField(max_length=50, default="온라인 후원")
+    onetime_button_link = models.CharField(max_length=50, default="www.epcla.com")
+
+    recurring_subtitle = models.CharField(max_length=80, default="온라인 후원")
+    recurring_title = models.CharField(max_length=50, default="주기적 후원")
+    recurring_description = RichTextField(default="description for recurring donation")
+    recurring_button_text = models.CharField(max_length=50, default="온라인 후원")
+    recurring_button_link = models.CharField(max_length=50, default="www.epcla.com")
+
+    content_panels = Page.content_panels + [
+        FieldPanel('give_hero_title'),
+        FieldPanel('give_verse'),
+
+        FieldPanel('offering_title'),
+        FieldPanel('offering_subtitle'),
+
+        FieldPanel('mission_title'),
+        FieldPanel('mission_subtitle'),
+        FieldPanel('mission_button_text'),
+        PageChooserPanel('mission_button_link'),
+
+        FieldPanel('education_title'),
+        FieldPanel('education_subtitle'),
+        FieldPanel('education_button_text'),
+        PageChooserPanel('education_button_link'),
+
+        FieldPanel('donation_title'),
+        FieldPanel('donation_subtitle'),
+
+        FieldPanel('give_main_title'),
+
+        FieldPanel('check_subtitle'),
+        FieldPanel('check_title'),
+        FieldPanel('check_description'),
+
+        FieldPanel('onetime_subtitle'),
+        FieldPanel('onetime_title'),
+        FieldPanel('onetime_description'),
+        FieldPanel('onetime_button_text'),
+        FieldPanel('onetime_button_link'),
+
+        FieldPanel('recurring_subtitle'),
+        FieldPanel('recurring_title'),
+        FieldPanel('recurring_description'),
+        FieldPanel('recurring_button_text'),
+        FieldPanel('recurring_button_link'),
+    ]

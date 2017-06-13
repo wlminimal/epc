@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% load staticfiles wagtailcore_tags wagtailimages_tags epc_tags %}
+{% block body_class %}body contact-page{% endblock %}
+{% block content %}
+<div class="give page-hero-section" data-ix="slide-in-scroll-navigation-on-scroll">
+    <div class="container-medium">
+      <div class="contact-hero-flexbox">
+        <div class="contact-text-flexitem">
+          <h1 class="contact-hero-heading give" data-ix="fade-down-on-scroll">{{ page.give_hero_title }}</h1>
+          <div class="contact-hero-subheading give" data-ix="slide-left">{{ page.give_verse }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div class="contact-overlap-block give">
+      <div class="contact-flexbox">
+        <div class="contact-flex-item" data-ix="pop-up-on-scroll">
+          <div class="contact-detail-wrapper"><img class="contact-card-icon" src="{% static 'images/heart.png' %}">
+            <h3 class="contact-card-title">{{ page.offering_title }}</h3>
+            <p class="contact-card-detail">{{ page.offering_subtitle }}</p>
+          </div>
+        </div>
+        <div class="contact-flex-item" data-ix="pop-up-on-scroll-2">
+          <div class="contact-detail-wrapper"><img class="contact-card-icon" src="{% static 'images/charity.png' %}">
+            <h3 class="contact-card-title">{{ page.mission_title }}</h3>
+            <p class="contact-card-detail">{{ page.mission_subtitle }}</p><a class="button give w-button" href="{% pageurl page.mission_button_link %}">{{ page.mission_button_text }}</a>
+          </div>
+        </div>
+        <div class="contact-flex-item" data-ix="pop-up-on-scroll-3">
+          <div class="contact-detail-wrapper"><img class="contact-card-icon" src="{% static 'images/stand.png' %}">
+            <h3 class="contact-card-title">{{ page.education_title }}</h3>
+            <p class="contact-card-detail">{{ page.education_subtitle }}</p><a class="button give w-button" href="{% pageurl page.education_button_link %}">{{ page.education_button_text }}</a>
+          </div>
+        </div>
+        <div class="contact-flex-item" data-ix="pop-up-on-scroll-4">
+          <div class="contact-detail-wrapper"><img class="contact-card-icon" src="{% static 'images/care.png' %}">
+            <h3 class="contact-card-title">{{ page.donation_title }}</h3>
+            <p class="contact-card-detail">{{ page.donation_subtitle }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="giving-section">
+    <div class="container-medium">
+      <h1 class="giving-heading">후원 방법</h1>
+      <div class="giving small-divider"></div>
+      <div class="giving-flexbox">
+        <div class="giving-flexitem">
+          <h4 class="giving-small-header">개인 체크(check)으로 후원</h4>
+          <h1 class="giving-card-header">체크 보내기</h1>
+          <div class="giving-card small-divider"></div>
+          <p class="giving-card-detail">후원하실 금액을 체크에 쓰시고 Pay to Order of 란에 Eastern Church 라고 쓰신후 4270 W 6TH ST LOS ANGELES, CA 90020. 로 보내 주시길 바랍니다.</p>
+        </div>
+        <div class="giving-flexitem">
+          <h4 class="giving-small-header">온라인 후원</h4>
+          <h1 class="giving-card-header">일회로 후원</h1>
+          <div class="giving-card small-divider"></div>
+          <p class="giving-card-detail">은행 구좌를 통한 자동이체 또는 Debit 또는 Credit Card로 후원하기 (정해진 후원금이 한번만 결제됩니다.)</p><a class="button give w-button" href="#">온라인 후원</a>
+        </div>
+        <div class="giving-flexitem">
+          <h4 class="giving-small-header">온라인 후원</h4>
+          <h1 class="giving-card-header">주기적 후원</h1>
+          <div class="giving-card small-divider"></div>
+          <p class="giving-card-detail">은행 구좌를 통한 자동이체 또는 Debit 또는 Credit Card로 후원하기 (정해진 후원금이 정해진 매달 날짜에 자동이체 됩니다.)</p><a class="button give w-button" href="#">온라인 후원</a>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

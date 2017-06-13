@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load staticfiles wagtailcore_tags wagtailimages_tags epc_tags %}
+{% block body_class %}body{% endblock %}
+{% block content %}
+<div class="page-hero-section tyndale" data-ix="slide-in-scroll-navigation-on-scroll">
+    <div class="container-medium">
+      <div class="page-hero-text-flexbox">
+        <div class="sermons-text-flex-item">
+          <h1 class="hero-main-heading tyndale" data-ix="slide-left">{{ page.tyndale_hero_title }}</h1>
+          <h3 class="hero-main-subheading tyndale" data-ix="slide-right">{{ page.tyndale_hero_verse }}</h3>
+          <p class="hero-main-desc tyndale" data-ix="fade-down-on-scroll">{{ page.tyndale_hero_scripture }}</p>
+        </div>
+        <div class="empty-flex-item"></div>
+      </div>
+    </div>
+  </div>
+  <div class="genration-section1">
+    <div class="generations-tab w-tabs youth-group" data-duration-in="500" data-duration-out="200">
+      <div class="tabs-menu tyndale w-tab-menu">
+        <a class="tab-link tyndale w--current w-inline-block w-tab-link" data-w-tab="Korean School">
+          <div class="tab-link-text">{{ page.tyndale_tab_content_title_1 }}</div>
+        </a>
+      </div>
+      <div class="tabs-content w-tab-content">
+        <div class="w--tab-active w-tab-pane" data-w-tab="Korean School">
+          <div class="generation-flexbox">
+            <div class="generation-flex-item text"><img class="elem generations-logo" src="{% static 'images/TYNDALE_256x256px.png' %}" width="100">
+              <h1 class="generation-heading">{{ page.tyndale_tab_content_title_1 }}</h1>
+              <h3 class="generation-subheading">{{ page.tyndale_tab_pastor }}</h3>
+                <a class="generation-subheading" href="http://www.tyndaleinternationaluniversity.org/" target="_blank">{{ page.tyndale_tab_contact_info }}</a>
+              <p class="generation-desc">{{ page.tyndale_tab_content | richtext }}</p>
+            </div>
+            <div class="generation-flex-item moved">
+                {% image page.tyndale_tab_image_1 original as tiu_image_1 %}
+                <img class="generation-image" data-ix="slide-left" src="{{ tiu_image_1.url }}">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

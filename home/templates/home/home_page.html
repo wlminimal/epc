@@ -187,80 +187,51 @@
 
       <div class="announce-flexbox blog">
         <div class="blog text-flexitem">
-          <h1 class="sermons-heading">행사 소식</h1>
-          <h3 class="blog sermons-subheading">교회 여러 모임과 행사 소식</h3>
-          <p class="sermons-desc">기도모임, 전도회 모임, 봉사활동 또는 여러 프로그램에 대한 정보를 확인하세요.</p><a class="button w-button" href="blogandevent.html">행사 더 보기</a>
+          <h1 class="sermons-heading">{{ page.event_main_title }}</h1>
+          <h3 class="blog sermons-subheading">{{ page.event_subtitle }}</h3>
+          <p class="sermons-desc">{{ page.event_description }}</p>
+            <a class="button w-button" href="{% pageurl page.event_button_link %}">{{ page.event_button_text }}</a>
         </div>
         <div class="blog-flexitem event">
-          <div class="church-event-flexitem event">
-            <div class="event-date-flexitem"><img class="event-date-icon" height="32" src="images/calendar.png" width="32">
-              <h3 class="event-date">6월 11일</h3>
-            </div>
-            <div class="event-detail-flexitem">
-              <h3 class="event-title">기도 모임</h3>
-              <div class="event-time-flexbox"><img class="event-time-icon" height="25" src="images/stopwatch.png" width="25">
-                <div class="event-time">7:00 PM</div>
-              </div>
-              <p class="event-detail">교회를 위한 특별 기도모임이 있습니다. 전 교인분들이 참석해서 다같이 기도했으면 좋겠습니다.</p>
-            </div>
+          {% for event in latest_event %}
+              <div class="church-event-flexitem">
+                <div class="event-date-flexitem">
+                    <img class="event-date-icon" height="32" src="{% static 'images/calendar.png' %}" width="32">
+                  <h3 class="event-date">{{ event.event_date }}</h3>
+                </div>
+                <div class="event-detail-flexitem">
+                  <h3 class="event-title">{{ event.event_title }}</h3>
+                  <div class="event-time-flexbox">
+                      <img class="event-time-icon" height="25" src="{% static 'images/stopwatch.png' %}" width="25">
+                    <div class="event-time">{{ event.event_time }}</div>
+                  </div>
+                  <p class="event-detail">{{ event.event_description }}</p>
+                </div>
           </div>
-          <div class="church-event-flexitem">
-            <div class="event-date-flexitem"><img class="event-date-icon" height="32" src="images/calendar.png" width="32">
-              <h3 class="event-date">6월 13일</h3>
-            </div>
-            <div class="event-detail-flexitem">
-              <h3 class="event-title">성경 공부 모임</h3>
-              <div class="event-time-flexbox"><img class="event-time-icon" height="25" src="images/stopwatch.png" width="25">
-                <div class="event-time">7:00 PM</div>
-              </div>
-              <p class="event-detail">교회를 위한 특별 기도모임이 있습니다. 전 교인분들이 참석해서 다같이 기도했으면 좋겠습니다.</p>
-            </div>
-          </div>
-          <div class="church-event-flexitem">
-            <div class="event-date-flexitem"><img class="event-date-icon" height="32" src="images/calendar.png" width="32">
-              <h3 class="event-date">6월 11일</h3>
-            </div>
-            <div class="event-detail-flexitem">
-              <h3 class="event-title">여름성경학교 반사 모임</h3>
-              <div class="event-time-flexbox"><img class="event-time-icon" height="25" src="images/stopwatch.png" width="25">
-                <div class="event-time">7:00 PM</div>
-              </div>
-              <p class="event-detail">교회를 위한 특별 기도모임이 있습니다. 전 교인분들이 참석해서 다같이 기도했으면 좋겠습니다.</p>
-            </div>
-          </div>
-          <div class="church-event-flexitem event">
-            <div class="event-date-flexitem"><img class="event-date-icon" height="32" src="images/calendar.png" width="32">
-              <h3 class="event-date">6월 11일</h3>
-            </div>
-            <div class="event-detail-flexitem">
-              <h3 class="event-title">여전도회 모임</h3>
-              <div class="event-time-flexbox"><img class="event-time-icon" height="25" src="images/stopwatch.png" width="25">
-                <div class="event-time">7:00 PM</div>
-              </div>
-              <p class="event-detail">교회를 위한 특별 기도모임이 있습니다. 전 교인분들이 참석해서 다같이 기도했으면 좋겠습니다.</p>
-            </div>
+          {% endfor %}
           </div>
         </div>
       </div>
     </div>
-  </div>
   <div class="service-hour-section">
     <div class="service-scripture-container w-container">
-      <h1 class="worship-heading" data-ix="fade-down-on-scroll">동부교회 예배</h1>
-      <h1 class="worship-scripture" data-ix="fade-down-on-scroll-2">모이기를 폐하는 어떤 사람들의 습관과 같이 하지 말고 오직 권하여 그날이 가까움을 볼수록 더욱 그리하자</h1>
-      <h3 class="worship-scripture2" data-ix="slide-left">히브리서 10장 25절</h3>
+      <h1 class="worship-heading" data-ix="fade-down-on-scroll">{{ page.service_title }}</h1>
+      <h1 class="worship-scripture" data-ix="fade-down-on-scroll-2">{{ page.service_scripture }}</h1>
+      <h3 class="worship-scripture2" data-ix="slide-left">{{ page.service_verse }}</h3>
     </div>
     <div class="service-flex-wrap">
       <div class="service-info">
-        <h1 class="gatering-info-header">예배 시간 안내</h1>
+        <h1 class="gatering-info-header">{{ page.service_subtitle }}</h1>
         <div class="gathering-schedule-info">
-          <div class="sermon-feature-flexitem"><img class="feature-icon gathering-icon" src="images/wall-calendar-x128.png" width="64">
-            <h1 class="sermon-feature-heading">주일 예배</h1>
-            <h3 class="sermons-feature-subheading">5:30 AM<br>9:30 AM<br>11:00 AM<br>2:00 AM</h3>
+          <div class="sermon-feature-flexitem">
+              <img class="feature-icon gathering-icon" src="{% static 'images/wall-calendar-x128.png'%}" width="64">
+            <h1 class="sermon-feature-heading">{{ page.service_lord_day }}</h1>
+            <h3 class="sermons-feature-subheading">{{ page.service_lord_day_schedule_1 }}<br>{{ page.service_lord_day_schedule_2 }}<br>{{ page.service_lord_day_schedule_3 }}<br>{{ page.service_lord_day_schedule_4 }}</h3>
           </div>
-          <div class="sermon-feature-flexitem"><img class="feature-icon gathering-icon" src="images/wall-calendar-x128.png" width="64">
-            <h1 class="sermon-feature-heading">금요 예배</h1>
-            <h3 class="sermons-feature-subheading">7:30 PM</h3><a class="button gathering-button w-button" href="about.html">예배 안내 더 보기</a>
+          <div class="sermon-feature-flexitem">
+              <img class="feature-icon gathering-icon" src="{% static 'images/wall-calendar-x128.png' %}" width="64">
+            <h1 class="sermon-feature-heading">{{ page.service_friday_day }}</h1>
+            <h3 class="sermons-feature-subheading">{{ page.service_friday_day_schedule }}</h3><a class="button gathering-button w-button" href="{% pageurl page.service_button_link %}">{{ page.service_button_text }}</a>
           </div>
         </div>
       </div>
@@ -270,27 +241,35 @@
   <div class="ministries-section">
     <div>
       <div class="ministries-container w-container">
-        <h1 class="ministries-heading" data-ix="fade-down-on-scroll">동부 교회 사역</h1>
-        <h1 class="ministries-scripture" data-ix="fade-down-on-scroll-2">사람이 마땅히 우리를&nbsp;그리스도의 일군이요 하나님의 비밀을 맡은 자로 여길찌어다그리고 맡은 자들에게 구할 것은 충성이니라</h1>
-        <h3 class="ministries-scripture2" data-ix="slide-left">고린도전서 4장 1-2절</h3>
+        <h1 class="ministries-heading" data-ix="fade-down-on-scroll">{{ page.mission_main_title }}</h1>
+        <h1 class="ministries-scripture" data-ix="fade-down-on-scroll-2">{{ page.mission_scripture }}</h1>
+        <h3 class="ministries-scripture2" data-ix="slide-left">{{ page.mission_verse }}</h3>
       </div>
     </div>
     <div class="ministry-flex-wrapper">
-      <div class="mission sermon-feature-flexitem"><img class="image" sizes="(max-width: 479px) 100vw, (max-width: 767px) 45vw, (max-width: 991px) 46vw, 20vw" src="images/annie-spratt-126510.jpg" srcset="images/annie-spratt-126510-p-500.jpeg 500w, images/annie-spratt-126510-p-800.jpeg 800w, images/annie-spratt-126510-p-1080.jpeg 1080w, images/annie-spratt-126510-p-1600.jpeg 1600w, images/annie-spratt-126510.jpg 2000w">
-        <h1 class="sermon-feature-heading">선교</h1>
-        <h3 class="capital sermons-feature-subheading">니카라과</h3><a class="button nomargin w-button" href="nicaragua.html">더 보기</a>
+        {% image page.mission_card_image original as mission_image %}
+      <div class="mission sermon-feature-flexitem">
+          <img class="image" sizes="(max-width: 479px) 100vw, (max-width: 767px) 45vw, (max-width: 991px) 46vw, 20vw" src="{{ mission_image.url }}" srcset="{{ mission_image.url }} 500w, {{ mission_image.url }} 800w, {{ mission_image.url }} 1080w, {{ mission_image.url }} 1600w, {{ mission_image.url }} 2000w">
+        <h1 class="sermon-feature-heading">{{ page.mission_card_title }}</h1>
+        <h3 class="capital sermons-feature-subheading">{{ page.mission_card_subtitle }}</h3><a class="button nomargin w-button" href="{% pageurl page.mission_card_button_link %}">{{ page.mission_card_button_text }}</a>
       </div>
-      <div class="mission sermon-feature-flexitem"><img class="image" sizes="(max-width: 479px) 100vw, (max-width: 767px) 45vw, (max-width: 991px) 46vw, (max-width: 8823px) 17vw, 1500px" src="images/IMG_04994.jpg" srcset="images/IMG_04994-p-1080.jpeg 1080w, images/IMG_04994.jpg 1500w">
-        <h1 class="sermon-feature-heading">교육</h1>
-        <h3 class="capital sermons-feature-subheading">한국학교 / 틴데일 신학교</h3><a class="button nomargin w-button" href="korean-school.html">더 보기</a>
+        {% image page.education_card_image original as ed_image %}
+      <div class="mission sermon-feature-flexitem">
+          <img class="image" sizes="(max-width: 479px) 100vw, (max-width: 767px) 45vw, (max-width: 991px) 46vw, (max-width: 8823px) 17vw, 1500px" src="{{ ed_image.url }}" srcset="{{ ed_image.url }} 1080w, {{ ed_image.url }} 1500w">
+        <h1 class="sermon-feature-heading">{{ page.education_card_title }}</h1>
+        <h3 class="capital sermons-feature-subheading">{{ page.education_card_subtitle }}</h3><a class="button nomargin w-button" href="{% pageurl page.education_card_button_link %}">{{ page.education_card_button_text }}</a>
       </div>
-      <div class="mission sermon-feature-flexitem"><img class="image" src="images/stock-photo-a-young-boy-putting-coin-into-a-wooden-box-as-donation-562231933.jpg">
-        <h1 class="sermon-feature-heading">연보 / 기부</h1>
-        <h3 class="capital sermons-feature-subheading">각종 헌금과 선교와 교육을 위한 기부</h3><a class="button nomargin w-button" href="give.html">더 보기</a>
+        {% image page.offering_card_image original as offering_image %}
+      <div class="mission sermon-feature-flexitem">
+          <img class="image" src="{{ offering_image.url }}">
+        <h1 class="sermon-feature-heading">{{ page.offering_card_title }}</h1>
+        <h3 class="capital sermons-feature-subheading">{{ page.offering_card_subtitle }}</h3><a class="button nomargin w-button" href="{% pageurl page.offering_card_button_link %}">{{ page.offering_card_button_text }}</a>
       </div>
-      <div class="mission sermon-feature-flexitem"><img class="image" src="images/stock-photo-people-sitting-in-a-circle-counseling-525198115.jpg">
-        <h1 class="sermon-feature-heading">동부교회 연락처</h1>
-        <h3 class="capital sermons-feature-subheading">여러 가지 문의 사항</h3><a class="button nomargin w-button" href="contact.html">더 보기</a>
+        {% image page.contact_card_image original as contact_image %}
+      <div class="mission sermon-feature-flexitem">
+          <img class="image" src="{{ contact_image.url }}">
+        <h1 class="sermon-feature-heading">{{ page.contact_card_title }}</h1>
+        <h3 class="capital sermons-feature-subheading">{{ page.contact_card_subtitle }}</h3><a class="button nomargin w-button" href="{% pageurl page.contact_card_button_link %}">{{ page.contact_card_button_text }}</a>
       </div>
     </div>
   </div>

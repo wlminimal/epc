@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+{% load staticfiles wagtailcore_tags wagtailimages_tags epc_tags %}
+
+{% block body_class %}body{% endblock %}
+
+{% block content %}
+<div class="about page-hero-section" data-ix="slide-in-scroll-navigation-on-scroll">
+    <div class="container-medium">
+      <div class="page-hero-text-flexbox">
+        <div class="sermons-text-flex-item">
+          <h1 class="about hero-main-heading" data-ix="slide-left">{{ page.about_hero_title_1 }}<br>{{ page.about_hero_title_2 }}<br>{{ page.about_hero_title_3 }}</h1>
+        </div>
+        <div class="empty-flex-item"></div>
+      </div>
+    </div>
+  </div>
+  <div class="pastor-section">
+    <h1 class="pastor-heading">{{ page.about_main_title }}</h1>
+    <div class="container-medium">
+      <div class="pastor-flex-container">
+        <div class="pastor-image-container">
+            {% image page.pastor_picture_1 original as pastor_kim %}
+            <img class="pastor-image" sizes="(max-width: 767px) 49vw, 355px" src="{{ pastor_kim.url }}" srcset="{{ pastor_kim.url }} 500w, {{ pastor_kim.url }} 710w" width="355">
+        </div>
+        <div class="pastor-message-container">
+          <div class="w-container">
+            <h1 class="pastor-message">{{ page.pastor_name_1 }}</h1>
+            <h1 class="pastor-title">{{ page.pastor_title_1 }}</h1>
+            <blockquote class="pastor-message2" data-ix="slide-left">{{ page.pastor_message_1 | richtext }}</blockquote>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container-medium">
+      <div class="pastor-flex-container reverse">
+        <div class="pastor-image-container">
+            {% image page.pastor_picture_2 original as pastor_na %}
+            <img class="pastor-image" sizes="(max-width: 767px) 49vw, 355px" src="{{ pastor_na.url }}" srcset="{{ pastor_na.url }} 500w, {{ pastor_na.url }} 710w" width="355">
+        </div>
+        <div class="pastor-message-container">
+          <div class="pastor-message-container2 w-container">
+            <h1 class="pastor-message">{{ page.pastor_name_2 }}</h1>
+            <h1 class="pastor-title right">{{ page.pastor_title_2 }}</h1>
+            <blockquote class="pastor-message2 right" data-ix="slide-right">{{ page.pastor_message_2 | richtext }}</blockquote>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="history-section" data-ix="rotate-15">
+    <div class="history-scripture-container w-container">
+      <h1 class="short-history-heading">{{ page.history_title }}</h1>
+      <h1 class="short-history-scripture">{{ page.history_scripture }}</h1>
+      <h1 class="short-history-scripture2">{{ page.history_verse }}</h1>
+    </div>
+    <div class="_3d container-medium">
+      <div class="epc-div-block">
+        <div class="about-epc-block-bg"></div>
+        <div class="about-epc-block">
+          <h1 class="about-epc-heading" data-ix="fade-down-on-scroll-2">{{ page.history_card_title }}</h1>
+          <div class="history-text-container w-richtext">
+             {{ page.history_content | richtext }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="gathering-info-section">
+    <div class="container-medium">
+      <div class="gathering-header-container">
+        <h1 class="gathering-title">{{ page.service_main_title }}</h1>
+        <h1 class="gathering-subtitle">{{ page.service_scripture }}</h1>
+        <h1 class="gathering-scripture">{{ page.service_verse }}</h1>
+      </div>
+      <div class="gathering-schedule-container">
+        <div class="gathering-flexitem lord-day">
+          <h1 class="loads-day">{{ page.service_day_1 }}</h1>
+          <div class="gathering-sub-flexbox2">
+            <div class="adult gathering-sub-flexitem">
+              <h1 class="gathering-generation">{{ page.service.gen_1 }}</h1>
+              <div class="gathering-schedule">{{ page.service_schedule_1 }}</div>
+              <div class="gathering-schedule">{{ page.service_schedule_2 }}</div>
+              <div class="gathering-schedule">{{ page.service_schedule_3 }}</div>
+              <div class="gathering-schedule">{{ page.service_schedule_4 }}</div>
+            </div>
+            <div class="gathering-sub-flexitem">
+              <h1 class="gathering-generation">{{ page.service_gen_2 }}</h1>
+              <div class="gathering-schedule">{{ page.service_schedule_5 }}</div>
+              <div class="gathering-schedule">{{ page.service_schedule_6 }}</div>
+            </div>
+            <div class="gathering-sub-flexitem">
+              <h1 class="gathering-generation">{{ page.service_gen_3 }}</h1>
+              <div class="gathering-schedule">{{ page.service_schedule_7 }}</div>
+              <div class="gathering-schedule">{{ page.service_schedule_8 }}</div>
+            </div>
+            <div class="gathering-sub-flexitem">
+              <h1 class="gathering-generation">{{ page.service_gen_4 }}</h1>
+              <div class="gathering-schedule">{{ page.service_schedule_9 }}</div>
+              <div class="gathering-schedule">{{ page.service_schedule_10 }}</div>
+            </div>
+            <div class="gathering-sub-flexitem">
+              <h1 class="gathering-generation">{{ page.service_gen_5 }}</h1>
+              <div class="gathering-schedule">{{ page.service_schedule_11 }}</div>
+            </div>
+          </div>
+        </div>
+        <div class="gathering-sub-flexbox">
+          <div class="gathering-flexitem">
+            <h1 class="loads-day">{{ page.service_day_2 }}</h1>
+            <div class="gathering-schedule">{{ page.service_schedule_12 }}</div>
+          </div>
+          <div class="gathering-flexitem">
+            <h1 class="loads-day">{{ page.service_day_3 }}</h1>
+            <div class="gathering-schedule">{{ page.service_schedule_13 }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

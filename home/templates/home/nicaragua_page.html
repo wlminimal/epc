@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load staticfiles wagtailcore_tags wagtailimages_tags epc_tags %}
+{% block body_class %}body{% endblock %}
+{% block content %}
+<div class="missioni page-hero-section" data-ix="slide-in-scroll-navigation-on-scroll">
+    <div class="container-medium">
+      <div class="page-hero-text-flexbox">
+        <div class="sermons-text-flex-item">
+          <h1 class="hero-main-heading mission" data-ix="slide-left">{{ page.mission_hero_title }}</h1>
+          <h3 class="hero-main-subheading" data-ix="slide-right">{{ page.mission_hero_verse }}</h3>
+          <p class="hero-main-desc mission" data-ix="fade-down-on-scroll">{{ page.mission_hero_scripture }}</p>
+        </div>
+        <div class="empty-flex-item"></div>
+      </div>
+    </div>
+  </div>
+  <div class="genration-section1">
+    <div class="generations-tab w-tabs youth-group" data-duration-in="500" data-duration-out="200">
+      <div class="nicaragua tabs-menu w-tab-menu">
+        <a class="nicaragua tab-link w--current w-inline-block w-tab-link" data-w-tab="Nicaragua">
+          <div class="tab-link-text young-adult">{{ page.nicaragua_tab_content_title_1 }}</div>
+        </a>
+      </div>
+      <div class="tabs-content w-tab-content">
+        <div class="w--tab-active w-tab-pane" data-w-tab="Nicaragua">
+          <div class="generation-flexbox">
+            <div class="generation-flex-item text">
+                <img class="elem generations-logo" src="{% static 'images/hiker.png' %}" width="50">
+              <h1 class="generation-heading">{{ page.nicaragua_tab_content_title_1 }}</h1>
+              <h3 class="generation-subheading">{{ page.nicaragua_tab_pastor }}</h3>
+              <h3 class="gathering-info">{{ page.nicaragua_tab_contact_info }}</h3>
+              <p class="generation-desc">{{ page.nicaragua_tab_content | richtext }}</p>
+            </div>
+            <div class="generation-flex-item moved">
+                {% image page.nicaragua_tab_image_1 original as nicaragua_image_1 %}
+                <img class="generation-image" data-ix="slide-left" sizes="(max-width: 960px) 100vw, (max-width: 991px) 960px, 50vw" src="{{ nicaragua_image_1.url }}" srcset="{{ nicaragua_image_1.url }} 500w, {{ nicaragua_image_1.url }} 800w, {{ nicaragua_image_1.url }} 960w">
+            </div>
+            <div class="generation-flex-item moved">
+                {% image page.nicaragua_tab_image_2 original as nicaragua_image_2 %}
+                <img class="generation-image" data-ix="slide-left" sizes="(max-width: 991px) 100vw, (max-width: 2000px) 50vw, 1000px" src="{{ nicaragua_image_2.url }}" srcset="{{ nicaragua_image_2.url }} 500w, {{ nicaragua_image_2.url }} 800w, {{ nicaragua_image_2.url }} 1000w">
+            </div>
+            <div class="generation-flex-item moved">
+                {% image page.nicaragua_tab_image_3 original as nicaragua_image_3 %}
+                <img class="generation-image" data-ix="slide-left" sizes="(max-width: 991px) 100vw, (max-width: 2000px) 50vw, 1000px" src="{{ nicaragua_image_3.url }}" srcset="{{ nicaragua_image_3.url }} 500w, {{ nicaragua_image_3.url }} 800w, {{ nicaragua_image_3.url }} 1000w">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

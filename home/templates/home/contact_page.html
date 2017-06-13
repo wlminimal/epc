@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% load staticfiles wagtailcore_tags wagtailimages_tags epc_tags %}
+
+{% block body_class %}body contact-page{% endblock %}
+
+{% block content %}
+<div class="contact page-hero-section" data-ix="slide-in-scroll-navigation-on-scroll">
+    <div class="container-medium">
+      <div class="contact-hero-flexbox">
+        <div class="contact-text-flexitem">
+          <h5 class="contact-hero-heading" data-ix="fade-down-on-scroll">{{ page.contact_hero_title }}</h5>
+          <div class="contact-hero-subheading" data-ix="slide-left">{{ page.contact_hero_subtitle }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div class="contact contact-overlap-block">
+      <div class="contact-flexbox">
+        <div class="contact-flex-item" data-ix="pop-up-on-scroll">
+          <div class="contact-detail-wrapper"><img class="contact-card-icon" src="{% static 'images/gps.png' %}">
+            <h3 class="contact-card-title">{{ page.address_title }}</h3>
+            <p class="contact-card-detail">{{ page.address_1 }}
+              <br>{{ page.address_2 }}</p>
+          </div>
+        </div>
+        <div class="contact-flex-item" data-ix="pop-up-on-scroll-2">
+          <div class="contact-detail-wrapper"><img class="contact-card-icon" src="{% static 'images/mobile-phone.png' %}">
+            <h3 class="contact-card-title">{{ page.phone_title }}</h3>
+            <p class="contact-card-detail">{{ page.phone_number }}</p>
+            <p class="contact-card-detail">{{ page.fax_number }}</p>
+          </div>
+        </div>
+        <div class="contact-flex-item" data-ix="pop-up-on-scroll-3">
+          <div class="contact-detail-wrapper"><img class="contact-card-icon" src="{% static 'images/mail.png' %}">
+            <h3 class="contact-card-title">{{ page.email_title }}</h3>
+            <p class="contact-card-detail">{{ page.email_address }}</p>
+          </div>
+        </div>
+        <div class="contact-flex-item" data-ix="pop-up-on-scroll-4">
+          <div class="contact-detail-wrapper"><img class="contact-card-icon" src="{% static 'images/pray.png' %}">
+            <h3 class="contact-card-title">{{ page.service_title }}</h3>
+            <p class="contact-card-detail">{{ page.service_schedule_1 }}</p>
+            <p class="contact-card-detail">{{ page.service_schedule_2 }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="form-section">
+    <h4 class="contact-form-heading">{{ page.contact_form_title }}</h4>
+    <div class="small-divider"></div>
+    <div class="form-flexbox">
+      <div class="form-flexitem">
+        <div class="contact-form-wrapper w-form">
+          <form class="contact-form" data-name="Email Form 2" id="email-form-2" name="email-form-2">
+            <input class="contact-form-text w-input" data-name="Name" id="name" maxlength="256" name="name" placeholder="이름을 써주세요" type="text">
+            <input class="contact-form-text w-input" data-name="Email 2" id="email-2" maxlength="256" name="email" placeholder="연락할 이메일 주소를 써주세요" required="required" type="email">
+            <textarea class="contact-form-text textfield w-input" id="field" maxlength="5000" name="field" placeholder="문의할 내용을 적어주세요" required="required"></textarea>
+            <input class="button contact w-button" data-wait="Please wait..." type="submit" value="보내기">
+          </form>
+          <div class="w-form-done">
+            <div>Thank you! Your submission has been received!</div>
+          </div>
+          <div class="w-form-fail">
+            <div>Oops! Something went wrong while submitting the form</div>
+          </div>
+        </div>
+      </div>
+      <div class="map-flexitem">
+        <div class="epc-map w-widget w-widget-map" data-widget-latlng="34.0632736,-118.3171359" data-widget-tooltip="Eastern Church"></div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

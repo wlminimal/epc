@@ -6,9 +6,9 @@
     <div class="container-medium">
       <div class="page-hero-text-flexbox">
         <div class="sermons-text-flex-item">
-          <h1 class="hero-main-heading" data-ix="slide-left">{{ page.f_sermon_hero_title }}</h1>
-          <h3 class="hero-main-subheading" data-ix="slide-right">{{ page.f_sermon_hero_subtitle }}</h3>
-          <p class="hero-main-desc" data-ix="fade-down-on-scroll">{{ page.f_sermon_hero_description | richtext }}</p>
+          <h1 class="hero-main-heading" data-ix="slide-left">{{ page.sermon_hero_title }}</h1>
+          <h3 class="hero-main-subheading" data-ix="slide-right">{{ page.sermon_hero_subtitle }}</h3>
+          <p class="hero-main-desc" data-ix="fade-down-on-scroll">{{ page.sermon_hero_description | richtext }}</p>
         </div>
         <div class="empty-flex-item"></div>
       </div>
@@ -17,7 +17,7 @@
   <div class="sermons-page-section">
     <div class="sermons-intro-flex-container">
       <div class="sermons-intro-flex-item" data-ix="slide-right">
-        <h1 class="sermons-intro-heading" data-ix="slide-left">{{ page.f_sermon_main_title_1 }}</h1>
+        <h1 class="sermons-intro-heading" data-ix="slide-left">{{ page.sermon_main_title_1 }}</h1>
       </div>
       <div class="sermons-latest-video-flex-item">
         {% for sermon in latest_sermons %}
@@ -52,7 +52,7 @@
   </div>
   <div class="sermons-prev-section">
     <div class="container-medium">
-      <h1 class="sermons-prev-heading">{{ page.f_sermon_main_title_2 }}</h1>
+      <h1 class="sermons-prev-heading">{{ page.sermon_main_title_2 }}</h1>
     </div>
     <div class="prev-sermon-flex-container">
         {% for sermon in past_sermons %}

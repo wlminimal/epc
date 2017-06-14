@@ -44,28 +44,29 @@
   </div>
   <div class="giving-section">
     <div class="container-medium">
-      <h1 class="giving-heading">후원 방법</h1>
+      <h1 class="giving-heading">{{ page.give_main_title }}</h1>
       <div class="giving small-divider"></div>
       <div class="giving-flexbox">
         <div class="giving-flexitem">
-          <h4 class="giving-small-header">개인 체크(check)으로 후원</h4>
-          <h1 class="giving-card-header">체크 보내기</h1>
+          <h4 class="giving-small-header">{{ page.check_subtitle }}</h4>
+          <h1 class="giving-card-header">{{ page.check_title }}</h1>
           <div class="giving-card small-divider"></div>
-          <p class="giving-card-detail">후원하실 금액을 체크에 쓰시고 Pay to Order of 란에 Eastern Church 라고 쓰신후 4270 W 6TH ST LOS ANGELES, CA 90020. 로 보내 주시길 바랍니다.</p>
+          <p class="giving-card-detail">{{ page.check_description | richtext }}</p>
         </div>
         <div class="giving-flexitem">
-          <h4 class="giving-small-header">온라인 후원</h4>
-          <h1 class="giving-card-header">일회로 후원</h1>
+          <h4 class="giving-small-header">{{ page.onetime_subtitle }}</h4>
+          <h1 class="giving-card-header">{{ page.onetime_title }}</h1>
           <div class="giving-card small-divider"></div>
-          <p class="giving-card-detail">은행 구좌를 통한 자동이체 또는 Debit 또는 Credit Card로 후원하기 (정해진 후원금이 한번만 결제됩니다.)</p><a class="button give w-button" href="#">온라인 후원</a>
+          <p class="giving-card-detail">{{ page.onetime_description | richtext }}</p><a class="button give w-button" href="{{ page.onetime_button_link }}">{{ page.onetime_button_text }}</a>
         </div>
         <div class="giving-flexitem">
-          <h4 class="giving-small-header">온라인 후원</h4>
-          <h1 class="giving-card-header">주기적 후원</h1>
+          <h4 class="giving-small-header">{{ page.recurring_subtitle }}</h4>
+          <h1 class="giving-card-header">{{ page.recurring_title }}</h1>
           <div class="giving-card small-divider"></div>
-          <p class="giving-card-detail">은행 구좌를 통한 자동이체 또는 Debit 또는 Credit Card로 후원하기 (정해진 후원금이 정해진 매달 날짜에 자동이체 됩니다.)</p><a class="button give w-button" href="#">온라인 후원</a>
+          <p class="giving-card-detail">{{ page.recurring_description | richtext }}</p><a class="button give w-button" href="{{ page.recurring_button_link }}">{{ page.recurring_button_text }}</a>
         </div>
       </div>
     </div>
   </div>
+
 {% endblock %}

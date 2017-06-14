@@ -52,16 +52,10 @@
     <div class="small-divider"></div>
     <div class="form-flexbox">
       <div class="form-flexitem">
-        <div class="contact-form-wrapper">
-          <form class="contact-form" action="{% pageurl self %}" id="contact-form" name="contact-form" method="post">
-              {% csrf_token %}
-              {{ form.as_p }}
-            <input class="button contact w-button" type="submit" value="보내기">
-          </form>
-        </div>
+        <h2>{{ page.thank_you_text | richtext }}</h2>
       </div>
       <div class="map-flexitem">
-        <div class="epc-map w-widget w-widget-map" data-widget-latlng="34.0632736,-118.3171359" data-widget-tooltip="동부 장로 교회"></div>
+        <div class="epc-map w-widget w-widget-map" data-widget-latlng="34.0632736,-118.3171359" data-widget-tooltip="Eastern Church"></div>
       </div>
     </div>
   </div>

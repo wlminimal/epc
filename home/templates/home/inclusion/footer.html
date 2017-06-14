@@ -1,7 +1,8 @@
+{% load staticfiles %}
 <div class="footer-section">
     <div class="footer">
       <div class="newsletter-footer">
-        <h4 class="newsletter-heading">교회소식 받아보기</h4>
+        <!-- <h4 class="newsletter-heading">교회소식 받아보기</h4>
         <div class="w-form">
           <form class="email-form" data-name="Email Form" id="email-form" name="email-form">
             <input class="email-footer w-input" data-name="Email" id="email" maxlength="256" name="email" placeholder="이메일 주소를 넣어주세요" required="required" type="email">
@@ -15,16 +16,19 @@
           </div>
         </div>
         <p class="paragraph">- 최근 교회소식과 설교 동영상을 받아보세요</p>
+        -->
+          <img src="{% static 'images/logo2-165px.png' %}" alt="">
+
       </div>
       <div class="footer-menu">
         <div class="footer-navbar">
-          <a class="footer-nav-link" href="#">교회 소개</a>
-          <a class="footer-nav-link" href="#">주일학교</a>
-          <a class="footer-nav-link" href="#">설교 영상</a>
-          <a class="footer-nav-link" href="#">선교</a>
-          <a class="footer-nav-link" href="#">교육</a>
-          <a class="footer-nav-link" href="#">블로그/행사</a>
-          <a class="footer-nav-link" href="#">연락하기</a>
+          <a class="footer-nav-link" href="/교회-소개">교회 소개</a>
+          <a class="footer-nav-link" href="/주일-학교/유초등부">주일학교</a>
+          <a class="footer-nav-link" href="/설교-영상/주일-예배-설교">설교 영상</a>
+          <a class="footer-nav-link" href="/선교/니카라과">선교</a>
+          <a class="footer-nav-link" href="/교육/한국-학교">교육</a>
+          <a class="footer-nav-link" href="/블로그">블로그</a>
+          <a class="footer-nav-link" href="/연락하기">연락하기</a>
         </div>
         <div class="footer-logo">
           <div class="copyright-text">COPYRIGHT © 2017 동부 장로 교회</div>

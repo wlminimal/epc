@@ -14,191 +14,64 @@
     </div>
   </div>
 
-    <div>
+  <div>
     <div class="container-medium">
       <h1 class="featured-heading">{{ page.event_featured_name }}</h1>
       <div class="event small-divider"></div>
       <div class="featured-event-flexbox">
-        <div class="featured-event-flexitem" data-ix="slide-right"><img class="feature-event-image" sizes="(max-width: 479px) 100vw, (max-width: 991px) 50vw, 40vw" src="images/IMG_04994.jpg" srcset="images/IMG_04994-p-1080.jpeg 1080w, images/IMG_04994.jpg 1500w">
-          <div class="church-event-flexitem featured">
-            <div class="event-date-flexitem"><img class="event-date-icon" height="32" src="images/calendar.png" width="32">
-              <h3 class="event-date">5월 20일</h3>
-            </div>
-            <div class="event-detail-flexitem">
-              <h3 class="event-title">한국 학교 종강식</h3>
-              <div class="event-time-flexbox"><img class="event-time-icon" height="25" src="images/stopwatch.png" width="25">
-                <div class="event-time">11:00 AM</div>
+          {% for event in f_events %}
+            <div class="featured-event-flexitem" data-ix="slide-right">
+                {% image event.event_image original as event_image %}
+                <img class="feature-event-image" sizes="(max-width: 479px) 100vw, (max-width: 991px) 50vw, 40vw" src="{{ event_image.url }}" srcset="{{ event_image.url }} 1080w, {{ event_image.url }} 1500w">
+              <div class="church-event-flexitem featured">
+                <div class="event-date-flexitem">
+                    <img class="event-date-icon" height="32" src="{% static 'images/calendar.png' %}" width="32">
+                  <h3 class="event-date">{{ event.event_date }}</h3>
+                </div>
+                <div class="event-detail-flexitem">
+                  <h3 class="event-title">{{ event.event_title }}</h3>
+                  <div class="event-time-flexbox"><img class="event-time-icon" height="25" src="{% static 'images/stopwatch.png' %}" width="25">
+                    <div class="event-time">{{ event.event_time }}</div>
+                  </div>
+                  <p class="event-detail featured">{{ event.event_description }}</p>
+                </div>
               </div>
-              <p class="event-detail featured">2017년 5월 20일 동부 교회에서 한국 학교 종강식이 있습니다.</p>
             </div>
-          </div>
-        </div>
-        <div class="featured-event-flexitem" data-ix="slide-left"><img class="feature-event-image" sizes="(max-width: 479px) 100vw, (max-width: 991px) 50vw, 40vw" src="images/IMG_05064.jpg" srcset="images/IMG_05064-p-500.jpeg 500w, images/IMG_05064-p-800.jpeg 800w, images/IMG_05064-p-1080.jpeg 1080w, images/IMG_05064.jpg 1298w">
-          <div class="church-event-flexitem featured">
-            <div class="event-date-flexitem"><img class="event-date-icon" height="32" src="images/calendar.png" width="32">
-              <h3 class="event-date">7월 6일</h3>
-            </div>
-            <div class="event-detail-flexitem">
-              <h3 class="event-title">2017년 여름 성경 학교 시작</h3>
-              <div class="event-time-flexbox"><img class="event-time-icon" height="25" src="images/stopwatch.png" width="25">
-                <div class="event-time">5:00 PM</div>
-              </div>
-              <p class="event-detail featured">7월 6일부터 10일까지 2017년 여름성경 학교가 시작합니다. 참석하고 싶으신분들은 한달전에 미리 등록하시길 바랍니다. vbs@epcla.org로 문의 하시길 바랍니다.</p>
-            </div>
-          </div>
-        </div>
+          {% endfor %}
       </div>
       <div class="divider"></div>
     </div>
     <div class="container-medium">
       <div class="church-event-flexbox">
-        <div class="church-event-flexitem">
-          <div class="event-date-flexitem"><img class="event-date-icon" height="32" src="images/calendar.png" width="32">
-            <h3 class="event-date">6월 11일</h3>
-          </div>
-          <div class="event-detail-flexitem">
-            <h3 class="event-title">기도 모임</h3>
-            <div class="event-time-flexbox"><img class="event-time-icon" height="25" src="images/stopwatch.png" width="25">
-              <div class="event-time">7:00 PM</div>
+
+          {% for event in r_events %}
+            <div class="church-event-flexitem">
+              <div class="event-date-flexitem">
+                  <img class="event-date-icon" height="25" src="{% static 'images/calendar.png' %}" width="25">
+                <h3 class="event-date">{{ event.event_date }}</h3>
+              </div>
+              <div class="event-detail-flexitem">
+                <h3 class="event-title">{{ event.event_title }}</h3>
+                <div class="event-time-flexbox"><img class="event-time-icon" height="25" src="{% static 'images/stopwatch.png' %}" width="25">
+                  <div class="event-time">{{ event.event_time }}</div>
+                </div>
+                <p class="event-detail">{{ event.event_description }}</p>
+              </div>
             </div>
-            <p class="event-detail">교회를 위한 특별 기도모임이 있습니다. 전 교인분들이 참석해서 다같이 기도했으면 좋겠습니다.</p>
-          </div>
-        </div>
-        <div class="church-event-flexitem">
-          <div class="event-date-flexitem"><img class="event-date-icon" height="32" src="images/calendar.png" width="32">
-            <h3 class="event-date">6월 11일</h3>
-          </div>
-          <div class="event-detail-flexitem">
-            <h3 class="event-title">기도 모임</h3>
-            <div class="event-time-flexbox"><img class="event-time-icon" height="25" src="images/stopwatch.png" width="25">
-              <div class="event-time">7:00 PM</div>
-            </div>
-            <p class="event-detail">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
-          </div>
-        </div>
-        <div class="church-event-flexitem">
-          <div class="event-date-flexitem"><img class="event-date-icon" height="32" src="images/calendar.png" width="32">
-            <h3 class="event-date">6월 11일</h3>
-          </div>
-          <div class="event-detail-flexitem">
-            <h3 class="event-title">기도 모임</h3>
-            <div class="event-time-flexbox"><img class="event-time-icon" height="25" src="images/stopwatch.png" width="25">
-              <div class="event-time">7:00 PM</div>
-            </div>
-            <p class="event-detail">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
-          </div>
-        </div>
-        <div class="church-event-flexitem">
-          <div class="event-date-flexitem"><img class="event-date-icon" height="32" src="images/calendar.png" width="32">
-            <h3 class="event-date">6월 11일</h3>
-          </div>
-          <div class="event-detail-flexitem">
-            <h3 class="event-title">기도 모임</h3>
-            <div class="event-time-flexbox"><img class="event-time-icon" height="25" src="images/stopwatch.png" width="25">
-              <div class="event-time">7:00 PM</div>
-            </div>
-            <p class="event-detail">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
-          </div>
-        </div>
-        <div class="church-event-flexitem">
-          <div class="event-date-flexitem"><img class="event-date-icon" height="32" src="images/calendar.png" width="32">
-            <h3 class="event-date">6월 11일</h3>
-          </div>
-          <div class="event-detail-flexitem">
-            <h3 class="event-title">기도 모임</h3>
-            <div class="event-time-flexbox"><img class="event-time-icon" height="25" src="images/stopwatch.png" width="25">
-              <div class="event-time">7:00 PM</div>
-            </div>
-            <p class="event-detail">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
-          </div>
-        </div>
-        <div class="church-event-flexitem">
-          <div class="event-date-flexitem"><img class="event-date-icon" height="32" src="images/calendar.png" width="32">
-            <h3 class="event-date">6월 11일</h3>
-          </div>
-          <div class="event-detail-flexitem">
-            <h3 class="event-title">기도 모임</h3>
-            <div class="event-time-flexbox"><img class="event-time-icon" height="25" src="images/stopwatch.png" width="25">
-              <div class="event-time">7:00 PM</div>
-            </div>
-            <p class="event-detail">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
-          </div>
-        </div>
-        <div class="church-event-flexitem">
-          <div class="event-date-flexitem"><img class="event-date-icon" height="32" src="images/calendar.png" width="32">
-            <h3 class="event-date">6월 11일</h3>
-          </div>
-          <div class="event-detail-flexitem">
-            <h3 class="event-title">기도 모임</h3>
-            <div class="event-time-flexbox"><img class="event-time-icon" height="25" src="images/stopwatch.png" width="25">
-              <div class="event-time">7:00 PM</div>
-            </div>
-            <p class="event-detail">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
-          </div>
-        </div>
-        <div class="church-event-flexitem">
-          <div class="event-date-flexitem"><img class="event-date-icon" height="32" src="images/calendar.png" width="32">
-            <h3 class="event-date">6월 11일</h3>
-          </div>
-          <div class="event-detail-flexitem">
-            <h3 class="event-title">기도 모임</h3>
-            <div class="event-time-flexbox"><img class="event-time-icon" height="25" src="images/stopwatch.png" width="25">
-              <div class="event-time">7:00 PM</div>
-            </div>
-            <p class="event-detail">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
-          </div>
-        </div>
-        <div class="church-event-flexitem">
-          <div class="event-date-flexitem"><img class="event-date-icon" height="32" src="images/calendar.png" width="32">
-            <h3 class="event-date">6월 11일</h3>
-          </div>
-          <div class="event-detail-flexitem">
-            <h3 class="event-title">기도 모임</h3>
-            <div class="event-time-flexbox"><img class="event-time-icon" height="25" src="images/stopwatch.png" width="25">
-              <div class="event-time">7:00 PM</div>
-            </div>
-            <p class="event-detail">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
-          </div>
-        </div>
-        <div class="church-event-flexitem">
-          <div class="event-date-flexitem"><img class="event-date-icon" height="32" src="images/calendar.png" width="32">
-            <h3 class="event-date">6월 11일</h3>
-          </div>
-          <div class="event-detail-flexitem">
-            <h3 class="event-title">기도 모임</h3>
-            <div class="event-time-flexbox"><img class="event-time-icon" height="25" src="images/stopwatch.png" width="25">
-              <div class="event-time">7:00 PM</div>
-            </div>
-            <p class="event-detail">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
-          </div>
-        </div>
-        <div class="church-event-flexitem">
-          <div class="event-date-flexitem"><img class="event-date-icon" height="32" src="images/calendar.png" width="32">
-            <h3 class="event-date">6월 11일</h3>
-          </div>
-          <div class="event-detail-flexitem">
-            <h3 class="event-title">기도 모임</h3>
-            <div class="event-time-flexbox"><img class="event-time-icon" height="25" src="images/stopwatch.png" width="25">
-              <div class="event-time">7:00 PM</div>
-            </div>
-            <p class="event-detail">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
-          </div>
-        </div>
-        <div class="church-event-flexitem">
-          <div class="event-date-flexitem"><img class="event-date-icon" height="32" src="images/calendar.png" width="32">
-            <h3 class="event-date">6월 11일</h3>
-          </div>
-          <div class="event-detail-flexitem">
-            <h3 class="event-title">기도 모임</h3>
-            <div class="event-time-flexbox"><img class="event-time-icon" height="25" src="images/stopwatch.png" width="25">
-              <div class="event-time">7:00 PM</div>
-            </div>
-            <p class="event-detail">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
-          </div>
-        </div>
+          {% endfor %}
+
       </div>
     </div>
   </div>
-  <div class="blog pagination-block"><a class="blog left-arrow" href="#">«</a><a class="blog pagination-number" href="#">1</a><a class="blog pagination-number" href="#">2</a><a class="blog pagination-number" href="#">3</a><a class="blog pagination-number" href="#">4</a><a class="blog pagination-number" href="#">5</a><a class="blog pagination-number" href="#">6</a><a class="blog pagination-number" href="#">7</a><a class="blog right-arrow" href="#">»</a>
+  <div class="blog pagination-block">
+          {% if r_events.has_previous %}
+          <a class="blog left-arrow" href="?page={{ r_events.previous_page_number }}">이전 페이지</a>
+          {% endif %}
+          <span class="blog pagination-number" href="#">
+              Page {{ r_events.number }} of {{ r_events.paginator.num_pages }}
+          </span>
+          {% if r_events.has_next %}
+          <a class="blog right-arrow" href="?page={{ r_events.next_page_number }}">다음 페이지</a>
+          {% endif %}
   </div>
 {% endblock %}

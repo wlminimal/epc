@@ -1,0 +1,50 @@
+#contact-form  label {
+    display: none;
+}
+
+#contact-form input {
+    display: block;
+    width: 100%;
+    height: 38px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333333;
+    vertical-align: middle;
+    background-color: #ffffff;
+    padding: 27px;
+    border-style: none;
+    font-family: 'Bmyeonsung ttf', sans-serif;
+}
+
+#contact-form input:focus, #contact-form textarea:focus {
+    border-color: #3898EC;
+    outline: 0;
+}
+
+
+#contact-form textarea {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333333;
+    vertical-align: middle;
+    background-color: #ffffff;
+    padding: 27px;
+    border-style: none;
+    font-family: 'Bmyeonsung ttf', sans-serif;
+    height: auto;
+}
+
+#contact-form .w-button {
+    background-color: #546cc3;
+    color: #fff;
+    font-size:18px;
+    font-family: sans-serif;
+    padding-bottom: 40px;
+    padding-top: 15px;
+}
+
+

@@ -23,7 +23,6 @@ class SermonDay(models.Model):
         return self.sermon_day
 
 
-@register_snippet
 class SermonVideo(models.Model):
     sermon_day = models.ForeignKey(
         "home.SermonDay",
@@ -47,6 +46,19 @@ class SermonVideo(models.Model):
     sermon_share_code = models.CharField(max_length=80, default="LHJowUFSKMA")
     upload_date = models.DateTimeField(auto_now_add=True)
 
+    class Meta:
+        abstract = True
+
+
+@register_snippet
+class LordDaySermon(SermonVideo):
+
+    def __str__(self):
+        return "{} - {}".format(self.sermon_title, self.sermon_date)
+
+
+@register_snippet
+class FridaySermon(SermonVideo):
     def __str__(self):
         return "{} - {}".format(self.sermon_title, self.sermon_date)
 
@@ -180,6 +192,29 @@ class EventIndexPage(Page):
     event_hero_title = models.TextField(default="Event")
     event_hero_subtitle = models.TextField(default="Subtitle for Event")
     event_featured_name = models.CharField(max_length=100, default="Featured Event")
+
+    featured_event = FeaturedEvent.objects.all().order_by("-upload_date")[:2]
+    regular_event = RegularEvent.objects.all().order_by("-upload_date")
+
+    def get_context(self, request, *args, **kwargs):
+        f_events = self.featured_event
+        r_events = self.regular_event
+
+        paginator = Paginator(r_events, 8)
+        page = request.GET.get('page')
+
+        try:
+            r_events = paginator.page(page)
+        except PageNotAnInteger:
+            r_events = paginator.page(1)
+        except EmptyPage:
+            r_events = paginator.page(paginator.num_pages)
+
+        context = super(EventIndexPage, self).get_context(request, *args, **kwargs)
+        context['f_events'] = f_events
+        context['r_events'] = r_events
+
+        return context
 
     content_panels = Page.content_panels + [
         FieldPanel('event_hero_title'),
@@ -442,7 +477,7 @@ class HomePage(Page):
 
     @property
     def latest_sermons(self):
-        latest_sermon_video = SermonVideo.objects.all().order_by('-upload_date')
+        latest_sermon_video = LordDaySermon.objects.all().order_by('-upload_date')[:2]
         return latest_sermon_video
 
     def get_context(self, request, *args, **kwargs):
@@ -1069,11 +1104,97 @@ class SermonPage(Page):
 
 
 class LordDaySermonPage(Page):
-    pass
+    sermon_hero_title = models.CharField(max_length=80, default="주일 설교 영상")
+    sermon_hero_subtitle = models.TextField(default="성경을 성경으로 해석한다")
+    sermon_hero_description = RichTextField(default="Description")
+
+    sermon_main_title_1 = models.CharField(max_length=100, default="최신 주일 예배 설교 영상")
+    sermon_main_title_2 = models.CharField(max_length=100, default="지난 주일 예배 설교 영상들")
+
+    @property
+    def latest_sermons(self):
+        latest_sermon_video = LordDaySermon.objects.all().order_by('-upload_date')[:2]
+        return latest_sermon_video
+
+    @property
+    def past_sermons(self):
+        past_sermon_video = LordDaySermon.objects.all().order_by('-upload_date')[2:]
+        return past_sermon_video
+
+    def get_context(self, request, *args, **kwargs):
+        latest_sermons = self.latest_sermons
+        past_sermons = self.past_sermons
+
+        paginator = Paginator(past_sermons, 8)
+        page = request.GET.get('page')
+
+        try:
+            past_sermons = paginator.page(page)
+        except PageNotAnInteger:
+            past_sermons = paginator.page(1)
+        except EmptyPage:
+            past_sermons = paginator.page(paginator.num_pages)
+
+        context = super(LordDaySermonPage, self).get_context(request, *args, **kwargs)
+        context['latest_sermons'] = latest_sermons
+        context['past_sermons'] = past_sermons
+
+        return context
+
+    content_panels = Page.content_panels + [
+        FieldPanel('sermon_hero_title'),
+        FieldPanel('sermon_hero_subtitle'),
+        FieldPanel('sermon_hero_description'),
+        FieldPanel('sermon_main_title_1'),
+        FieldPanel('sermon_main_title_2'),
+    ]
 
 
 class FridaySermonPage(Page):
-    pass
+    f_sermon_hero_title = models.CharField(max_length=80, default="금요 예배 설교 영상")
+    f_sermon_hero_subtitle = models.TextField(default="요한 계시록 강해 / 특별 강사 설교")
+    f_sermon_hero_description = RichTextField(default="Description")
+
+    f_sermon_main_title_1 = models.CharField(max_length=100, default="최신 주일 예배 설교 영상")
+    f_sermon_main_title_2 = models.CharField(max_length=100, default="지난 주일 예배 설교 영상들")
+
+    @property
+    def latest_sermons(self):
+        latest_sermon_video = FridaySermon.objects.all().order_by('-upload_date')[:2]
+        return latest_sermon_video
+
+    @property
+    def past_sermons(self):
+        past_sermon_video = FridaySermon.objects.all().order_by('-upload_date')[2:]
+        return past_sermon_video
+
+    def get_context(self, request, *args, **kwargs):
+        latest_sermons = self.latest_sermons
+        past_sermons = self.past_sermons
+
+        paginator = Paginator(past_sermons, 8)
+        page = request.GET.get('page')
+
+        try:
+            past_sermons = paginator.page(page)
+        except PageNotAnInteger:
+            past_sermons = paginator.page(1)
+        except EmptyPage:
+            past_sermons = paginator.page(paginator.num_pages)
+
+        context = super(FridaySermonPage, self).get_context(request, *args, **kwargs)
+        context['latest_sermons'] = latest_sermons
+        context['past_sermons'] = past_sermons
+
+        return context
+
+    content_panels = Page.content_panels + [
+        FieldPanel('f_sermon_hero_title'),
+        FieldPanel('f_sermon_hero_subtitle'),
+        FieldPanel('f_sermon_hero_description'),
+        FieldPanel('f_sermon_main_title_1'),
+        FieldPanel('f_sermon_main_title_2'),
+    ]
 
 
 class MissionPage(Page):
@@ -1208,7 +1329,11 @@ class TiuPage(Page):
     ]
 
 
-class ContactPage(Page):
+class FormField(AbstractFormField):
+    page = ParentalKey('ContactPage', related_name='form_fields')
+
+
+class ContactPage(AbstractEmailForm):
     contact_hero_title = models.CharField(max_length=100, default="모든 분들의 연락을 기다립니다.")
     contact_hero_subtitle = models.TextField(default="교회와 사역에 질문이 있으시면 아래 연락방법으로 연락하시길 바랍니다.")
 
@@ -1228,6 +1353,8 @@ class ContactPage(Page):
     service_schedule_2 = models.CharField(max_length=80, default="금요예배 : 7:30 pm")
 
     contact_form_title = models.TextField(default="문의 사항이 있으시면 아래 폼을 작성해서 보내기를 눌러주세요")
+
+    thank_you_text = RichTextField(default="Thank you for contacting us. We will get back to you soon.")
 
     content_panels = Page.content_panels + [
         FieldPanel('contact_hero_title'),
@@ -1264,7 +1391,17 @@ class ContactPage(Page):
             ])
         ]),
 
-        FieldPanel('contact_form_title')
+        FieldPanel('contact_form_title'),
+        FormSubmissionsPanel(),
+        InlinePanel('form_fields', label='Contact Form Fields'),
+        FieldPanel('thank_you_text', classname='full'),
+        MultiFieldPanel([
+            FieldRowPanel([
+                FieldPanel('from_address', classname="col6"),
+                FieldPanel('to_address', classname="col6"),
+            ]),
+            FieldPanel('subject'),
+        ], 'Email'),
     ]
 
 

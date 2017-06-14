@@ -168,8 +168,9 @@
           <a class="button w-button" href="{% pageurl page.blog_button_link %} ">{{ page.blog_button_text }}</a>
         </div>
           <!-- Blog Content -->
-          {% for blog in latest_blogs %}
+
             <div class="blog-flexitem">
+            {% for blog in latest_blogs %}
               <div class="blog-page-flexitem">
                   {% image blog.blog_image original as blog_image %}
                 <img class="blog-thumb-image" sizes="(max-width: 479px) 100vw, (max-width: 767px) 96vw, (max-width: 991px) 44vw, (max-width: 4635px) 28vw, 1298px" src="{{ blog_image.url }}" srcset="{{ blog_image.url }} 500w, {{ blog_image.url }} 800w, {{ blog_image.url }} 1080w, {{ blog_image.url }} 1298w">
@@ -185,8 +186,9 @@
                   <a class="continue-reading" href="{% pageurl blog %}">계속 읽기</a>
                 <div class="blog-sub-flexitem2"></div>
               </div>
+            {% endfor %}
             </div>
-          {% endfor %}
+
       </div>
 
       <div class="announce-flexbox blog">

@@ -472,7 +472,7 @@ class HomePage(Page):
     @property
     def latest_blogs(self):
         latest_blog = BlogPage.objects.all().live().order_by('-blog_date')
-        latest_blog = latest_blog[:2]
+        latest_blog = latest_blog[:3]
         return latest_blog
 
     @property

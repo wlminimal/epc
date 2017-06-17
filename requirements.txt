@@ -11,6 +11,7 @@ defusedxml==0.5.0
 Django==1.10.7
 django-allauth==0.30.0
 django-anymail==0.8
+django-appconf==1.0.2
 django-braces==1.11.0
 django-crispy-forms==1.6.1
 django-debug-toolbar==1.6
@@ -31,10 +32,12 @@ gunicorn==19.6.0
 html5lib==0.999999999
 idna==2.5
 jmespath==0.9.3
+jsonfield==1.0.3
 oauthlib==2.0.2
 olefile==0.44
 packaging==16.8
 Pillow==4.1.0
+pinax-stripe==3.4.1
 psycopg2==2.6.2
 pyparsing==2.2.0
 python-dateutil==2.6.0
@@ -48,6 +51,7 @@ requests-oauthlib==0.8.0
 s3transfer==0.1.10
 six==1.10.0
 sqlparse==0.2.3
+stripe==1.59.0
 Unidecode==0.4.20
 urllib3==1.21.1
 wagtail==1.10.1

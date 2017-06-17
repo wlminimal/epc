@@ -16,9 +16,12 @@ urlpatterns = [
     url(r'^documents/', include(wagtaildocs_urls)),
 
     url(r'^search/$', search_views.search, name='search'),
-        # User management
+    # User management
     url(r'^users/', include('epc.users.urls', namespace='users')),
     url(r'^accounts/', include('allauth.urls')),
+
+    # Stripe
+    url(r'^payments/', include('pinax.stripe.urls')),
 
     # For anything not caught by a more specific rule above, hand over to
     # Wagtail's page serving mechanism. This should be the last pattern in

@@ -25,8 +25,6 @@ env_file = join(BASE_DIR, '.env')
 if exists(env_file):
     environ.Env.read_env(str(env_file))
 
-
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
@@ -67,6 +65,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',  # registration
 
     'epc.users.apps.UsersConfig',
+    'pinax.stripe',
 ]
 
 MIDDLEWARE = [
@@ -203,3 +202,10 @@ AUTOSLUG_SLUGIFY_FUNCTION = 'slugify.slugify'
 SITE_ID = 1
 WAGTAIL_PASSWORD_MANAGEMENT_ENABLED = True
 WAGTAIL_PASSWORD_RESET_ENABLED = True
+
+
+# Stripe
+PINAX_STRIPE_PUBLIC_KEY = env("STRIPE_PUBLIC_KEY")
+PINAX_STRIPE_SECRET_KEY = env("STRIPE_SECRET_KEY")
+
+

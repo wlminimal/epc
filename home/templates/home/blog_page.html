@@ -2,6 +2,63 @@
 
 {% load staticfiles wagtailcore_tags wagtailimages_tags epc_tags %}
 
-{% block content %}
+{% block body_class %}
+body contact-page
+{% endblock %}
 
+{% block content %}
+<div class="blog-detail page-hero-section" data-ix="slide-in-scroll-navigation-on-scroll">
+    <div class="container-medium">
+      <div class="contact-hero-flexbox">
+        <div class="contact-text-flexitem">
+          <h1 class="blog-detail contact-hero-heading" data-ix="fade-down-on-scroll">{{ page.blog_title }}</h1>
+          <div class="blog-detail contact-hero-subheading" data-ix="slide-left">{{ page.blog_date }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div class="contact-overlap-block">
+      <div class="blog-detail-flexbox">
+          {% image page.blog_image original as blog_image %}
+          <img class="blog-detail-hero-image" sizes="(max-width: 479px) 95vw, (max-width: 767px) 80vw, 50vw" src="{{ blog_image.url }}" srcset="{{ blog_image.url }} 1080w, {{ blog_image.url }} 1600w, {{ blog_image.url }} 2000w" width="500">
+        <div class="blog container-small">
+          <div class="blog-detail-content-block">
+            <div class="w-richtext">
+                {{ page.blog_content | richtext }}
+            </div>
+            <div class="author-flexbox blog-detail">
+                {% image page.blog_author.author_image original as author_image %}
+              <img class="author-image blog-detail" sizes="(max-width: 991px) 50px, 75px" src="{{ author_image.url }}" srcset="{{ author_image.url }} 500w, {{ author_image.url }} 800w, {{ author_image.url }} 1080w, {{ author_image.url }} 1359w">
+              <div class="author-sub-flexbox">
+                <h4 class="author-name blog-detail">{{ page.blog_author.author_name }}</h4>
+                <div class="author-title">{{ page.blog_author.author_title }}</div>
+              </div>
+            </div>
+          </div>
+        </div><a class="blog-detail button w-button" href="{% pageurl page.blog_button_link %}">{{ page.blog_button_text }}</a>
+      </div>
+    </div>
+    <div class="container-medium">
+      <div class="related-blog-flexbox">
+
+          {% for blog in latest_blogs %}
+            <a class="related-blog-flexitem w-inline-block" href="{% pageurl blog %}">
+            {% image blog.blog_image original as blog_image %}
+              <img class="related-blog-thumb-image" sizes="(max-width: 479px) 81vw, (max-width: 767px) 25vw, (max-width: 991px) 24vw, 21vw" src="{{ blog_image.url }}" srcset="{{ blog_image.url }} 500w, {{ blog_image.url }} 700w">
+              <h2 class="related-blog-heading">{{ blog.blog_title }}</h2>
+              <div class="author-flexbox blog-detail">
+                  {% image blog.blog_author.author_image original as author_image %}
+                  <img class="author-image blog-detail" sizes="(max-width: 991px) 50px, 75px" src="{{ author_image.url }}" srcset="{{ author_image.url }} 500w, {{ author_image.url }} 800w, {{ author_image.url }} 1080w, {{ author_image.url }} 1359w">
+                <div class="author-sub-flexbox">
+                  <h4 class="author-name blog-detail">{{ blog.blog_author.author_name }}</h4>
+                  <div class="author-title">{{ blog.blog_author.author_title }}</div>
+                </div>
+              </div>
+            </a>
+          {% endfor %}
+
+      </div>
+    </div>
+  </div>
 {% endblock %}

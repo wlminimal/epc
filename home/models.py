@@ -4,7 +4,7 @@ from django.db import models
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 import datetime
 
-from wagtail.wagtailcore.models import Page
+from wagtail.wagtailcore.models import Page, PageManager, PageQuerySet
 from wagtail.wagtailcore.fields import RichTextField
 from wagtail.wagtailadmin.edit_handlers import FieldPanel, FieldRowPanel, InlinePanel, MultiFieldPanel, PageChooserPanel
 from wagtail.wagtailsnippets.edit_handlers import SnippetChooserPanel
@@ -73,11 +73,20 @@ class Author(models.Model):
         related_name='+',
         help_text="75x75 pixel"
     )
+
     author_name = models.CharField(max_length=30, default="Pastor Kim")
     author_title = models.CharField(max_length=60, default="Eastern Church Senior Pastor")
 
     def __str__(self):
         return self.author_name
+
+
+# class BlogPageQuerySet(PageQuerySet):
+#     def latest_blogs(self):
+#         latest_blogs = self.order_by('-blog_date')
+#         return latest_blogs
+#
+# BlogPageManager = PageManager.from_queryset(BlogPageQuerySet)
 
 
 class BlogPage(Page):
@@ -111,6 +120,17 @@ class BlogPage(Page):
     )
 
     parent_page_types = ['home.BlogIndexPage']
+
+    @property
+    def latest_blogs(self):
+        latest_blogs = BlogPage.objects.all().order_by('-blog_date')[:3]
+        return latest_blogs
+
+    def get_context(self, request, *args, **kwargs):
+        latest_blogs = self.latest_blogs
+        context = super(BlogPage, self).get_context(request, *args, **kwargs)
+        context['latest_blogs'] = latest_blogs
+        return context
 
     content_panels = Page.content_panels + [
         FieldPanel('blog_title'),

@@ -31,7 +31,7 @@
               <h1 class="generation-heading">{{ page.em_tab_content_title_1 }}</h1>
               <h3 class="generation-subheading">{{ page.em_tab_content_age }}</h3>
               <h3 class="gathering-info">{{ page.em_tab_content_info }}</h3>
-              <p class="generation-desc">{{ page.em_tab_content }}</p>
+              <p class="generation-desc">{{ page.em_tab_content | richtext }}</p>
             </div>
             <div class="generation-flex-item moved">
                 {% image page.em_tab_image_1 original as em_image_1 %}

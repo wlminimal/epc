@@ -19,9 +19,9 @@
   <div class="genration-section1">
     <div class="generations-tab w-tabs" data-duration-in="300" data-duration-out="100">
       <div class="kids tabs-menu w-tab-menu">
-        <a class="tab-link w--current w-inline-block w-tab-link" data-w-tab="NURSERY">
+       <!-- <a class="tab-link w--current w-inline-block w-tab-link" data-w-tab="NURSERY">
           <div class="tab-link-text">{{ page.kids_tab_title_1 }}</div>
-        </a>
+        </a> -->
         <a class="tab-link w-inline-block w-tab-link" data-w-tab="Kindergarten">
           <div class="tab-link-text">{{ page.kids_tab_title_2 }}</div>
         </a>
@@ -30,7 +30,7 @@
         </a>
       </div>
       <div class="tabs-content w-tab-content">
-        <div class="w--tab-active w-tab-pane" data-w-tab="NURSERY">
+        <!-- <div class="w--tab-active w-tab-pane" data-w-tab="NURSERY">
           <div class="generation-flexbox">
             <div class="generation-flex-item text"><img class="generations-logo" src="{% static 'images/newborn.png' %}" width="50">
               <h1 class="generation-heading">{{ page.nursery_tab_content_title_1 }}</h1>
@@ -52,8 +52,8 @@
                 <img class="generation-image" data-ix="slide-left" sizes="(max-width: 991px) 100vw, (max-width: 2000px) 50vw, 1000px" src="{{ nursery_image_3.url }}" srcset="{{ nursery_image_3.url }} 500w, {{ nursery_image_3.url }} 800w, {{ nursery_image_3.url }} 1000w">
             </div>
           </div>
-        </div>
-        <div class="w-tab-pane" data-w-tab="Kindergarten">
+        </div> -->
+        <div class="w-tab-pane w--tab-active" data-w-tab="Kindergarten">
           <div class="generation-flexbox">
             <div class="generation-flex-item text"><img class="generations-logo kinder" src="{% static 'images/boy.png' %}" width="50">
               <h1 class="generation-heading">{{ page.kinder_tab_content_title_1 }}</h1>

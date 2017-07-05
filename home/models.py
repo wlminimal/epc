@@ -864,17 +864,16 @@ class AboutPage(Page):
 
 class GenerationPage(Page):
 
-    subpage_types = ["home.KidsPage", "home.YouthGroupPage", "home.YoungAdultPage"]
+    subpage_types = ["home.KidsPage", "home.NurseryPage", "home.ElementaryPage", "home.YouthGroupPage", "home.YoungAdultPage"]
 
 
-class KidsPage(Page):
-    kids_hero_title = models.CharField(max_length=80, default="동부 교회 주일 학교")
-    kids_hero_verse = models.CharField(max_length=80, default="마태복음 18장 2-3절")
-    kids_hero_scripture = models.TextField(default="Scripture for kids page")
+class NurseryPage(Page):
+    # 영아부 페이지
+    nursery_hero_title = models.CharField(max_length=80, default="동부 교회 영아부")
+    nursery_here_verse = models.CharField(max_length=80, default="마태복음 18장 2-3절")
+    nursery_hero_scripture = models.TextField(default="Scripture for kids page")
 
-    kids_tab_title_1 = models.CharField(max_length=30, default="영아부")
-    kids_tab_title_2 = models.CharField(max_length=30, default="유치부")
-    kids_tab_title_3 = models.CharField(max_length=30, default="초등부")
+    nursery_tab_title_1 = models.CharField(max_length=30, default="영아부")
 
     nursery_tab_content_title_1 = models.CharField(max_length=30, default="영아부")
     nursery_tab_content_age = models.CharField(max_length=50, default="0세부터 3세")
@@ -902,6 +901,36 @@ class KidsPage(Page):
         related_name='+'
     )
 
+    content_panels = Page.content_panels + [
+        FieldPanel('nursery_hero_title'),
+        FieldPanel('nursery_here_verse'),
+        FieldPanel('nursery_hero_scripture'),
+
+        MultiFieldPanel([
+            FieldRowPanel([
+                FieldPanel('nursery_tab_title_1', classname="full"),
+            ])
+        ]),
+
+        FieldPanel('nursery_tab_content_title_1'),
+        FieldPanel('nursery_tab_content_age'),
+        FieldPanel('nursery_tab_content_info'),
+        FieldPanel('nursery_tab_content'),
+        ImageChooserPanel('nursery_tab_image_1'),
+        ImageChooserPanel('nursery_tab_image_2'),
+        ImageChooserPanel('nursery_tab_image_3'),
+
+    ]
+
+
+class KidsPage(Page):
+    # 유치부 페이지
+    kids_hero_title = models.CharField(max_length=80, default="동부 교회 유치부")
+    kids_hero_verse = models.CharField(max_length=80, default="마태복음 18장 2-3절")
+    kids_hero_scripture = models.TextField(default="Scripture for kids page")
+
+    kids_tab_title_1 = models.CharField(max_length=30, default="유치부")
+
     kinder_tab_content_title_1 = models.CharField(max_length=30, default="유치부")
     kinder_tab_content_age = models.CharField(max_length=50, default="0세부터 3세")
     kinder_tab_content_info = models.TextField(default="예배 안내: 오전 11:00 23번 방")
@@ -928,10 +957,39 @@ class KidsPage(Page):
         related_name='+'
     )
 
+    content_panels = Page.content_panels + [
+        FieldPanel('kids_hero_title'),
+        FieldPanel('kids_hero_verse'),
+        FieldPanel('kids_hero_scripture'),
+
+        MultiFieldPanel([
+            FieldRowPanel([
+                FieldPanel('kids_tab_title_1', classname="full"),
+            ])
+        ]),
+
+        FieldPanel('kinder_tab_content_title_1'),
+        FieldPanel('kinder_tab_content_age'),
+        FieldPanel('kinder_tab_content_info'),
+        FieldPanel('kinder_tab_content'),
+        ImageChooserPanel('kinder_tab_image_1'),
+        ImageChooserPanel('kinder_tab_image_2'),
+        ImageChooserPanel('kinder_tab_image_3'),
+    ]
+
+
+class ElementaryPage(Page):
+    # 초등부 페이지
+    elem_hero_title = models.CharField(max_length=80, default="동부 교회 초등부")
+    elem_hero_verse = models.CharField(max_length=80, default="마태복음 18장 2-3절")
+    elem_hero_scripture = models.TextField(default="Scripture for kids page")
+
+    elem_tab_title_1 = models.CharField(max_length=30, default="초등부")
+
     elem_tab_content_title_1 = models.CharField(max_length=30, default="초등부")
     elem_tab_content_age = models.CharField(max_length=50, default="0세부터 3세")
     elem_tab_content_info = models.TextField(default="예배 안내: 오전 11:00 23번 방")
-    elem_tab_content = RichTextField(default="Intro to Elem")
+    elem_tab_content = RichTextField(default="Intro to Kinder")
     elem_tab_image_1 = models.ForeignKey(
         "wagtailimages.Image",
         blank=False,
@@ -955,33 +1013,15 @@ class KidsPage(Page):
     )
 
     content_panels = Page.content_panels + [
-        FieldPanel('kids_hero_title'),
-        FieldPanel('kids_hero_verse'),
-        FieldPanel('kids_hero_scripture'),
+        FieldPanel('elem_hero_title'),
+        FieldPanel('elem_hero_verse'),
+        FieldPanel('elem_hero_scripture'),
 
         MultiFieldPanel([
             FieldRowPanel([
-                FieldPanel('kids_tab_title_1', classname="col4"),
-                FieldPanel('kids_tab_title_2', classname="col4"),
-                FieldPanel('kids_tab_title_3', classname="col4"),
+                FieldPanel('elem_tab_title_1', classname="full"),
             ])
         ]),
-
-        FieldPanel('nursery_tab_content_title_1'),
-        FieldPanel('nursery_tab_content_age'),
-        FieldPanel('nursery_tab_content_info'),
-        FieldPanel('nursery_tab_content'),
-        ImageChooserPanel('nursery_tab_image_1'),
-        ImageChooserPanel('nursery_tab_image_2'),
-        ImageChooserPanel('nursery_tab_image_3'),
-
-        FieldPanel('kinder_tab_content_title_1'),
-        FieldPanel('kinder_tab_content_age'),
-        FieldPanel('kinder_tab_content_info'),
-        FieldPanel('kinder_tab_content'),
-        ImageChooserPanel('kinder_tab_image_1'),
-        ImageChooserPanel('kinder_tab_image_2'),
-        ImageChooserPanel('kinder_tab_image_3'),
 
         FieldPanel('elem_tab_content_title_1'),
         FieldPanel('elem_tab_content_age'),
@@ -1040,35 +1080,9 @@ class YouthGroupPage(Page):
 
 
 class YoungAdultPage(Page):
-    ya_hero_title = models.CharField(max_length=80, default="English Ministry & 청년부")
+    ya_hero_title = models.CharField(max_length=80, default="청년부")
     ya_hero_verse = models.CharField(max_length=80, default="Psalm 119:9-16")
     ya_hero_scripture = models.TextField(default="Scripture for kids page")
-
-    em_tab_content_title_1 = models.CharField(max_length=30, default="English Ministry")
-    em_tab_content_age = models.CharField(max_length=50, default="영어가 더 편한, 성인 모든분들을 포함합니다")
-    em_tab_content_info = models.TextField(default="예배 안내: 오후 1:30 (소예배실)")
-    em_tab_content = RichTextField(default="Intro to English Ministry")
-    em_tab_image_1 = models.ForeignKey(
-        "wagtailimages.Image",
-        blank=False,
-        null=True,
-        on_delete=models.SET_NULL,
-        related_name='+'
-    )
-    em_tab_image_2 = models.ForeignKey(
-        "wagtailimages.Image",
-        blank=False,
-        null=True,
-        on_delete=models.SET_NULL,
-        related_name='+'
-    )
-    em_tab_image_3 = models.ForeignKey(
-        "wagtailimages.Image",
-        blank=False,
-        null=True,
-        on_delete=models.SET_NULL,
-        related_name='+'
-    )
 
     ya_tab_content_title_1 = models.CharField(max_length=30, default="청년부")
     ya_tab_content_age = models.CharField(max_length=50, default="성인 모든 청년을 대상으로 합니다.")
@@ -1100,14 +1114,6 @@ class YoungAdultPage(Page):
         FieldPanel('ya_hero_title'),
         FieldPanel('ya_hero_verse'),
         FieldPanel('ya_hero_scripture'),
-
-        FieldPanel('em_tab_content_title_1'),
-        FieldPanel('em_tab_content_age'),
-        FieldPanel('em_tab_content_info'),
-        FieldPanel('em_tab_content'),
-        ImageChooserPanel('em_tab_image_1'),
-        ImageChooserPanel('em_tab_image_2'),
-        ImageChooserPanel('em_tab_image_3'),
 
         FieldPanel('ya_tab_content_title_1'),
         FieldPanel('ya_tab_content_age'),

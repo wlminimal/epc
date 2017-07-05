@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load staticfiles wagtailcore_tags wagtailimages_tags epc_tags %}
+
+{% block body_class %}body{% endblock %}
+
+{% block content %}
+<div class="kids page-hero-section" data-ix="slide-in-scroll-navigation-on-scroll">
+    <div class="container-medium">
+      <div class="page-hero-text-flexbox">
+        <div class="sermons-text-flex-item">
+          <h3 class="hero-main-heading" data-ix="slide-left">{{ page.nursery_hero_title }}</h3>
+          <h3 class="hero-main-subheading" data-ix="slide-right">{{ page.nursery_here_verse }}</h3>
+          <p class="hero-main-desc" data-ix="fade-down-on-scroll">{{ page.nursery_hero_scripture }}</p>
+        </div>
+        <div class="empty-flex-item"></div>
+      </div>
+    </div>
+  </div>
+  <div class="genration-section1">
+    <div class="generations-tab w-tabs" data-duration-in="300" data-duration-out="100">
+
+      <div class="kids tabs-menu w-tab-menu">
+        <a class="tab-link w--current w-inline-block w-tab-link" data-w-tab="NURSERY">
+          <div class="tab-link-text">{{ page.nursery_tab_title_1 }}</div>
+        </a>
+      </div>
+
+      <div class="tabs-content w-tab-content">
+        <div class="w--tab-active w-tab-pane" data-w-tab="NURSERY">
+          <div class="generation-flexbox">
+            <div class="generation-flex-item text"><img class="generations-logo" src="{% static 'images/newborn.png' %}" width="50">
+              <h1 class="generation-heading">{{ page.nursery_tab_content_title_1 }}</h1>
+              <h3 class="generation-subheading">{{ page.nursery_tab_content_age }}</h3>
+              <h3 class="gathering-info">{{ page.nursery_tab_content_info }}</h3>
+              <p class="generation-desc">{{ page.nursery_tab_content | richtext }}</p>
+            </div>
+
+            <div class="generation-flex-item moved">
+                {% image page.nursery_tab_image_1 original as nursery_image_1 %}
+                <img class="generation-image" data-ix="slide-left" sizes="(max-width: 991px) 100vw, (max-width: 2000px) 50vw, 1000px" src="{{ nursery_image_1.url }}" srcset="{{ nursery_image_1.url }} 500w, {{ nursery_image_1.url }} 800w, {{ nursery_image_1.url }} 1000w">
+            </div>
+            <div class="generation-flex-item moved">
+                {% image page.nursery_tab_image_2 original as nursery_image_2 %}
+                <img class="generation-image" data-ix="slide-left" sizes="(max-width: 991px) 100vw, (max-width: 2000px) 50vw, 1000px" src="{{ nursery_image_2.url }}" srcset="{{ nursery_image_2.url }} 500w, {{ nursery_image_2.url }} 800w, {{ nursery_image_2.url }} 1000w">
+            </div>
+            <div class="generation-flex-item moved">
+                {% image page.nursery_tab_image_3 original as nursery_image_3 %}
+                <img class="generation-image" data-ix="slide-left" sizes="(max-width: 991px) 100vw, (max-width: 2000px) 50vw, 1000px" src="{{ nursery_image_3.url }}" srcset="{{ nursery_image_3.url }} 500w, {{ nursery_image_3.url }} 800w, {{ nursery_image_3.url }} 1000w">
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+{% endblock %}

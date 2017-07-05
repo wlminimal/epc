@@ -17,37 +17,13 @@
   <div class="genration-section1">
     <div class="generations-tab w-tabs youth-group" data-duration-in="500" data-duration-out="200">
       <div class="tabs-menu w-tab-menu young-adult">
-        <a class="tab-link w--current w-inline-block w-tab-link young-adult" data-w-tab="em">
-          <div class="tab-link-text young-adult">{{ page.em_tab_content_title_1 }}</div>
-        </a>
         <a class="tab-link w-inline-block w-tab-link young-adult" data-w-tab="young-adult">
           <div class="tab-link-text young-adult">{{ page.ya_tab_content_title_1 }}</div>
         </a>
       </div>
       <div class="tabs-content w-tab-content">
-        <div class="w--tab-active w-tab-pane" data-w-tab="em">
-          <div class="generation-flexbox">
-            <div class="generation-flex-item text"><img class="elem generations-logo" src="{% static 'images/woman.png' %}" width="50">
-              <h1 class="generation-heading">{{ page.em_tab_content_title_1 }}</h1>
-              <h3 class="generation-subheading">{{ page.em_tab_content_age }}</h3>
-              <h3 class="gathering-info">{{ page.em_tab_content_info }}</h3>
-              <p class="generation-desc">{{ page.em_tab_content | richtext }}</p>
-            </div>
-            <div class="generation-flex-item moved">
-                {% image page.em_tab_image_1 original as em_image_1 %}
-                <img class="generation-image" data-ix="slide-left" sizes="(max-width: 991px) 100vw, (max-width: 2000px) 50vw, 1000px" src="{{ em_image_1.url }}" srcset="{{ em_image_1.url }} 500w, {{ em_image_1.url }} 800w, {{ em_image_1.url }} 1000w">
-            </div>
-            <div class="generation-flex-item moved">
-                {% image page.em_tab_image_2 original as em_image_2 %}
-                <img class="generation-image" data-ix="slide-left" sizes="(max-width: 991px) 100vw, (max-width: 2000px) 50vw, 1000px" src="{{ em_image_2.url }}" srcset="{{ em_image_2.url }} 500w, {{ em_image_2.url }} 800w, {{ em_image_2.url }} 1000w">
-            </div>
-            <div class="generation-flex-item moved">
-                {% image page.em_tab_image_3 original as em_image_3 %}
-                <img class="generation-image" data-ix="slide-left" sizes="(max-width: 991px) 100vw, (max-width: 2000px) 50vw, 1000px" src="{{ em_image_3.url }}" srcset="{{ em_image_3.url }} 500w, {{ em_image_3.url }} 800w, {{ em_image_3.url }} 1000w">
-            </div>
-          </div>
-        </div>
-        <div class="w-tab-pane" data-w-tab="young-adult">
+
+        <div class="w--tab-active w-tab-pane" data-w-tab="young-adult">
           <div class="generation-flexbox">
             <div class="generation-flex-item text"><img class="elem generations-logo" src="{% static 'images/student.png' %}" width="50">
               <h1 class="generation-heading">{{ page.ya_tab_content_title_1 }}</h1>

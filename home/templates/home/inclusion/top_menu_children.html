@@ -1,0 +1,18 @@
+{% load staticfiles wagtailcore_tags epc_tags %}
+
+<nav class="dropdown-container w-dropdown-list" data-ix="dropdown-list">
+    {% for child in children %}
+      {% if child.has_children %}
+      <div class="w-dropdown" data-delay="0" data-ix="dropdown-list">
+        <div class="top-menu-link w-dropdown-toggle">
+          <div class="dropdown-top-link">{{ child.title }}</div>
+        </div>
+
+        {% top_menu_children parent=child %}
+      </div>
+      {% else %}
+        <a class="dropdown-menu-link w-dropdown-link" href="{% pageurl child %}">{{ child.title }}</a>
+      {% endif %}
+
+    {% endfor %}
+</nav>

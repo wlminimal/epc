@@ -1,4 +1,4 @@
-{% load staticfiles wagtailcore_tags %}
+{% load staticfiles wagtailcore_tags epc_tags %}
 
 <div class="top-menu w-nav" data-animation="over-right" data-collapse="medium" data-duration="400" data-ix="page-load-navbar">
     <div class="top-menu-container w-container">
@@ -10,16 +10,14 @@
       <nav class="nav-menu w-nav-menu" role="navigation">
           {% for menuitem in menuitems %}
             {% if menuitem.has_children %}
-                <div class="w-dropdown" data-delay="0" data-ix="dropdown-list">
-                  <div class="top-menu-link w-dropdown-toggle">
-                    <div class="dropdown-top-link">{{ menuitem.title }}</div>
-                  </div>
-                  <nav class="dropdown-container w-dropdown-list" data-ix="dropdown-list">
-                      {% for child in menuitem.get_children %}
-                          <a class="dropdown-menu-link w-dropdown-link" href="{% pageurl child %}">{{ child.title }}</a>
-                      {% endfor %}
-                  </nav>
+              <div class="w-dropdown" data-delay="0" data-ix="dropdown-list">
+                <div class="top-menu-link w-dropdown-toggle">
+                  <div class="dropdown-top-link">{{ menuitem.title }}</div>
                 </div>
+
+                {% top_menu_children parent=menuitem %}
+              </div>
+
             {% else %}
                 <a class="nav-link w-nav-link" href="{% pageurl menuitem %}">{{ menuitem.title }}</a>
             {% endif %}

@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+{% load staticfiles wagtailcore_tags wagtailimages_tags epc_tags %}
+
+{% block content %}
+<div class="lords-day-sermon page-hero-section" data-ix="slide-in-scroll-navigation-on-scroll">
+    <div class="container-medium">
+      <div class="page-hero-text-flexbox">
+        <div class="sermons-text-flex-item">
+          <h1 class="hero-main-heading" data-ix="slide-left">{{ page.hero_title }}</h1>
+          <h3 class="hero-main-subheading" data-ix="slide-right">{{ page.hero_subtitle }}</h3>
+          <p class="hero-main-desc" data-ix="fade-down-on-scroll">{{ page.hero_description | richtext }}</p>
+        </div>
+        <div class="empty-flex-item"></div>
+      </div>
+    </div>
+  </div>
+  <div class="sermons-page-section">
+    <div class="sermons-intro-flex-container">
+      <div class="sermons-intro-flex-item" data-ix="slide-right">
+        <h1 class="sermons-intro-heading" data-ix="slide-left">{{ page.sermon_main_title_1 }}</h1>
+      </div>
+      <div class="sermons-latest-video-flex-item">
+        {% for sermon in latest_sermons %}
+
+        <div class="sermons-video-flexitem">
+          <div class="sermons-overlay">
+            <h6 class="sermon-day sermons-video-title">{{ sermon.sermon_day }}</h6>
+            <h1 class="lords-day sermons-video-title">{{ sermon.sermon_title }}</h1>
+            <h1 class="sermon-video-scripture">{{ sermon.sermon_chapter }}</h1>
+            <h1 class="lords-day sermon-video-date">{{ sermon.sermon_date }}</h1>
+          </div>
+            {% image sermon.sermon_thumbnail_image original as thumb_image %}
+            <img sizes="(max-width: 479px) 89vw, (max-width: 752px) 93vw, (max-width: 767px) 700px, (max-width: 991px) 85vw, 44vw" src="{{ thumb_image.url }}" srcset="{{ thumb_image.url }} 500w, {{ thumb_image.url }} 700w">
+          <a class="w-inline-block w-lightbox" href="#">
+            <img class="sermon-light-box" src="{% static 'images/58bafc918495d36c26dea457_play-icon.png' %}">
+            <script class="w-json" type="application/json">
+              { "group": "{{ sermon.sermon_day }}", "items": [{
+                "type": "video",
+                "url": "{{ sermon.sermon_link }}",
+                "html": "<iframe class=\"embedly-embed\" src=\"https://www.youtube.com/embed/{{ sermon.sermon_share_code }}\" width=\"940\" height=\"528\" scrolling=\"no\" frameborder=\"0\" allowfullscreen></iframe>",
+                "thumbnailUrl": "https://i.ytimg.com/vi/{{ sermon.sermon_share_code }}/hqdefault.jpg",
+                "width": 940,
+                "height": 528
+              }] }
+            </script>
+          </a>
+        </div>
+
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  <div class="sermons-prev-section">
+    <div class="container-medium">
+      <h1 class="sermons-prev-heading">{{ page.sermon_main_title_2 }}</h1>
+    </div>
+    <div class="prev-sermon-flex-container">
+        {% for sermon in past_sermons %}
+            <div class="prev-sermon prev-sermon-flexitem">
+                <div class="sermons-video-flexitem">
+                  <div class="sermons-overlay">
+                    <h6 class="prev sermon-day sermons-video-title">{{ sermon.sermon_day }}</h6>
+                    <h1 class="prev sermons-video-title">{{ sermon.sermon_title }}</h1>
+                    <h1 class="prev sermon-video-scripture">{{ sermon.sermon_chapter }}</h1>
+                    <h1 class="lords-day-prev sermon-video-date">{{ sermon.sermon_date }}</h1>
+                  </div>
+                    {% image sermon.sermon_thumbnail_image original as thumb_image %}
+                    <img sizes="(max-width: 479px) 89vw, (max-width: 752px) 93vw, (max-width: 767px) 700px, (max-width: 991px) 47vw, 24vw" src="{{ thumb_image.url }}" srcset="{{ thumb_image.url }} 500w, {{ thumb_image.url }} 700w">
+                  <a class="w-inline-block w-lightbox" href="#">
+                      <img class="prev sermon-light-box" height="50" src="{% static 'images/58bafc918495d36c26dea457_play-icon.png' %}" width="50">
+                    <script class="w-json" type="application/json">
+                      { "group": "{{ sermon.sermon_day }}", "items": [{
+                        "type": "video",
+                        "url": "{{ sermon.sermon_link }}",
+                        "html": "<iframe class=\"embedly-embed\" src=\"https://www.youtube.com/embed/{{ sermon.sermon_share_code }}\" width=\"940\" height=\"528\" scrolling=\"no\" frameborder=\"0\" allowfullscreen></iframe>",
+                        "thumbnailUrl": "https://i.ytimg.com/vi/{{ sermon.sermon_share_code }}/hqdefault.jpg",
+                        "width": 940,
+                        "height": 528
+                      }] }
+                    </script>
+                  </a>
+                </div>
+              </div>
+        {% endfor %}
+
+    </div>
+    <div class="blog pagination-block">
+          {% if past_sermons.has_previous %}
+          <a class="blog left-arrow" href="?page={{ past_sermons.previous_page_number }}">이전 페이지</a>
+          {% endif %}
+          <span class="blog pagination-number" href="#">
+              Page {{ past_sermons.number }} of {{ past_sermons.paginator.num_pages }}
+          </span>
+          {% if r_events.has_next %}
+          <a class="blog right-arrow" href="?page={{ past_sermons.next_page_number }}">다음 페이지</a>
+          {% endif %}
+  </div>
+  </div>
+{% endblock %}

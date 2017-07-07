@@ -4,7 +4,7 @@ from django.db import models
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 import datetime
 
-from wagtail.wagtailcore.models import Page, PageManager, PageQuerySet, Orderable
+from wagtail.wagtailcore.models import Page, PageManager, PageQuerySet
 from wagtail.wagtailcore.fields import RichTextField
 from wagtail.wagtailadmin.edit_handlers import FieldPanel, FieldRowPanel, InlinePanel, MultiFieldPanel, PageChooserPanel
 from wagtail.wagtailsnippets.edit_handlers import SnippetChooserPanel
@@ -265,156 +265,6 @@ class EventIndexPage(Page):
         FieldPanel('event_hero_title'),
         FieldPanel('event_hero_subtitle'),
         FieldPanel('event_featured_name'),
-    ]
-
-
-class SermonPage(Page):
-    subpage_types = ["home.LordDaySermonPage", "home.FridaySermonPage"]
-
-
-class LordDaySermonPage(Page):
-    subpage_types = ['LordDayMorningSermonPage', 'LordDayAfternoonSermonPage']
-
-
-class LordDayMorningSermonPage(Page):
-    hero_title = models.CharField(max_length=80, default="주일 설교 영상")
-    hero_subtitle = models.TextField(default="성경을 성경으로 해석한다")
-    hero_description = RichTextField(default="Description")
-
-    sermon_main_title_1 = models.CharField(max_length=100, default="최신 주일 예배 설교 영상")
-    sermon_main_title_2 = models.CharField(max_length=100, default="지난 주일 예배 설교 영상들")
-
-    @property
-    def latest_morning_sermons(self):
-        latest_morning_sermon_video = LordDayMorningSermon.objects.all().order_by('-upload_date')[:2]
-        return latest_morning_sermon_video
-
-    @property
-    def past_morning_sermons(self):
-        past_morning_sermon_video = LordDayMorningSermon.objects.all().order_by('-upload_date')[2:]
-        return past_morning_sermon_video
-
-    def get_context(self, request, *args, **kwargs):
-        latest_sermons = self.latest_morning_sermons
-        past_sermons = self.past_morning_sermons
-
-        paginator = Paginator(past_sermons, 8)
-        page = request.GET.get('page')
-
-        try:
-            past_sermons = paginator.page(page)
-        except PageNotAnInteger:
-            past_sermons = paginator.page(1)
-        except EmptyPage:
-            past_sermons = paginator.page(paginator.num_pages)
-
-        context = super(LordDayMorningSermonPage, self).get_context(request, *args, **kwargs)
-        context['latest_sermons'] = latest_sermons
-        context['past_sermons'] = past_sermons
-
-        return context
-
-    content_panels = Page.content_panels + [
-        FieldPanel('hero_title'),
-        FieldPanel('hero_subtitle'),
-        FieldPanel('hero_description'),
-        FieldPanel('sermon_main_title_1'),
-        FieldPanel('sermon_main_title_2'),
-    ]
-
-
-class LordDayAfternoonSermonPage(Page):
-
-    hero_title = models.CharField(max_length=80, default="주일 설교 영상")
-    hero_subtitle = models.TextField(default="성경을 성경으로 해석한다")
-    hero_description = RichTextField(default="Description")
-
-    sermon_main_title_1 = models.CharField(max_length=100, default="최신 주일 예배 설교 영상")
-    sermon_main_title_2 = models.CharField(max_length=100, default="지난 주일 예배 설교 영상들")
-
-    @property
-    def latest_afternoon_sermons(self):
-        latest_afternoon_sermon_video = LordDayAfternoonSermon.objects.all().order_by('-upload_date')[:2]
-        return latest_afternoon_sermon_video
-
-    @property
-    def past_afternoon_sermons(self):
-        past_afternoon_sermon_video = LordDayAfternoonSermon.objects.all().order_by('-upload_date')[2:]
-        return past_afternoon_sermon_video
-
-    def get_context(self, request, *args, **kwargs):
-        latest_sermons = self.latest_afternoon_sermons
-        past_sermons = self.past_afternoon_sermons
-
-        paginator = Paginator(past_sermons, 8)
-        page = request.GET.get('page')
-
-        try:
-            past_sermons = paginator.page(page)
-        except PageNotAnInteger:
-            past_sermons = paginator.page(1)
-        except EmptyPage:
-            past_sermons = paginator.page(paginator.num_pages)
-
-        context = super(LordDayAfternoonSermonPage, self).get_context(request, *args, **kwargs)
-        context['latest_sermons'] = latest_sermons
-        context['past_sermons'] = past_sermons
-
-        return context
-
-    content_panels = Page.content_panels + [
-        FieldPanel('hero_title'),
-        FieldPanel('hero_subtitle'),
-        FieldPanel('hero_description'),
-        FieldPanel('sermon_main_title_1'),
-        FieldPanel('sermon_main_title_2'),
-    ]
-
-
-class FridaySermonPage(Page):
-    f_sermon_hero_title = models.CharField(max_length=80, default="금요 예배 설교 영상")
-    f_sermon_hero_subtitle = models.TextField(default="요한 계시록 강해 / 특별 강사 설교")
-    f_sermon_hero_description = RichTextField(default="Description")
-
-    f_sermon_main_title_1 = models.CharField(max_length=100, default="최신 주일 예배 설교 영상")
-    f_sermon_main_title_2 = models.CharField(max_length=100, default="지난 주일 예배 설교 영상들")
-
-    @property
-    def latest_revelation_sermons(self):
-        latest_revelation_video = RevelationSermon.objects.all().order_by('-upload_date')[:2]
-        return latest_revelation_video
-
-    @property
-    def past_revelation_sermons(self):
-        past_revelation_video = RevelationSermon.objects.all().order_by('-upload_date')[2:]
-        return past_revelation_video
-
-    def get_context(self, request, *args, **kwargs):
-        latest_sermons = self.latest_sermons
-        past_sermons = self.past_sermons
-
-        paginator = Paginator(past_sermons, 8)
-        page = request.GET.get('page')
-
-        try:
-            past_sermons = paginator.page(page)
-        except PageNotAnInteger:
-            past_sermons = paginator.page(1)
-        except EmptyPage:
-            past_sermons = paginator.page(paginator.num_pages)
-
-        context = super(FridaySermonPage, self).get_context(request, *args, **kwargs)
-        context['latest_sermons'] = latest_sermons
-        context['past_sermons'] = past_sermons
-
-        return context
-
-    content_panels = Page.content_panels + [
-        FieldPanel('f_sermon_hero_title'),
-        FieldPanel('f_sermon_hero_subtitle'),
-        FieldPanel('f_sermon_hero_description'),
-        FieldPanel('f_sermon_main_title_1'),
-        FieldPanel('f_sermon_main_title_2'),
     ]
 
 
@@ -1345,6 +1195,113 @@ class EMPage(Page):
         ImageChooserPanel('em_tab_image_3'),
     ]
 
+
+class SermonPage(Page):
+    subpage_types = ["home.LordDaySermonPage", "home.FridaySermonPage"]
+
+
+class LordDaySermonPage(Page):
+    sermon_hero_title = models.CharField(max_length=80, default="주일 설교 영상")
+    sermon_hero_subtitle = models.TextField(default="성경을 성경으로 해석한다")
+    sermon_hero_description = RichTextField(default="Description")
+
+    sermon_main_title_1 = models.CharField(max_length=100, default="최신 주일 예배 설교 영상")
+    sermon_main_title_2 = models.CharField(max_length=100, default="지난 주일 예배 설교 영상들")
+
+    @property
+    def latest_morning_sermons(self):
+        latest_morning_sermon_video = LordDayMorningSermon.objects.all().order_by('-upload_date')[:2]
+        return latest_morning_sermon_video
+
+    @property
+    def past_morning_sermons(self):
+        past_morning_sermon_video = LordDayMorningSermon.objects.all().order_by('-upload_date')[2:]
+        return past_morning_sermon_video
+
+    @property
+    def latest_afternoon_sermons(self):
+        latest_afternoon_sermon_video = LordDayAfternoonSermon.objects.all().order_by('-upload_date')[:2]
+        return latest_afternoon_sermon_video
+
+    @property
+    def past_afternoon_sermons(self):
+        past_afternoon_sermon_video = LordDayAfternoonSermon.objects.all().order_by('-upload_date')[2:]
+        return past_afternoon_sermon_video
+
+    def get_context(self, request, *args, **kwargs):
+        latest_sermons = self.latest_sermons
+        past_sermons = self.past_sermons
+
+        paginator = Paginator(past_sermons, 8)
+        page = request.GET.get('page')
+
+        try:
+            past_sermons = paginator.page(page)
+        except PageNotAnInteger:
+            past_sermons = paginator.page(1)
+        except EmptyPage:
+            past_sermons = paginator.page(paginator.num_pages)
+
+        context = super(LordDaySermonPage, self).get_context(request, *args, **kwargs)
+        context['latest_sermons'] = latest_sermons
+        context['past_sermons'] = past_sermons
+
+        return context
+
+    content_panels = Page.content_panels + [
+        FieldPanel('sermon_hero_title'),
+        FieldPanel('sermon_hero_subtitle'),
+        FieldPanel('sermon_hero_description'),
+        FieldPanel('sermon_main_title_1'),
+        FieldPanel('sermon_main_title_2'),
+    ]
+
+
+class FridaySermonPage(Page):
+    f_sermon_hero_title = models.CharField(max_length=80, default="금요 예배 설교 영상")
+    f_sermon_hero_subtitle = models.TextField(default="요한 계시록 강해 / 특별 강사 설교")
+    f_sermon_hero_description = RichTextField(default="Description")
+
+    f_sermon_main_title_1 = models.CharField(max_length=100, default="최신 주일 예배 설교 영상")
+    f_sermon_main_title_2 = models.CharField(max_length=100, default="지난 주일 예배 설교 영상들")
+
+    @property
+    def latest_revelation_sermons(self):
+        latest_revelation_video = RevelationSermon.objects.all().order_by('-upload_date')[:2]
+        return latest_revelation_video
+
+    @property
+    def past_revelation_sermons(self):
+        past_revelation_video = RevelationSermon.objects.all().order_by('-upload_date')[2:]
+        return past_revelation_video
+
+    def get_context(self, request, *args, **kwargs):
+        latest_sermons = self.latest_sermons
+        past_sermons = self.past_sermons
+
+        paginator = Paginator(past_sermons, 8)
+        page = request.GET.get('page')
+
+        try:
+            past_sermons = paginator.page(page)
+        except PageNotAnInteger:
+            past_sermons = paginator.page(1)
+        except EmptyPage:
+            past_sermons = paginator.page(paginator.num_pages)
+
+        context = super(FridaySermonPage, self).get_context(request, *args, **kwargs)
+        context['latest_sermons'] = latest_sermons
+        context['past_sermons'] = past_sermons
+
+        return context
+
+    content_panels = Page.content_panels + [
+        FieldPanel('f_sermon_hero_title'),
+        FieldPanel('f_sermon_hero_subtitle'),
+        FieldPanel('f_sermon_hero_description'),
+        FieldPanel('f_sermon_main_title_1'),
+        FieldPanel('f_sermon_main_title_2'),
+    ]
 
 
 class MissionPage(Page):

@@ -83,7 +83,7 @@ class RomansSermon(SermonVideo):
 
 
 @register_snippet
-class PsamsSermon(SermonVideo):
+class PsalmsSermon(SermonVideo):
     def __str__(self):
         return "{} - {}".format(self.sermon_title, self.sermon_date)
 
@@ -269,11 +269,7 @@ class EventIndexPage(Page):
 
 
 class SermonPage(Page):
-    subpage_types = ["home.LordDaySermonPage", "home.FridaySermonPage"]
-
-
-class LordDaySermonPage(Page):
-    subpage_types = ['LordDayMorningSermonPage', 'LordDayAfternoonSermonPage']
+    subpage_types = ["home.LordDayMorningSermonPage", "home.LordDayAfternoonSermonPage", "home.FridaySermonPage"]
 
 
 class LordDayMorningSermonPage(Page):
@@ -376,8 +372,21 @@ class FridaySermonPage(Page):
     f_sermon_hero_subtitle = models.TextField(default="요한 계시록 강해 / 특별 강사 설교")
     f_sermon_hero_description = RichTextField(default="Description")
 
-    f_sermon_main_title_1 = models.CharField(max_length=100, default="최신 주일 예배 설교 영상")
-    f_sermon_main_title_2 = models.CharField(max_length=100, default="지난 주일 예배 설교 영상들")
+    f_sermon_bible_1 = models.CharField(max_length=100, default="요한 계시록")
+    f_sermon_bible_1_main_title_1 = models.CharField(max_length=100, default="최신 요한계시록 강해 영상")
+    f_sermon_bible_1_main_title_2 = models.CharField(max_length=100, default="지난 요한계시록 강해 영상들")
+
+    f_sermon_bible_2 = models.CharField(max_length=100, default="로마서")
+    f_sermon_bible_2_main_title_1 = models.CharField(max_length=100, default="최신 로마서 강해 영상")
+    f_sermon_bible_2_main_title_2 = models.CharField(max_length=100, default="지난 로마서 강해 영상들")
+
+    f_sermon_bible_3 = models.CharField(max_length=100, default="빌립보서")
+    f_sermon_bible_3_main_title_1 = models.CharField(max_length=100, default="최신 빌립보서 강해 영상")
+    f_sermon_bible_3_main_title_2 = models.CharField(max_length=100, default="지난 빌립보서 강해 영상들")
+
+    f_sermon_bible_4 = models.CharField(max_length=100, default="시편")
+    f_sermon_bible_4_main_title_1 = models.CharField(max_length=100, default="최신 시편 강해 영상")
+    f_sermon_bible_4_main_title_2 = models.CharField(max_length=100, default="지난 시편 강해 영상들")
 
     @property
     def latest_revelation_sermons(self):
@@ -389,23 +398,47 @@ class FridaySermonPage(Page):
         past_revelation_video = RevelationSermon.objects.all().order_by('-upload_date')[2:]
         return past_revelation_video
 
-    def get_context(self, request, *args, **kwargs):
-        latest_sermons = self.latest_sermons
-        past_sermons = self.past_sermons
+    @property
+    def roman_sermon(self):
+        roman_video = RomansSermon.objects.all().order_by('-upload_date')
+        return roman_video
 
-        paginator = Paginator(past_sermons, 8)
+    @property
+    def philippians_sermon(self):
+        philippians_video = PhilippiansSermon.objects.all().order_by('-upload_date')
+        return philippians_video
+
+    @property
+    def psalm_sermon(self):
+        psalm_video = PsalmsSermon.objects.all().order_by('-upload_date')
+        return psalm_video
+
+    def get_context(self, request, *args, **kwargs):
+        latest_revelation_sermons = self.latest_revelation_sermons
+        past_revelation_sermons = self.past_revelation_sermons
+        roman_sermon = self.roman_sermon
+        philippians_sermon = self.philippians_sermon
+        psalm_sermon = self.psalm_sermon
+
+        paginator = Paginator(past_revelation_sermons, 8)
         page = request.GET.get('page')
 
         try:
-            past_sermons = paginator.page(page)
+            past_revelation_sermons = paginator.page(page)
         except PageNotAnInteger:
-            past_sermons = paginator.page(1)
+            past_revelation_sermons = paginator.page(1)
         except EmptyPage:
-            past_sermons = paginator.page(paginator.num_pages)
+            past_revelation_sermons = paginator.page(paginator.num_pages)
 
         context = super(FridaySermonPage, self).get_context(request, *args, **kwargs)
-        context['latest_sermons'] = latest_sermons
-        context['past_sermons'] = past_sermons
+        context['latest_revelation_sermons'] = latest_revelation_sermons
+        context['past_revelation_sermons'] = past_revelation_sermons
+        context['latest_roman_sermon'] = roman_sermon[:2]
+        context['past_roman_sermon'] = roman_sermon[2:]
+        context['latest_philippians_sermon'] = philippians_sermon[:2]
+        context['past_philippians_sermon'] = philippians_sermon[2:]
+        context['latest_psalm_sermon'] = psalm_sermon[:2]
+        context['past_psalm_sermon'] = psalm_sermon[2:]
 
         return context
 
@@ -413,8 +446,21 @@ class FridaySermonPage(Page):
         FieldPanel('f_sermon_hero_title'),
         FieldPanel('f_sermon_hero_subtitle'),
         FieldPanel('f_sermon_hero_description'),
-        FieldPanel('f_sermon_main_title_1'),
-        FieldPanel('f_sermon_main_title_2'),
+        FieldPanel('f_sermon_bible_1'),
+        FieldPanel('f_sermon_bible_1_main_title_1'),
+        FieldPanel('f_sermon_bible_1_main_title_2'),
+
+        FieldPanel('f_sermon_bible_2'),
+        FieldPanel('f_sermon_bible_2_main_title_1'),
+        FieldPanel('f_sermon_bible_2_main_title_2'),
+
+        FieldPanel('f_sermon_bible_3'),
+        FieldPanel('f_sermon_bible_3_main_title_1'),
+        FieldPanel('f_sermon_bible_3_main_title_2'),
+
+        FieldPanel('f_sermon_bible_4'),
+        FieldPanel('f_sermon_bible_4_main_title_1'),
+        FieldPanel('f_sermon_bible_4_main_title_2'),
     ]
 
 

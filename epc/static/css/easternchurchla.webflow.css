@@ -462,7 +462,7 @@
   font-family: 'Bmdohyeon ttf', sans-serif;
   color: #c4464c;
   font-size: 79px;
-  line-height: 63px;
+  line-height: 113px;
   text-align: center;
   text-transform: uppercase;
 }
@@ -644,7 +644,7 @@
   font-family: 'Bmdohyeon ttf', sans-serif;
   color: #c4464c;
   font-size: 79px;
-  line-height: 75px;
+  line-height: 95px;
   font-weight: 700;
   text-align: center;
   letter-spacing: 2px;
@@ -655,7 +655,7 @@
   font-family: 'Bmdohyeon ttf', sans-serif;
   color: #c4464c;
   font-size: 79px;
-  line-height: 75px;
+  line-height: 113px;
   text-align: center;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -679,6 +679,10 @@
   text-transform: uppercase;
 }
 
+.worship-scripture2.small {
+  font-size: 24px;
+}
+
 .ministries-scripture {
   font-family: Youth, sans-serif;
   color: #222;
@@ -695,6 +699,10 @@
   font-weight: 100;
   text-align: right;
   text-transform: uppercase;
+}
+
+.ministries-scripture2.small {
+  font-size: 24px;
 }
 
 .welcome-flexitem {
@@ -1392,6 +1400,14 @@
   background-color: #546cc3;
 }
 
+.page-hero-section.em {
+  background-image: -webkit-linear-gradient(0deg, hsla(0, 0%, 100%, .89) 6%, hsla(0, 0%, 100%, .01) 71%), url('../images/young-adult.jpeg');
+  background-image: linear-gradient(90deg, hsla(0, 0%, 100%, .89) 6%, hsla(0, 0%, 100%, .01) 71%), url('../images/young-adult.jpeg');
+  background-position: 0px 0px, 50% 194%;
+  background-size: auto, cover;
+  background-attachment: scroll, fixed;
+}
+
 .page-hero-text-flexbox {
   display: -webkit-box;
   display: -webkit-flex;
@@ -1504,6 +1520,10 @@
   color: #fff;
 }
 
+.hero-main-desc.em {
+  font-size: 15px;
+}
+
 .button {
   margin-right: 15px;
   margin-left: 0px;
@@ -1571,6 +1591,14 @@
   margin-right: 0px;
 }
 
+.button.register {
+  display: block;
+  margin-right: 0px;
+  font-family: 이순신돋움체b, sans-serif;
+  font-size: 17px;
+  font-weight: 400;
+}
+
 .sermons-main-sub-section {
   padding-top: 50px;
   border-top: 1px solid #cecece;
@@ -1636,7 +1664,7 @@
 .sermon-feature-heading {
   margin-top: 30px;
   font-family: Youth, sans-serif;
-  font-size: 32px;
+  font-size: 28px;
   font-weight: 500;
   text-transform: uppercase;
 }
@@ -1701,6 +1729,13 @@
   align-content: center;
 }
 
+.generation-flexbox.em {
+  -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+}
+
 .generation-flex-item {
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
@@ -1725,6 +1760,11 @@
   transform: translate(0px, -20px);
 }
 
+.generation-flex-item.text.em {
+  padding-top: 70px;
+  padding-bottom: 0px;
+}
+
 .generation-heading {
   font-family: Youth, sans-serif;
   text-transform: uppercase;
@@ -1736,12 +1776,27 @@
   text-transform: uppercase;
 }
 
+.generation-subheading.em {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.generation-subheading.em.pastor {
+  text-transform: none;
+}
+
 .generation-desc {
   padding-top: 20px;
   font-family: Youth, sans-serif;
   font-size: 16px;
   line-height: 22px;
   letter-spacing: 0px;
+}
+
+.generation-desc.em {
+  padding-top: 10px;
+  font-family: Roboto, sans-serif;
+  font-size: 12px;
 }
 
 .tabs-content {
@@ -1793,6 +1848,14 @@
 
 .tabs-menu.kids {
   background-color: #d6d545;
+}
+
+.tabs-menu.em {
+  background-color: #c4464c;
+}
+
+.tabs-menu.sermon {
+  background-color: #364da1;
 }
 
 .tab-link {
@@ -1861,6 +1924,22 @@
   background-color: #364da1;
 }
 
+.tab-link.em:hover {
+  background-color: #a02d32;
+}
+
+.tab-link.em.w--current {
+  background-color: #a02d32;
+}
+
+.tab-link.sermon:hover {
+  background-color: #0061ad;
+}
+
+.tab-link.sermon.w--current {
+  background-color: #546cc3;
+}
+
 .tab-link-text {
   font-family: Youth, sans-serif;
   color: #fff;
@@ -1887,12 +1966,24 @@
   text-transform: capitalize;
 }
 
+.tab-link-text.sermon {
+  font-family: 이순신돋움체b, sans-serif;
+  color: #fff;
+  font-weight: 700;
+}
+
 .gathering-info {
   font-family: Youth, sans-serif;
   font-size: 19px;
   font-style: italic;
   font-weight: 400;
   text-transform: uppercase;
+}
+
+.gathering-info.em {
+  font-size: 14px;
+  line-height: 20px;
+  font-style: normal;
 }
 
 .logo-image {
@@ -2834,6 +2925,11 @@
   background-color: #333;
 }
 
+.small-divider.register {
+  width: 200px;
+  margin-bottom: 50px;
+}
+
 .giving-flexbox {
   display: -webkit-box;
   display: -webkit-flex;
@@ -2849,6 +2945,13 @@
   flex-wrap: wrap;
 }
 
+.giving-flexbox.register {
+  -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+}
+
 .giving-flexitem {
   margin: 5px;
   padding: 50px;
@@ -2859,6 +2962,12 @@
   text-align: center;
 }
 
+.giving-flexitem.register {
+  -webkit-flex-basis: 45%;
+  -ms-flex-preferred-size: 45%;
+  flex-basis: 45%;
+}
+
 .giving-heading {
   font-family: 'Bmdohyeon ttf', sans-serif;
   color: #222;
@@ -2866,6 +2975,11 @@
   line-height: 84px;
   text-align: center;
   text-transform: capitalize;
+}
+
+.giving-heading.register {
+  padding-top: 50px;
+  padding-bottom: 20px;
 }
 
 .giving-small-header {
@@ -3106,6 +3220,36 @@
   -webkit-align-items: flex-start;
   -ms-flex-align: start;
   align-items: flex-start;
+}
+
+.register-textfield {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  padding: 25px;
+}
+
+.register-title {
+  margin-bottom: 20px;
+  font-family: 이순신돋움체b, sans-serif;
+  font-size: 34px;
+}
+
+.register-section {
+  padding-top: 50px;
+}
+
+.sns-bar {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  right: 0px;
+  z-index: 1200;
+  height: 30px;
+  background-color: #364da1;
+}
+
+.tabs-menu-2 {
+  text-align: center;
 }
 
 html.w-mod-js *[data-ix="page-load-navbar"] {
@@ -3607,6 +3751,9 @@ html.w-mod-js *[data-ix="hide"] {
     padding: 10px 15px;
     font-size: 10px;
   }
+  .button.register {
+    font-size: 14px;
+  }
   .sermon-feature-flexbox {
     padding-right: 10px;
     padding-left: 10px;
@@ -3900,9 +4047,16 @@ html.w-mod-js *[data-ix="hide"] {
   .contact-form {
     padding: 20px;
   }
+  .small-divider.register {
+    margin-bottom: 20px;
+  }
   .giving-heading {
     font-size: 59px;
     line-height: 54px;
+  }
+  .giving-heading.register {
+    padding-top: 20px;
+    font-size: 49px;
   }
   .featured-heading {
     margin-top: 20px;
@@ -3967,6 +4121,14 @@ html.w-mod-js *[data-ix="hide"] {
     -webkit-align-content: stretch;
     -ms-flex-line-pack: stretch;
     align-content: stretch;
+  }
+  .register-textfield {
+    margin-bottom: 10px;
+    padding: 12px;
+  }
+  .register-title {
+    margin-bottom: 10px;
+    font-size: 24px;
   }
 }
 
@@ -4556,6 +4718,12 @@ html.w-mod-js *[data-ix="hide"] {
     font-size: 39px;
     line-height: 47px;
   }
+  .giving-heading.register {
+    margin-top: 0px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 39px;
+  }
   .giving-small-header {
     font-size: 16px;
     line-height: 21px;
@@ -4595,6 +4763,9 @@ html.w-mod-js *[data-ix="hide"] {
   .related-blog-heading {
     font-size: 13px;
     line-height: 19px;
+  }
+  .register-title {
+    font-size: 20px;
   }
 }
 
@@ -4980,6 +5151,9 @@ html.w-mod-js *[data-ix="hide"] {
   .button.slide {
     margin-top: 20px;
   }
+  .button.register {
+    font-size: 12px;
+  }
   .sermons-main-sub-section {
     padding-top: 25px;
   }
@@ -5204,12 +5378,18 @@ html.w-mod-js *[data-ix="hide"] {
     font-size: 19px;
     line-height: 27px;
   }
+  .giving-flexbox.register {
+    margin-top: 20px;
+  }
   .giving-flexitem {
     padding: 15px;
   }
   .giving-heading {
     font-size: 29px;
     line-height: 37px;
+  }
+  .giving-heading.register {
+    font-size: 24px;
   }
   .giving-small-header {
     font-size: 14px;
@@ -5258,6 +5438,13 @@ html.w-mod-js *[data-ix="hide"] {
     -webkit-flex-direction: column;
     -ms-flex-direction: column;
     flex-direction: column;
+  }
+  .register-title {
+    font-size: 18px;
+    line-height: 21px;
+  }
+  .register-section {
+    padding-top: 20px;
   }
 }
 

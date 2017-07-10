@@ -14,8 +14,12 @@
                 <div class="top-menu-link w-dropdown-toggle">
                   <div class="dropdown-top-link">{{ menuitem.title }}</div>
                 </div>
+                <nav class="dropdown-container w-dropdown-list" data-ix="dropdown-list">
+                      {% for child in menuitem.get_children %}
+                          <a class="dropdown-menu-link w-dropdown-link" href="{% pageurl child %}">{{ child.title }}</a>
+                      {% endfor %}
+                </nav>
 
-                {% top_menu_children parent=menuitem %}
               </div>
 
             {% else %}

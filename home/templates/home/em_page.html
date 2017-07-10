@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% load staticfiles wagtailcore_tags wagtailimages_tags epc_tags %}
+
+{% block body_class %}body{% endblock %}
+
+{% block content %}
+<div class="em page-hero-section" data-ix="slide-in-scroll-navigation-on-scroll">
+    <div class="container-medium">
+      <div class="page-hero-text-flexbox">
+        <div class="sermons-text-flex-item">
+          <h3 class="hero-main-heading" data-ix="slide-left">{{ page.em_hero_title }}</h3>
+          <h3 class="hero-main-subheading" data-ix="slide-right">{{ page.em_hero_verse }}</h3>
+          <p class="em hero-main-desc" data-ix="fade-down-on-scroll">{{ page.em_hero_scripture }}</p>
+        </div>
+        <div class="empty-flex-item"></div>
+      </div>
+    </div>
+  </div>
+  <div class="genration-section1">
+    <div class="generations-tab w-tabs" data-duration-in="300" data-duration-out="100">
+      <div class="em tabs-menu w-tab-menu">
+        <a class="em tab-link w-inline-block w-tab-link w--current" data-w-tab="NURSERY">
+          <div class="tab-link-text">{{ page.em_tab_title_1 }}</div>
+        </a>
+        <a class="em tab-link w-inline-block w-tab-link" data-w-tab="Kindergarten">
+          <div class="tab-link-text">{{ page.em_tab_title_2 }}</div>
+        </a>
+      </div>
+      <div class="tabs-content w-tab-content">
+        <div class="w--tab-active w-tab-pane" data-w-tab="NURSERY">
+          <div class="generation-flexbox">
+            <div class="generation-flex-item text">
+              <h1 class="generation-heading">{{ page.em_tab_content_title_1 }}</h1>
+              <h3 class="em generation-subheading">{{ page.em_tab_content_vision }}
+              </h3>
+              <h3 class="em gathering-info">{{ page.em_tab_content_mission }}</h3>
+              <p class="em generation-desc">{{ page.em_tab_content_1 | richtext}}
+              </p>
+            </div>
+            {% image page.em_tab_image_1 original as em_image_1 %}
+            {% image page.em_tab_image_2 original as em_image_2 %}
+            {% image page.em_tab_image_3 original as em_image_3 %}
+            <div class="generation-flex-item moved">
+              <img class="generation-image" data-ix="slide-left" sizes="(max-width: 991px) 100vw, (max-width: 2000px) 50vw, 1000px" src="{{ em_image_1.url }}" srcset="{{ em_image_1.url }} 500w, {{ em_image_1.url }} 800w, {{ em_image_1.url }} 1000w"></div>
+            <div class="generation-flex-item moved">
+              <img class="generation-image" data-ix="slide-left" sizes="(max-width: 991px) 100vw, (max-width: 2000px) 50vw, 1000px" src="{{ em_image_2.url }}" srcset="{{ em_image_2.url }} 500w, {{ em_image_2.url }} 800w, {{ em_image_2.url }} 1000w"></div>
+            <div class="generation-flex-item moved">
+              <img class="generation-image" data-ix="slide-left" sizes="(max-width: 991px) 100vw, (max-width: 2000px) 50vw, 1000px" src="{{ em_image_3.url }}" srcset="{{ em_image_3.url }} 500w, {{ em_image_3.url }} 800w, {{ em_image_3.url }} 1000w"></div>
+          </div>
+        </div>
+        <div class="w-tab-pane" data-w-tab="Kindergarten">
+          <div class="em generation-flexbox">
+            <div class="em generation-flex-item text">
+              <h1 class="generation-heading">{{ page.em_tab_content_title_2 }}</h1>
+              <h3 class="em generation-subheading pastor">{{ page.em_tab_content_pastor }}</h3>
+              <h3 class="gathering-info">{{ page.em_tab_content_pastor_2 }}</h3>
+              <p class="generation-desc">{{ page.em_tab_content_2 }}</p>
+            </div>
+            {% image page.em_tab_image_4 original as em_image_4 %}
+            {% image page.em_tab_image_5 original as em_image_5 %}
+            {% image page.em_tab_image_6 original as em_image_6 %}
+            <div class="generation-flex-item moved"><img class="generation-image" data-ix="slide-left" sizes="(max-width: 991px) 100vw, (max-width: 2000px) 50vw, 1000px" src="{{ em_image_4.url }}" srcset="{{ em_image_4.url }} 500w, {{ em_image_4.url }} 800w, {{ em_image_4.url }} 1000w"></div>
+            <div class="generation-flex-item moved"><img class="generation-image" data-ix="slide-left" sizes="(max-width: 991px) 100vw, (max-width: 2000px) 50vw, 1000px" src="{{ em_image_5.url }}" srcset="{{ em_image_5.url }} 500w, {{ em_image_5.url }} 800w, {{ em_image_5.url }} 1000w"></div>
+            <div class="generation-flex-item moved"><img class="generation-image" data-ix="slide-left" sizes="(max-width: 991px) 100vw, (max-width: 2000px) 50vw, 1000px" src="{{ em_image_6.url }}" srcset="{{ em_image_6.url }} 500w, {{ em_image_6.url }} 800w, {{ em_image_6.url }} 1000w"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

@@ -1351,10 +1351,12 @@ class EMPage(Page):
     em_hero_verse = models.CharField(max_length=80, default="Psalm 119:9-16")
     em_hero_scripture = models.TextField(default="Scripture for English Ministry")
 
-    em_tab_content_title_1 = models.CharField(max_length=30, default="English Ministry")
-    em_tab_content_age = models.CharField(max_length=50, default="English Ministry.")
-    em_tab_content_info = models.TextField(default="예배 안내: 오후 1:00 청년부실")
-    em_tab_content = RichTextField(default="Intro to English Ministry")
+    em_tab_title_1 = models.CharField(max_length=100, default="English Ministry")
+    em_tab_title_2 = models.CharField(max_length=100, default="Pastor & Staffs")
+    em_tab_content_title_1 = models.TextField(default="English Ministry")
+    em_tab_content_vision = models.TextField(default="English Ministry.")
+    em_tab_content_mission = models.TextField(default="예배 안내: 오후 1:00 청년부실")
+    em_tab_content_1 = RichTextField(default="Intro to English Ministry")
     em_tab_image_1 = models.ForeignKey(
         "wagtailimages.Image",
         blank=False,
@@ -1377,18 +1379,55 @@ class EMPage(Page):
         related_name='+'
     )
 
+    em_tab_content_title_2 = models.TextField(default="English Ministry")
+    em_tab_content_pastor = models.TextField(default="English Ministry.")
+    em_tab_content_pastor_2 = models.TextField(default="예배 안내: 오후 1:00 청년부실")
+    em_tab_content_2 = RichTextField(default="Intro to English Ministry")
+    em_tab_image_4 = models.ForeignKey(
+        "wagtailimages.Image",
+        blank=False,
+        null=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+    em_tab_image_5 = models.ForeignKey(
+        "wagtailimages.Image",
+        blank=False,
+        null=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+    em_tab_image_6 = models.ForeignKey(
+        "wagtailimages.Image",
+        blank=False,
+        null=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+
     content_panels = Page.content_panels + [
         FieldPanel('em_hero_title'),
         FieldPanel('em_hero_verse'),
         FieldPanel('em_hero_scripture'),
 
+        FieldPanel('em_tab_title_1'),
+        FieldPanel('em_tab_title_2'),
+
         FieldPanel('em_tab_content_title_1'),
-        FieldPanel('em_tab_content_age'),
-        FieldPanel('em_tab_content_info'),
-        FieldPanel('em_tab_content'),
+        FieldPanel('em_tab_content_vision'),
+        FieldPanel('em_tab_content_mission'),
+        FieldPanel('em_tab_content_1'),
         ImageChooserPanel('em_tab_image_1'),
         ImageChooserPanel('em_tab_image_2'),
         ImageChooserPanel('em_tab_image_3'),
+
+        FieldPanel('em_tab_content_title_2'),
+        FieldPanel('em_tab_content_pastor'),
+        FieldPanel('em_tab_content_pastor_2'),
+        FieldPanel('em_tab_content_2'),
+        ImageChooserPanel('em_tab_image_4'),
+        ImageChooserPanel('em_tab_image_5'),
+        ImageChooserPanel('em_tab_image_6'),
     ]
 
 

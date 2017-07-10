@@ -2,6 +2,18 @@
 {% load staticfiles wagtailcore_tags wagtailimages_tags epc_tags %}
 
 {% block content %}
+<div class="lords-day-sermon page-hero-section" data-ix="slide-in-scroll-navigation-on-scroll">
+    <div class="container-medium">
+      <div class="page-hero-text-flexbox">
+        <div class="sermons-text-flex-item">
+          <h1 class="hero-main-heading" data-ix="slide-left">{{ page.f_sermon_hero_title }}</h1>
+          <h3 class="hero-main-subheading" data-ix="slide-right">{{ page.f_sermon_hero_subtitle }}</h3>
+          <p class="hero-main-desc" data-ix="fade-down-on-scroll">{{ page.f_sermon_hero_description}}</p>
+        </div>
+        <div class="empty-flex-item"></div>
+      </div>
+    </div>
+  </div>
 <div class="w-tabs" data-duration-in="300" data-duration-out="100">
   <div class="sermon tabs-menu w-tab-menu">
     <a class="sermon tab-link w--current w-inline-block w-tab-link" data-w-tab="john">

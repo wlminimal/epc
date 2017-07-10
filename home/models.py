@@ -48,6 +48,7 @@ class SermonVideo(models.Model):
 
     class Meta:
         abstract = True
+        ordering = ("-upload_date",)
 
 
 @register_snippet

@@ -54,7 +54,7 @@
               <h1 class="generation-heading">{{ page.em_tab_content_title_2 }}</h1>
               <h3 class="em generation-subheading pastor">{{ page.em_tab_content_pastor }}</h3>
               <h3 class="gathering-info">{{ page.em_tab_content_pastor_2 }}</h3>
-              <p class="generation-desc">{{ page.em_tab_content_2 }}</p>
+              <p class="generation-desc">{{ page.em_tab_content_2 | richtext }}</p>
             </div>
             {% image page.em_tab_image_4 original as em_image_4 %}
             {% image page.em_tab_image_5 original as em_image_5 %}

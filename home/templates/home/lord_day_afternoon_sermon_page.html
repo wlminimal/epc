@@ -92,7 +92,7 @@
           <span class="blog pagination-number" href="#">
               Page {{ past_sermons.number }} of {{ past_sermons.paginator.num_pages }}
           </span>
-          {% if r_events.has_next %}
+          {% if past_sermons.has_next %}
           <a class="blog right-arrow" href="?page={{ past_sermons.next_page_number }}">다음 페이지</a>
           {% endif %}
   </div>

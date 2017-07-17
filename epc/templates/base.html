@@ -47,6 +47,10 @@
         </script>
         <link href="{% static 'images/favicon.png' %}" rel="shortcut icon" type="image/x-icon">
         <link href="{% static 'images/webclip.png' %}" rel="apple-touch-icon">
+        {% block header-js %}
+          <script src="https://js.stripe.com/v3/"></script>
+          <script src="https://checkout.stripe.com/checkout.js"></script>
+        {% endblock %}
     </head>
 
     <body class="{% block body_class %}{% endblock %}">

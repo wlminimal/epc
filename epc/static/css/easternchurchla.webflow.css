@@ -2972,7 +2972,7 @@
   font-family: 'Bmdohyeon ttf', sans-serif;
   color: #222;
   font-size: 79px;
-  line-height: 84px;
+  line-height: 94px;
   text-align: center;
   text-transform: capitalize;
 }
@@ -3250,6 +3250,36 @@
 
 .tabs-menu-2 {
   text-align: center;
+}
+
+.give-section {
+  padding-top: 101px;
+}
+
+.div-block {
+  padding: 20px;
+  background-color: #fff;
+}
+
+.heading {
+  margin-bottom: 20px;
+  padding-bottom: 25px;
+  font-family: 'Bmdohyeon ttf', sans-serif;
+  font-size: 38px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.unordered-list {
+  padding-left: 0px;
+  text-align: center;
+}
+
+.row {
+  margin-top: 40px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #fff;
 }
 
 html.w-mod-js *[data-ix="page-load-navbar"] {

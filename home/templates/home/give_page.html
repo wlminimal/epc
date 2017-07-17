@@ -68,5 +68,134 @@
       </div>
     </div>
   </div>
+  <div class="give-section">
+    <div class="container-medium">
+      <h1 class="giving-heading">후원 하기</h1>
+      <div class="giving small-divider"></div>
+      <div class="row w-row">
+        <div class="w-col w-col-6">
+          <div class="div-block">
+            <h1 class="heading">안전하게 후원하기</h1>
+            <div class="w-form">
+              <form class="form" data-name="Email Form" id="payment-form" name="payment-form" method="post" action=".">
+                {% csrf_token %}
+                <label for="name">이름:</label>
+                <input class="w-input" data-name="Name" id="name" maxlength="256" name="name" placeholder="이름을 적어주세요" type="text">
+                <label for="email">이메일:</label>
+                <input class="w-input" data-name="Email" id="email" maxlength="256" name="email" placeholder="이메일 주소를 적어주세요" required="required" type="email">
+                <label for="donation-category">후원 종류:</label>
+                <select class="w-select" data-name="donation-category-dropdown" id="donation-category" name="donation-category" required>
+                  <option value="">후원 종류를 선택하세요</option>
+                  <option value="감사 연보">감사 연보</option>
+                  <option value="주일 연보">주일 연보</option>
+                  <option value="십일조">십일조</option>
+                  <option value="한국 학교">한국 학교</option>
+                  <option value="틴데일">틴데일 신학교</option>
+                  <option value="선교">선교</option>
+                </select>
+                <label for="amount">후원 금액:</label>
+                <input class="w-input" data-name="amount" id="amount" maxlength="256" name="amount" placeholder="후원 금액" required="required" type="text">
+                <label for="description">내용:</label>
+                <textarea class="w-input" data-name="special-request" id="description" maxlength="5000" name="description" placeholder="특별한 내용이 있으면 적어주세요"></textarea>
+                <input type="hidden" name="stripeToken" id="stripeToken">
+                <input class="w-button" data-wait="진행중.." type="submit" value="후원하기" id="donateButton">
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="w-col w-col-6">
+          <div class="div-block">
+            <h1 class="heading">알려드리는 말씀</h1>
+            <ul class="unordered-list w-list-unstyled">
+              <li>
+                <h5>동부 교회에서는 후원하신 분들의 카드정보를 동의 없이 저장하지 않습니다.</h5>
+              </li>
+              <li>
+                <h5>동부교회에서 제공하는 후원 시스템은 안전합니다.</h5>
+              </li>
+              <li>
+                <h5>동부교회에서 제공하는 후원 시스템은 안전합니다.</h5>
+              </li>
+              <li>
+                <h5>동부교회에서 제공하는 후원 시스템은 안전합니다.</h5>
+              </li>
+              <li>
+                <h5>동부교회에서 제공하는 후원 시스템은 안전합니다.</h5>
+              </li>
+              <li>
+                <h5>동부교회에서 제공하는 후원 시스템은 안전합니다.</h5>
+              </li>
+              <li>
+                <h5>동부교회에서 제공하는 후원 시스템은 안전합니다.</h5>
+              </li>
+            </ul>
+            <div class="" id="error_explanation">
 
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
+{% block extra_js %}
+<script type="text/javascript">
+  var handler = StripeCheckout.configure({
+    key: '{{ stripe_key }}',
+    locale: 'auto',
+    name: 'Eastern Church',
+    description: 'One time donation',
+    token: function(token) {
+      $('input#stripeToken').val(token.id);
+      $('form').submit();
+    }
+  });
+  function ValidateEmail(email)
+  {
+   if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email.val()))
+    {
+      return (true);
+    }
+      return (false);
+  }
+  $('#donateButton').on('click', function(e){
+    e.preventDefault();
+
+    $('#error_explanation').html('');
+    var email = $('input#email');
+    var category = $('select#donation-category').val();
+    var amount = $('input#amount').val();
+    amount = amount.replace(/\$/g, '').replace(/\,/g, '');
+
+    amount = parseFloat(amount);
+    if (isNaN(amount)) {
+    $('#error_explanation').html('<p>후원(연보) 하시고 싶은 금액을 숫자로 적어주세요.</p>');
+    }
+    else if (amount < 5.00) {
+      $('#error_explanation').html('<p>최소 후원(연보)금액은 $5 이상입니다.</p>');
+    }
+    else if (!ValidateEmail(email)) {
+      $('#error_explanation').html('<p>영수증을 발급하기 위한 이메일 주소를 적어주세요.</p>');
+    }
+    else if (category == '') {
+      $('#error_explanation').html('<p>후원(연보) 종류를 선택해주세요.</p>');
+    }
+    else {
+      amount = amount * 100; // Needs to be an integer!
+      handler.open({
+        amount: Math.round(amount)
+      });
+    }
+
+
+  });
+
+  // Close Checkout on page navigation
+  $(window).on('popstate', function (){
+    handler.close();
+  });
+
+
+</script>
 {% endblock %}

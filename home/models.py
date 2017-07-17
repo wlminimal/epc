@@ -1,9 +1,9 @@
 from __future__ import absolute_import, unicode_literals
-
+from django.conf import settings
 from django.db import models
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-import datetime
-
+from django.http import HttpResponseRedirect
+from django.core.mail import send_mail
 from wagtail.wagtailcore.models import Page, PageManager, PageQuerySet, Orderable
 from wagtail.wagtailcore.fields import RichTextField
 from wagtail.wagtailadmin.edit_handlers import FieldPanel, FieldRowPanel, InlinePanel, MultiFieldPanel, PageChooserPanel
@@ -13,6 +13,9 @@ from wagtail.wagtailsnippets.models import register_snippet
 from wagtail.wagtailforms.models import AbstractEmailForm, AbstractFormField
 from wagtail.wagtailforms.edit_handlers import FormSubmissionsPanel
 from modelcluster.fields import ParentalKey
+
+import datetime
+import stripe
 
 
 @register_snippet
@@ -1690,6 +1693,37 @@ class GivePage(Page):
     recurring_description = RichTextField(default="description for recurring donation")
     recurring_button_text = models.CharField(max_length=50, default="온라인 후원")
     recurring_button_link = models.CharField(max_length=50, default="www.epcla.com")
+
+    public_key = settings.STRIPE_PUBLIC_KEY
+
+    def serve(self, request):
+        if request.method == 'POST':
+            stripe.api_key = settings.STRIPE_SECRET_KEY
+
+            email = request.POST.get('email')
+            token = request.POST.get('stripeToken')
+            amount = request.POST.get('amount')
+
+            amount = int(amount) * 100
+            desc = request.POST.get('donation-category')
+            charge = stripe.Charge.create(
+                amount=amount,
+                currency="usd",
+                description=desc,
+                source=token,
+                receipt_email=email
+            )
+            # Send email...
+            # subject = "후원(연보)해주셔서 감사합니다."
+            # message = ""
+            return HttpResponseRedirect('/thanks/')
+        else:
+            return super(GivePage, self).serve(request)
+
+    def get_context(self, request):
+        context = super(GivePage, self).get_context(request)
+        context['stripe_key'] = self.public_key
+        return context
 
     content_panels = Page.content_panels + [
         FieldPanel('give_hero_title'),

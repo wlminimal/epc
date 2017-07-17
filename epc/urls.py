@@ -3,6 +3,7 @@ from __future__ import absolute_import, unicode_literals
 from django.conf import settings
 from django.conf.urls import include, url
 from django.contrib import admin
+from django.views.generic import TemplateView
 
 from search import views as search_views
 from wagtail.wagtailadmin import urls as wagtailadmin_urls
@@ -19,9 +20,8 @@ urlpatterns = [
     # User management
     url(r'^users/', include('epc.users.urls', namespace='users')),
     url(r'^accounts/', include('allauth.urls')),
+    url(r'^thanks/', TemplateView.as_view(template_name="home/thanks.html")),
 
-    # Stripe
-    url(r'^payments/', include('pinax.stripe.urls')),
 
     # For anything not caught by a more specific rule above, hand over to
     # Wagtail's page serving mechanism. This should be the last pattern in

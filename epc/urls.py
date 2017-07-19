@@ -20,8 +20,11 @@ urlpatterns = [
     # User management
     url(r'^users/', include('epc.users.urls', namespace='users')),
     url(r'^accounts/', include('allauth.urls')),
-    url(r'^thanks/', TemplateView.as_view(template_name="home/thanks.html")),
-
+    url(r'^thanks/', TemplateView.as_view(template_name="home/thanks.html"), name='thank_you'),
+    url(r'^declined/', TemplateView.as_view(template_name="home/declined.html"),
+                                            name='declined'),
+    url(r'^payment-error/', TemplateView.as_view(template_name="home/payment-error.html"),
+                                                 name='payment_error'),
 
     # For anything not caught by a more specific rule above, hand over to
     # Wagtail's page serving mechanism. This should be the last pattern in

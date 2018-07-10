@@ -4,14 +4,14 @@ from django.db import models
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 import datetime
 
-from wagtail.wagtailcore.models import Page, PageManager, PageQuerySet, Orderable
-from wagtail.wagtailcore.fields import RichTextField
-from wagtail.wagtailadmin.edit_handlers import FieldPanel, FieldRowPanel, InlinePanel, MultiFieldPanel, PageChooserPanel
-from wagtail.wagtailsnippets.edit_handlers import SnippetChooserPanel
-from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
-from wagtail.wagtailsnippets.models import register_snippet
-from wagtail.wagtailforms.models import AbstractEmailForm, AbstractFormField
-from wagtail.wagtailforms.edit_handlers import FormSubmissionsPanel
+from wagtail.core.models import Page, PageManager, PageQuerySet, Orderable
+from wagtail.core.fields import RichTextField
+from wagtail.admin.edit_handlers import FieldPanel, FieldRowPanel, InlinePanel, MultiFieldPanel, PageChooserPanel
+from wagtail.snippets.edit_handlers import SnippetChooserPanel
+from wagtail.images.edit_handlers import ImageChooserPanel
+from wagtail.snippets.models import register_snippet
+from wagtail.contrib.forms.models import AbstractEmailForm, AbstractFormField
+from wagtail.contrib.forms.edit_handlers import FormSubmissionsPanel
 from modelcluster.fields import ParentalKey
 
 
@@ -45,10 +45,11 @@ class SermonVideo(models.Model):
     sermon_link = models.TextField(default="www.youtube.com")
     sermon_share_code = models.CharField(max_length=80, default="LHJowUFSKMA")
     upload_date = models.DateTimeField(auto_now_add=True)
+    service_date = models.BigIntegerField(default="2018070911")
 
     class Meta:
         abstract = True
-        ordering = ("-upload_date",)
+        ordering = ("-service_date",)
 
 
 @register_snippet
@@ -283,12 +284,12 @@ class LordDayMorningSermonPage(Page):
 
     @property
     def latest_morning_sermons(self):
-        latest_morning_sermon_video = LordDayMorningSermon.objects.all().order_by('-upload_date')[:2]
+        latest_morning_sermon_video = LordDayMorningSermon.objects.all().order_by('-service_date')[:2]
         return latest_morning_sermon_video
 
     @property
     def past_morning_sermons(self):
-        past_morning_sermon_video = LordDayMorningSermon.objects.all().order_by('-upload_date')[2:]
+        past_morning_sermon_video = LordDayMorningSermon.objects.all().order_by('-service_date')[2:]
         return past_morning_sermon_video
 
     def get_context(self, request, *args, **kwargs):

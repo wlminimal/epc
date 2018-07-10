@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 
 from django.db import migrations, models
 import django.db.models.deletion
-import wagtail.wagtailcore.fields
+import wagtail.core.fields
 
 
 class Migration(migrations.Migration):
@@ -27,7 +27,7 @@ class Migration(migrations.Migration):
                 ('elem_tab_content_title_1', models.CharField(default='초등부', max_length=30)),
                 ('elem_tab_content_age', models.CharField(default='0세부터 3세', max_length=50)),
                 ('elem_tab_content_info', models.TextField(default='예배 안내: 오전 11:00 23번 방')),
-                ('elem_tab_content', wagtail.wagtailcore.fields.RichTextField(default='Intro to Kinder')),
+                ('elem_tab_content', wagtail.core.fields.RichTextField(default='Intro to Kinder')),
                 ('elem_tab_image_1', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='+', to='wagtailimages.Image')),
                 ('elem_tab_image_2', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='+', to='wagtailimages.Image')),
                 ('elem_tab_image_3', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='+', to='wagtailimages.Image')),
@@ -48,7 +48,7 @@ class Migration(migrations.Migration):
                 ('nursery_tab_content_title_1', models.CharField(default='영아부', max_length=30)),
                 ('nursery_tab_content_age', models.CharField(default='0세부터 3세', max_length=50)),
                 ('nursery_tab_content_info', models.TextField(default='예배 안내: 오전 11:00 23번 방')),
-                ('nursery_tab_content', wagtail.wagtailcore.fields.RichTextField(default='Intro to Nursery')),
+                ('nursery_tab_content', wagtail.core.fields.RichTextField(default='Intro to Nursery')),
                 ('nursery_tab_image_1', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='+', to='wagtailimages.Image')),
                 ('nursery_tab_image_2', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='+', to='wagtailimages.Image')),
                 ('nursery_tab_image_3', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='+', to='wagtailimages.Image')),

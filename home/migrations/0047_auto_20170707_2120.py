@@ -5,7 +5,7 @@ from __future__ import unicode_literals
 from django.db import migrations, models
 import django.db.models.deletion
 import modelcluster.fields
-import wagtail.wagtailcore.fields
+import wagtail.core.fields
 
 
 class Migration(migrations.Migration):
@@ -27,7 +27,7 @@ class Migration(migrations.Migration):
                 ('em_tab_content_title_1', models.CharField(default='English Ministry', max_length=30)),
                 ('em_tab_content_age', models.CharField(default='English Ministry.', max_length=50)),
                 ('em_tab_content_info', models.TextField(default='예배 안내: 오후 1:00 청년부실')),
-                ('em_tab_content', wagtail.wagtailcore.fields.RichTextField(default='Intro to English Ministry')),
+                ('em_tab_content', wagtail.core.fields.RichTextField(default='Intro to English Ministry')),
                 ('em_tab_image_1', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='+', to='wagtailimages.Image')),
                 ('em_tab_image_2', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='+', to='wagtailimages.Image')),
                 ('em_tab_image_3', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='+', to='wagtailimages.Image')),
@@ -61,7 +61,7 @@ class Migration(migrations.Migration):
                 ('sort_order', models.IntegerField(blank=True, editable=False, null=True)),
                 ('hero_title', models.CharField(default='주일 설교 영상', max_length=80)),
                 ('hero_subtitle', models.TextField(default='성경을 성경으로 해석한다')),
-                ('hero_description', wagtail.wagtailcore.fields.RichTextField(default='Description')),
+                ('hero_description', wagtail.core.fields.RichTextField(default='Description')),
                 ('sermon_main_title_1', models.CharField(default='최신 주일 예배 설교 영상', max_length=100)),
                 ('sermon_main_title_2', models.CharField(default='지난 주일 예배 설교 영상들', max_length=100)),
             ],
@@ -104,7 +104,7 @@ class Migration(migrations.Migration):
                 ('sort_order', models.IntegerField(blank=True, editable=False, null=True)),
                 ('hero_title', models.CharField(default='주일 설교 영상', max_length=80)),
                 ('hero_subtitle', models.TextField(default='성경을 성경으로 해석한다')),
-                ('hero_description', wagtail.wagtailcore.fields.RichTextField(default='Description')),
+                ('hero_description', wagtail.core.fields.RichTextField(default='Description')),
                 ('sermon_main_title_1', models.CharField(default='최신 주일 예배 설교 영상', max_length=100)),
                 ('sermon_main_title_2', models.CharField(default='지난 주일 예배 설교 영상들', max_length=100)),
             ],

@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 
 from django.db import migrations, models
 import django.db.models.deletion
-import wagtail.wagtailcore.fields
+import wagtail.core.fields
 
 
 class Migration(migrations.Migration):
@@ -36,15 +36,15 @@ class Migration(migrations.Migration):
                 ('give_main_title', models.CharField(default='후원 방법', max_length=30)),
                 ('check_subtitle', models.CharField(default='개인 체크(check)으로 후원', max_length=80)),
                 ('check_title', models.CharField(default='체크 보내기', max_length=50)),
-                ('check_description', wagtail.wagtailcore.fields.RichTextField(default='description for check donation')),
+                ('check_description', wagtail.core.fields.RichTextField(default='description for check donation')),
                 ('onetime_subtitle', models.CharField(default='온라인 후원', max_length=80)),
                 ('onetime_title', models.CharField(default='일회성 후원', max_length=50)),
-                ('onetime_description', wagtail.wagtailcore.fields.RichTextField(default='description for onetime donation')),
+                ('onetime_description', wagtail.core.fields.RichTextField(default='description for onetime donation')),
                 ('onetime_button_text', models.CharField(default='온라인 후원', max_length=50)),
                 ('onetime_button_link', models.CharField(default='www.epcla.com', max_length=50)),
                 ('recurring_subtitle', models.CharField(default='온라인 후원', max_length=80)),
                 ('recurring_title', models.CharField(default='주기적 후원', max_length=50)),
-                ('recurring_description', wagtail.wagtailcore.fields.RichTextField(default='description for recurring donation')),
+                ('recurring_description', wagtail.core.fields.RichTextField(default='description for recurring donation')),
                 ('recurring_button_text', models.CharField(default='온라인 후원', max_length=50)),
                 ('recurring_button_link', models.CharField(default='www.epcla.com', max_length=50)),
                 ('education_button_link', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='+', to='wagtailcore.Page')),

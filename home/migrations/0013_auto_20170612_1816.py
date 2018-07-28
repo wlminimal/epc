@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 
 from django.db import migrations, models
 import django.db.models.deletion
-import wagtail.wagtailcore.fields
+import wagtail.core.fields
 
 
 class Migration(migrations.Migration):
@@ -31,7 +31,7 @@ class Migration(migrations.Migration):
                 ('page_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, serialize=False, to='wagtailcore.Page')),
                 ('blog_title', models.TextField(default='Blog Title')),
                 ('blog_date', models.DateTimeField(auto_now_add=True)),
-                ('blog_content', wagtail.wagtailcore.fields.RichTextField()),
+                ('blog_content', wagtail.core.fields.RichTextField()),
                 ('blog_button_text', models.CharField(default='Read more blog', max_length=50)),
                 ('blog_author', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='+', to='home.Author')),
                 ('blog_button_link', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='+', to='wagtailcore.Page')),

@@ -103,7 +103,17 @@
             </div>
       {% endfor %}
         </div>
-        <div class="pagination-block"><a class="left-arrow" href="#">«</a><a class="pagination-number sermons" href="#">1</a><a class="pagination-number sermons" href="#">2</a><a class="pagination-number sermons" href="#">3</a><a class="pagination-number sermons" href="#">4</a><a class="pagination-number sermons" href="#">5</a><a class="pagination-number sermons" href="#">6</a><a class="pagination-number sermons" href="#">7</a><a class="right-arrow" href="#">»</a></div>
+        <div class="blog pagination-block">
+          {% if past_revelation_sermons.has_previous %}
+          <a class="blog left-arrow" href="?page={{ past_revelation_sermons.previous_page_number }}">이전 페이지</a>
+          {% endif %}
+          <span class="blog pagination-number" href="#">
+              Page {{ past_revelation_sermons.number }} of {{ past_revelation_sermons.paginator.num_pages }}
+          </span>
+          {% if past_revelation_sermons.has_next %}
+          <a class="blog right-arrow" href="?page={{ past_revelation_sermons.next_page_number }}">다음 페이지</a>
+          {% endif %}
+        </div>
       </div>
     </div>
 
@@ -336,7 +346,7 @@
           {% endfor %}
 
         </div>
-        <div class="pagination-block"><a class="left-arrow" href="#">«</a><a class="pagination-number sermons" href="#">1</a><a class="pagination-number sermons" href="#">2</a><a class="pagination-number sermons" href="#">3</a><a class="pagination-number sermons" href="#">4</a><a class="pagination-number sermons" href="#">5</a><a class="pagination-number sermons" href="#">6</a><a class="pagination-number sermons" href="#">7</a><a class="right-arrow" href="#">»</a></div>
+        
       </div>
     </div>
   </div>

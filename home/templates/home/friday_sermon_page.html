@@ -16,27 +16,116 @@
   </div>
 <div class="w-tabs" data-duration-in="300" data-duration-out="100">
   <div class="sermon tabs-menu w-tab-menu">
-    <a class="sermon tab-link w--current w-inline-block w-tab-link" data-w-tab="john">
+    <a class="sermon tab-link w--current w-inline-block w-tab-link" data-w-tab="genesis">
       <div class="sermon tab-link-text">{{ page.f_sermon_bible_1 }}</div>
     </a>
-    <a class="sermon tab-link w-inline-block w-tab-link" data-w-tab="roman">
+    <a class="sermon tab-link w-inline-block w-tab-link" data-w-tab="revelation">
       <div class="sermon tab-link-text">{{ page.f_sermon_bible_2 }}</div>
     </a>
-    <a class="sermon tab-link w-inline-block w-tab-link" data-w-tab="philip">
+   <!-- <a class="sermon tab-link w-inline-block w-tab-link" data-w-tab="philip">
       <div class="sermon tab-link-text">{{ page.f_sermon_bible_3 }}</div>
     </a>
     <a class="sermon tab-link w-inline-block w-tab-link" data-w-tab="Psam">
       <div class="sermon tab-link-text">{{ page.f_sermon_bible_4 }}</div>
     </a>
+    -->
   </div>
 
-  <!-- Revelation -->
+
   <div class="w-tab-content">
-    <div class="w--tab-active w-tab-pane" data-w-tab="john">
+
+   <!-- Genesis -->
+    <div class="w--tab-active w-tab-pane" data-w-tab="genesis">
       <div class="sermons-page-section">
         <div class="sermons-intro-flex-container">
           <div class="sermons-intro-flex-item" data-ix="slide-right">
             <h1 class="sermons-intro-heading" data-ix="slide-left">{{ page.f_sermon_bible_1_main_title_1 }}</h1>
+          </div>
+          <div class="sermons-latest-video-flex-item">
+            {% for sermon in latest_genesis_sermon %}
+
+              <div class="sermons-video-flexitem">
+                <div class="sermons-overlay">
+                  <h6 class="sermon-day sermons-video-title">{{ sermon.sermon_day }}</h6>
+                  <h1 class="lords-day sermons-video-title">{{ sermon.sermon_title }}</h1>
+                  <h1 class="sermon-video-scripture">{{ sermon.sermon_chapter }}</h1>
+                  <h1 class="lords-day sermon-video-date">{{ sermon.sermon_date }}</h1>
+                </div>
+                  {% image sermon.sermon_thumbnail_image original as thumb_image %}
+                  <img sizes="(max-width: 479px) 89vw, (max-width: 752px) 93vw, (max-width: 767px) 700px, (max-width: 991px) 85vw, 44vw" src="{{ thumb_image.url }}" srcset="{{ thumb_image.url }} 500w, {{ thumb_image.url }} 700w">
+                <a class="w-inline-block w-lightbox" href="#">
+                  <img class="sermon-light-box" src="{% static 'images/58bafc918495d36c26dea457_play-icon.png' %}">
+                  <script class="w-json" type="application/json">
+                    { "group": "{{ sermon.sermon_day }}", "items": [{
+                      "type": "video",
+                      "url": "{{ sermon.sermon_link }}",
+                      "html": "<iframe class=\"embedly-embed\" src=\"https://www.youtube.com/embed/{{ sermon.sermon_share_code }}\" width=\"940\" height=\"528\" scrolling=\"no\" frameborder=\"0\" allowfullscreen></iframe>",
+                      "thumbnailUrl": "https://i.ytimg.com/vi/{{ sermon.sermon_share_code }}/hqdefault.jpg",
+                      "width": 940,
+                      "height": 528
+                    }] }
+                  </script>
+                </a>
+              </div>
+
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      <div class="sermons-prev-section">
+        <div class="container-medium">
+          <h1 class="sermons-prev-heading">{{ page.f_sermon_bible_1_main_title_2 }}</h1>
+        </div>
+        <div class="prev-sermon-flex-container">
+
+          {% for sermon in past_genesis_sermon %}
+            <div class="prev-sermon prev-sermon-flexitem">
+                <div class="sermons-video-flexitem">
+                  <div class="sermons-overlay">
+                    <h6 class="prev sermon-day sermons-video-title">{{ sermon.sermon_day }}</h6>
+                    <h1 class="prev sermons-video-title">{{ sermon.sermon_title }}</h1>
+                    <h1 class="prev sermon-video-scripture">{{ sermon.sermon_chapter }}</h1>
+                    <h1 class="lords-day-prev sermon-video-date">{{ sermon.sermon_date }}</h1>
+                  </div>
+                    {% image sermon.sermon_thumbnail_image original as thumb_image %}
+                    <img sizes="(max-width: 479px) 89vw, (max-width: 752px) 93vw, (max-width: 767px) 700px, (max-width: 991px) 47vw, 24vw" src="{{ thumb_image.url }}" srcset="{{ thumb_image.url }} 500w, {{ thumb_image.url }} 700w">
+                  <a class="w-inline-block w-lightbox" href="#">
+                      <img class="prev sermon-light-box" height="50" src="{% static 'images/58bafc918495d36c26dea457_play-icon.png' %}" width="50">
+                    <script class="w-json" type="application/json">
+                      { "group": "{{ sermon.sermon_day }}", "items": [{
+                        "type": "video",
+                        "url": "{{ sermon.sermon_link }}",
+                        "html": "<iframe class=\"embedly-embed\" src=\"https://www.youtube.com/embed/{{ sermon.sermon_share_code }}\" width=\"940\" height=\"528\" scrolling=\"no\" frameborder=\"0\" allowfullscreen></iframe>",
+                        "thumbnailUrl": "https://i.ytimg.com/vi/{{ sermon.sermon_share_code }}/hqdefault.jpg",
+                        "width": 940,
+                        "height": 528
+                      }] }
+                    </script>
+                  </a>
+                </div>
+              </div>
+            {% endfor %}
+
+        </div>
+         <div class="blog pagination-block">
+          {% if past_genesis_sermons.has_previous %}
+          <a class="blog left-arrow" href="?page={{ past_genesis_sermons.previous_page_number }}">이전 페이지</a>
+          {% endif %}
+          <span class="blog pagination-number" href="#">
+              Page {{ past_genesis_sermons.number }} of {{ past_genesis_sermons.paginator.num_pages }}
+          </span>
+          {% if past_genesis_sermons.has_next %}
+          <a class="blog right-arrow" href="?page={{ past_genesis_sermons.next_page_number }}">다음 페이지</a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    <!-- Revelation -->
+    <div class="w-tab-pane" data-w-tab="revelation">
+      <div class="sermons-page-section">
+        <div class="sermons-intro-flex-container">
+          <div class="sermons-intro-flex-item" data-ix="slide-right">
+            <h1 class="sermons-intro-heading" data-ix="slide-left">{{ page.f_sermon_bible_2_main_title_1 }}</h1>
           </div>
           <div class="sermons-latest-video-flex-item">
             {% for sermon in latest_revelation_sermons %}
@@ -71,7 +160,7 @@
       </div>
       <div class="sermons-prev-section">
         <div class="container-medium">
-          <h1 class="sermons-prev-heading">{{ page.f_sermon_bible_1_main_title_2}}</h1>
+          <h1 class="sermons-prev-heading">{{ page.f_sermon_bible_2_main_title_2}}</h1>
         </div>
         <div class="prev-sermon-flex-container">
 
@@ -117,8 +206,10 @@
       </div>
     </div>
 
+
+
     <!-- Roman -->
-    <div class="w-tab-pane" data-w-tab="roman">
+    <!--<div class="w-tab-pane" data-w-tab="roman">
       <div class="sermons-page-section">
         <div class="sermons-intro-flex-container">
           <div class="sermons-intro-flex-item" data-ix="slide-right">
@@ -192,10 +283,10 @@
         </div>
         <div class="pagination-block"><a class="left-arrow" href="#">«</a><a class="pagination-number sermons" href="#">1</a><a class="pagination-number sermons" href="#">2</a><a class="pagination-number sermons" href="#">3</a><a class="pagination-number sermons" href="#">4</a><a class="pagination-number sermons" href="#">5</a><a class="pagination-number sermons" href="#">6</a><a class="pagination-number sermons" href="#">7</a><a class="right-arrow" href="#">»</a></div>
       </div>
-    </div>
+    </div> -->
 
     <!-- Phillip -->
-    <div class="w-tab-pane" data-w-tab="philip">
+    <!-- <div class="w-tab-pane" data-w-tab="philip">
       <div class="sermons-page-section">
         <div class="sermons-intro-flex-container">
           <div class="sermons-intro-flex-item" data-ix="slide-right">
@@ -270,10 +361,10 @@
         </div>
         <div class="pagination-block"><a class="left-arrow" href="#">«</a><a class="pagination-number sermons" href="#">1</a><a class="pagination-number sermons" href="#">2</a><a class="pagination-number sermons" href="#">3</a><a class="pagination-number sermons" href="#">4</a><a class="pagination-number sermons" href="#">5</a><a class="pagination-number sermons" href="#">6</a><a class="pagination-number sermons" href="#">7</a><a class="right-arrow" href="#">»</a></div>
       </div>
-    </div>
+    </div> -->
 
     <!-- Psalm -->
-    <div class="w-tab-pane" data-w-tab="Psam">
+    <!--<div class="w-tab-pane" data-w-tab="Psam">
       <div class="sermons-page-section">
         <div class="sermons-intro-flex-container">
           <div class="sermons-intro-flex-item" data-ix="slide-right">
@@ -346,9 +437,10 @@
           {% endfor %}
 
         </div>
-        
+
       </div>
-    </div>
+    </div> -->
+
   </div>
 </div>
 {% endblock %}

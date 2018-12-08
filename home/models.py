@@ -77,6 +77,10 @@ class PhilippiansSermon(SermonVideo):
     def __str__(self):
         return "{} - {}".format(self.sermon_title, self.sermon_date)
 
+@register_snippet
+class GenesisSermon(SermonVideo):
+    def __str__(self):
+        return "{} - {}".format(self.sermon_title, self.sermon_date)
 
 @register_snippet
 class RomansSermon(SermonVideo):
@@ -411,6 +415,11 @@ class FridaySermonPage(Page):
         return philippians_video
 
     @property
+    def genesis_sermon(self):
+        genesis_video = GenesisSermon.objects.all().order_by('-upload_date')
+        return genesis_video
+
+    @property
     def psalm_sermon(self):
         psalm_video = PsalmsSermon.objects.all().order_by('-upload_date')
         return psalm_video
@@ -421,6 +430,7 @@ class FridaySermonPage(Page):
         roman_sermon = self.roman_sermon
         philippians_sermon = self.philippians_sermon
         psalm_sermon = self.psalm_sermon
+        genesis_sermon = self.genesis_sermon
 
         paginator = Paginator(past_revelation_sermons, 8)
         page = request.GET.get('page')
@@ -441,6 +451,8 @@ class FridaySermonPage(Page):
         context['past_philippians_sermon'] = philippians_sermon[2:]
         context['latest_psalm_sermon'] = psalm_sermon[:2]
         context['past_psalm_sermon'] = psalm_sermon[2:]
+        context['latest_genesis_sermon'] = genesis_sermon[:2]
+        context['past_genesis_sermon'] = genesis_sermon[2:]
 
         return context
 
@@ -456,13 +468,13 @@ class FridaySermonPage(Page):
         FieldPanel('f_sermon_bible_2_main_title_1'),
         FieldPanel('f_sermon_bible_2_main_title_2'),
 
-        FieldPanel('f_sermon_bible_3'),
-        FieldPanel('f_sermon_bible_3_main_title_1'),
-        FieldPanel('f_sermon_bible_3_main_title_2'),
+        # FieldPanel('f_sermon_bible_3'),
+        # FieldPanel('f_sermon_bible_3_main_title_1'),
+        # FieldPanel('f_sermon_bible_3_main_title_2'),
 
-        FieldPanel('f_sermon_bible_4'),
-        FieldPanel('f_sermon_bible_4_main_title_1'),
-        FieldPanel('f_sermon_bible_4_main_title_2'),
+        # FieldPanel('f_sermon_bible_4'),
+        # FieldPanel('f_sermon_bible_4_main_title_1'),
+        # FieldPanel('f_sermon_bible_4_main_title_2'),
     ]
 
 
